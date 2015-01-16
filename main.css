@@ -18,7 +18,7 @@ html {
 	min-width: 775px;
 	border-bottom-style: solid;
 	border-bottom-width: 2px;
-	border-color: #0c3;
+	border-color: #093;
 }
 .masthead-item{
 	margin-left:10px;
@@ -58,7 +58,7 @@ html {
 	margin-left:0px;
 	margin-right:20px;
 	list-style-type: none;
-    color:#06f;
+    color:#06c;
 
 	transition-property: background-color;
     transition-duration: 0.2s;
@@ -77,7 +77,7 @@ html {
 	margin-left:0px;
 	margin-right:20px;
 	list-style-type: none;
-    color: #0c3;
+    color: #093;
 
 	transition-property: background-color;
     transition-duration: 0.2s;
@@ -101,7 +101,7 @@ li {
 	width:600px;
 	position: relative;
 	border: 3px solid;
-	border-color: #0c3;
+	border-color: #093;
 	z-index: -1;
 	float: center;
 
@@ -120,11 +120,11 @@ li {
 	line-height: 150%;
 	text-align: justify;
 	font-family: Verdana, sans-serif;
-	color: #063;
+	color: #333;
 }
 
 #aboutback {
-	color: #06f;
+	color: #06c;
 	text-decoration: underline;
 	text-align: center;
 }
