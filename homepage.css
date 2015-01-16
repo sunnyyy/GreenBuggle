@@ -17,6 +17,7 @@ a:link, a:visited {
     width: 120px;
     font-weight: bold;
     color: #fff;
+
     background-color: #98bf21;
     text-align: center;
     padding: 4px;
@@ -45,4 +46,5 @@ h1{
 
 h2{
     color:#06f;
+
 }
