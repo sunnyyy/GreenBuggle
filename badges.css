@@ -31,16 +31,16 @@ a:hover, a:active {
   	padding-top: 125px;
     padding-left: auto;
     padding-right: auto;
-    border-bottom: 3px solid #0c3;
+    border-bottom: 3px solid #093;
     z-index: 0;
 }
 
 h1{
-	color:#0c3;
+	color:#093;
 }
 
 h2{
-    color:#06f;
+    color:#06c;
 }
 
 #tree {
@@ -55,37 +55,33 @@ h2{
 }
 
 .bigCircle {
-    
     display:block;
     width:90px;
     height:90px;
     border-radius:45px;
-    background:#0c3;
+    background:#093;
     position: relative;
 
     z-index: 5;
 }
 
 .medCircle {
-
     display:block;
     width:60px;
     height:60px;
     border-radius:30px;
-    background:#0c3;
+    background:#093;
     position: relative;
     
     z-index: 5;
 }
 
 .smallCircle {
-    
-
     display:block;
     width:40px;
     height:40px;
     border-radius:20px;
-    background:#0c3;
+    background:#093;
     position: relative;
     
     z-index: 5;
@@ -93,7 +89,7 @@ h2{
 
 .bigCircle:hover, .medCircle:hover, .smallCircle:hover {
     color:#fff;
-    background:#2e5;
+    background:#33AD5C;
 
     transition-property: background-color;
     transition-duration: 0.2s;

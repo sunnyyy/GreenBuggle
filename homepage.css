@@ -17,7 +17,6 @@ a:link, a:visited {
     width: 120px;
     font-weight: bold;
     color: #fff;
-
     background-color: #98bf21;
     text-align: center;
     padding: 4px;
@@ -41,10 +40,9 @@ a:hover, a:active {
 }
 
 h1{
-	color:#0c3;
+	color:#093;
 }
 
 h2{
     color:#06f;
-
 }
