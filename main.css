@@ -1,0 +1,130 @@
+/*****************************************************
+main.css contains navbar & other cross-website elts
+*****************************************************/
+
+html {
+	font-family: 'Michroma', Verdana, sans-serif;
+}
+
+/*-------------nav bar-------------*/
+#masthead{
+	z-index: 100;
+	margin:0px;
+	position:fixed;
+	top:0px;
+	background-color: rgba(255,255,255,1);
+	width:100%;
+	height:60px;
+	min-width: 775px;
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+	border-color: #0c3;
+}
+.masthead-item{
+	margin-left:10px;
+	margin-right:10px;
+	font-size: 12pt;
+}
+
+
+/*-------------logo image------------*/
+#masthead-logo{
+	margin:0px;
+	float:left;
+	height:100%;
+}
+#logo-img{
+	margin:none;
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:15px;
+	padding-bottom:15px;
+	position:relative;
+	height: 30px;
+}
+
+#nav-wrapper{
+	float:right;
+}
+
+#welcomeUser{
+	height:25px;
+	position:relative;
+	float:left;
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:18px;
+	padding-bottom:17px;
+	margin-left:0px;
+	margin-right:20px;
+	list-style-type: none;
+    color:#06f;
+
+	transition-property: background-color;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+
+}
+
+#about{
+	height:25px;
+	position:relative;
+	float:left;
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:18px;
+	padding-bottom:17px;
+	margin-left:0px;
+	margin-right:20px;
+	list-style-type: none;
+    color: #0c3;
+
+	transition-property: background-color;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+#aboutinfo {
+	background:#eee;
+	width:600px;
+	position: relative;
+	border: 3px solid;
+	border-color: #0c3;
+	z-index: -1;
+	float: center;
+
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 150px;
+	margin-bottom: auto;
+    
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#aboutblurb {
+	line-height: 150%;
+	text-align: justify;
+	font-family: Verdana, sans-serif;
+	color: #063;
+}
+
+#aboutback {
+	color: #06f;
+	text-decoration: underline;
+	text-align: center;
+}
