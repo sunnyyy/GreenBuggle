@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Displaying text directions with <code>setPanel()</code></title>
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+      #panel {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        margin-left: -180px;
+z        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+      }
+    </style>
+    <style>
+      #directions-panel{
+        height: 100%;
+        float: right;
+        width: 390px;
+        overflow: auto;
+      }
+
+      #welcome{ border: 1px solid #c9c3ba; padding: 0.5em; background-color: #f1f0ee; }
+
+
+      #map-canvas {
+        margin-right: 400px;
+      }
+
+      #control {
+        background: #fff;
+        padding: 5px;
+        font-size: 14px;
+        font-family: Arial;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+        display: none;
+      }
+
+      @media print {
+        #map-canvas {
+          height: 500px;
+          margin: 0;
+        }
+
+        #directions-panel{
+          float: none;
+          width: auto;
+        }
+      }
+      ul#tabs { list-style-type: none; margin: 30px 0 0 0; padding: 0 0 0.3em 0; }
+ul#tabs li { display: inline; }
+ul#tabs li a { color: #42454a; background-color: #dedbde; border: 1px solid #c9c3ba; border-bottom: none; padding: 0.3em; text-decoration: none; }
+ul#tabs li a:hover { background-color: #f1f0ee; }
+ul#tabs li a.selected { color: #000; background-color: #f1f0ee; font-weight: bold; padding: 0.7em 0.3em 0.38em 0.3em; }
+div.tabContent.hide { display: none; }
+    </style>
+   
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+ <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+
+    <script>
+
+
+     var tabLinks = new Array();
+    var contentDivs = new Array();
+    var buttonclick=false;
+var autocomplete,another;
+
+function init() {
+
+      // Grab the tab links and content divs from the page
+      var tabListItems = document.getElementById('tabs').childNodes;
+      for ( var i = 0; i < tabListItems.length; i++ ) {
+        if ( tabListItems[i].nodeName == "LI" ) {
+          var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+          var id = getHash( tabLink.getAttribute('href') );
+          tabLinks[id] = tabLink;
+          contentDivs[id] = document.getElementById( id );
+        }
+      }
+
+      // Assign onclick events to the tab links, and
+      // highlight the first tab
+      var i = 0;
+
+      for ( var id in tabLinks ) {
+        tabLinks[id].onclick = showTab;
+        tabLinks[id].onfocus = function() { this.blur() };
+        if ( i == 0 ) tabLinks[id].className = 'selected';
+        i++;
+      }
+
+      // Hide all content divs except the first
+      var i = 0;
+
+      for ( var id in contentDivs ) {
+        if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+        i++;
+      }
+    }
+
+       function showTab() {
+            if(buttonclick==true){
+      var selectedId = getHash( this.getAttribute('href') );
+      if (selectedId=="transit"){
+      train();
+  }
+  if (selectedId=="car"){
+      car();
+  }
+  if (selectedId=="walking"){
+      walking();
+  }
+      // Highlight the selected tab, and dim all others.
+      // Also show the selected content div, and hide all others.
+      for ( var id in contentDivs ) {
+        if ( id == selectedId ) {
+        
+          tabLinks[id].className = 'selected';
+          contentDivs[id].className = 'tabContent';
+        } else {
+          tabLinks[id].className = '';
+          contentDivs[id].className = 'tabContent hide';
+        }
+      }
+      // Stop the browser following the link
+      return false;
+  
+
+    }
+    else{
+      alert('Please click the calculate route button first');
+    }
+    }
+
+     function getFirstChildWithTagName( element, tagName ) {
+      for ( var i = 0; i < element.childNodes.length; i++ ) {
+        if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+      }
+    }
+
+
+    function getHash( url ) {
+      var hashPos = url.lastIndexOf ( '#' );
+      return url.substring( hashPos + 1 );
+    }
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+
+function initialize() {
+  directionsDisplay = new google.maps.DirectionsRenderer();
+  var mapOptions = {
+    zoom: 7,
+    center: new google.maps.LatLng(42.3581, -71.0636)
+  };
+  var map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+  directionsDisplay.setMap(map);
+  directionsDisplay.setPanel(document.getElementById('directions-panel'));
+
+  var control = document.getElementById('control');
+  control.style.display = 'block';
+  map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
+ // Create the autocomplete object, restricting the search
+  // to geographical location types.
+  autocomplete = new google.maps.places.Autocomplete(
+      /** @type {HTMLInputElement} */(document.getElementById('start')),
+      { types: ['geocode'] });
+
+    another= new google.maps.places.Autocomplete(
+      /**= @type {HTMLInputElement} */(document.getElementById('dest')),
+      { types: ['geocode'] });
+ 
+  google.maps.event.addListener(autocomplete, 'place_changed', function() {
+
+  });
+}
+
+function round(value, decimals) {
+    return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+}
+function calcRoute() {
+  
+  var start = document.getElementById('start').value;
+  var end = document.getElementById('dest').value;
+   var request={
+origin: start,
+    destination: end,
+    travelMode: google.maps.TravelMode.DRIVING
+
+   }
+
+   
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      buttonclick=true;
+      directionsDisplay.setDirections(response);
+      computeTotalDistance(directionsDisplay.getDirections());
+    }
+    else if(status=="ZERO_RESULTS"){
+      alert('no route found');
+    }
+    else{
+      alert('Please enter both text fields correctly');
+    }
+  });
+
+}
+
+function train(){
+ var start = document.getElementById('start').value;
+  var end = document.getElementById('dest').value;
+   var request={
+origin: start,
+    destination: end,
+    travelMode: google.maps.TravelMode.TRANSIT
+
+   }
+   
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+      //computeTotalDistance(directionsDisplay.getDirections());
+    }
+     else if(status=="ZERO_RESULTS"){
+      alert('no route found');
+    }
+    
+    else{
+      alert('Please enter both text fields correctly');
+    }
+  });
+}
+
+
+function car(){
+ var start = document.getElementById('start').value;
+  var end = document.getElementById('dest').value;
+   var request={
+origin: start,
+    destination: end,
+    travelMode: google.maps.TravelMode.DRIVING
+
+   }
+
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+      //computeTotalDistance(directionsDisplay.getDirections());
+    }
+    else if(status=="ZERO_RESULTS"){
+      alert('no route found');
+    }
+    else{
+      alert('Please enter both text fields correctly');
+    }
+  });
+}
+
+function walking(){
+ var start = document.getElementById('start').value;
+  var end = document.getElementById('dest').value;
+   var request={
+origin: start,
+    destination: end,
+    travelMode: google.maps.TravelMode.WALKING
+
+   }
+
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+      //computeTotalDistance(directionsDisplay.getDirections());
+    }
+ else if(status=="ZERO_RESULTS"){
+      alert('no route found');
+    }
+        else{
+      alert('Please enter both text fields correctly');
+    }
+  });
+}
+
+
+
+function computeTotalDistance(result) {
+  var total = 0;
+  var myroute = result.routes[0];
+  var carbon=0;
+  var railcar=0;
+  var plane=0;
+  for (var i = 0; i < myroute.legs.length; i++) {
+    total += myroute.legs[i].distance.value;
+  }
+  total = total / 1000.0;
+  carbon= (total/37)*8.7;
+
+  railcar= total*.1;
+  plane= total*.22;
+  document.getElementById('total').innerHTML = round(carbon,2) + ' kg';
+document.getElementById('rail').innerHTML = round(railcar,2) + ' kg';
+document.getElementById('flight').innerHTML = round(plane,2) + ' kg';
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+    
+  </head>
+   <body onload="init()">
+    
+    <div id="control">
+     <label for="start">Start address</label>
+  <input type="text" id="start"><span class="address" id="startAdd"></span><br>
+  <label for="dest">Destination address</label>
+  <input type="text" id="dest"><span class="address" id="destAdd"></span><br>
+    <button onclick="calcRoute()">Find Route</button>
+    </div>
+   <div id="directions-panel">
+    
+       <ul id="tabs">
+  <li><a href="#car">Car</a></li>
+  <li><a href="#transit">Transit</a></li>
+  <li><a href="#walking">Walking</a></li>
+</ul>
+</div>
+<div class="tabContent" id="car"></div>
+<div class="tabContent" id="transit"></div>
+<div class="tabContent" id="walking"></div>
+
+ 
+    <div id="map-canvas"></div>
+     <div id="welcome">
+   <p>Total Carbon Dioxide Emmission for Driving: <span id="total"></span></p>
+    <p>Total Carbon Dioxide Emmission for Transit: <span id="rail"></span></p>
+    <p>Total Carbon Dioxide Emmission for Flight: <span id="flight"></span></p>
+  </div>
+  </body>
+</html>
+
+

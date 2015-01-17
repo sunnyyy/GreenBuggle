@@ -1,0 +1,75 @@
+
+
+#container{
+    text-align: center;
+    height: 700px;
+  	max-height: 700px;
+  	margin-left: auto; /*centers div*/
+  	margin-right: auto; /*centers div*/
+
+  	padding-top: 100px;
+    padding-left: auto;
+    padding-right: auto;
+
+    bottom: 80px;
+
+    z-index: 0;
+}
+
+h1{
+	color:#093;
+}
+h2{
+    color:#06c;
+}
+
+#tree {
+    background: url(TREEbranch.png) no-repeat;
+    height: 600px;
+    max-height: 600px;
+    width: 600px;
+    max-width: 600px;
+    margin-left: auto; /*centers div*/
+    margin-right: auto; /*centers div*/
+    z-index: 1;
+}
+
+.bigCircle {
+    display:block;
+    width:90px;
+    height:90px;
+    border-radius:45px;
+    background:#093;
+    position: relative;
+
+    z-index: 5;
+}
+.medCircle {
+    display:block;
+    width:60px;
+    height:60px;
+    border-radius:30px;
+    background:#093;
+    position: relative;
+    
+    z-index: 5;
+}
+.smallCircle {
+    display:block;
+    width:40px;
+    height:40px;
+    border-radius:20px;
+    background:#093;
+    position: relative;
+    
+    z-index: 5;
+}
+
+.bigCircle:hover, .medCircle:hover, .smallCircle:hover {
+    color:#fff;
+    background:#33AD5C;
+
+    transition-property: background-color;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+}

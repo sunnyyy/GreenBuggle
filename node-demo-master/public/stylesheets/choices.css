@@ -1,0 +1,66 @@
+
+
+#container{
+	/*div properties*/
+	height: 700px;
+  	max-height: 700px;
+  	margin-left: auto; /*centers div*/
+  	margin-right:auto; /*centers div*/
+
+	/*circle alignment properties*/
+	padding-top: 175px;
+  	padding-left: auto; /*centers 3 circles*/
+  	padding-right: auto; /*centers 3 circles*/
+	text-align: center;
+  	vertical-align: middle;
+}
+
+.blueCircles {
+	margin: auto 20px;
+	display:block;
+	width:300px;
+	height:300px;
+	border-radius:150px;
+	background:#06c;
+}
+.blueCircles:hover {
+	color:#fff;
+	background:#3385D6 ;
+	transition-property: background-color;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+}
+
+.greenCircle {
+	margin: auto 20px;
+	display:block;
+	width:400px;
+	height:400px;
+	border-radius:200px;
+	background:#093;
+}
+.greenCircle:hover {
+	color:#fff;
+	background:#33AD5C;
+	transition-property: background-color;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+}
+
+a.circletext {
+	color:#fff;
+	text-align:center;
+	text-decoration:none;
+	display: inline-flex; 
+}
+
+.greenText{
+	font-size:40px;
+	vertical-align: middle;
+	line-height: 400px;
+}
+.blueText{
+	font-size: 30px;
+	vertical-align: middle;
+	line-height: 300px;
+}

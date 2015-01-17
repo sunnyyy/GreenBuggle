@@ -1,0 +1,47 @@
+
+
+
+
+
+#container {
+    text-align: left;
+    font-family: Verdana, sans-serif;
+    height: 700px;
+  	max-height: 700px;
+  	margin-left: auto; /*centers div*/
+  	margin-right: auto; /*centers div*/
+
+  	padding-top: 100px;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+h1 {
+	color:#06c;
+    text-align: center;
+    font-family: Michroma, Verdana, sans-serif;
+}
+
+h2 {
+    color:#093;
+    font-family: Michroma, Verdana, sans-serif;
+}
+
+a.q {
+    text-decoration: none;
+}
+
+a#top {
+    text-decoration: none;
+    color: #093;
+}
+
+ul.answer {
+    list-style-type: square;
+    padding-left: 25px;
+}
+
+.qgroup {
+    border-left: 2px solid #093;
+    padding-left: 15px;
+}
