@@ -187,6 +187,9 @@ function initialize() {
   });
 }
 
+function round(value, decimals) {
+    return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+}
 function calcRoute() {
   
   var start = document.getElementById('start').value;
@@ -296,11 +299,12 @@ function computeTotalDistance(result) {
   }
   total = total / 1000.0;
   carbon= (total/37)*8.7;
+
   railcar= total*.1;
   plane= total*.22;
-  document.getElementById('total').innerHTML = carbon + ' kg';
-document.getElementById('rail').innerHTML = railcar + ' kg';
-document.getElementById('flight').innerHTML = plane + ' kg';
+  document.getElementById('total').innerHTML = round(carbon,2) + ' kg';
+document.getElementById('rail').innerHTML = round(railcar,2) + ' kg';
+document.getElementById('flight').innerHTML = round(plane,2) + ' kg';
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
