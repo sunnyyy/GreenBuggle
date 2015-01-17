@@ -233,7 +233,7 @@ origin: start,
       directionsDisplay.setDirections(response);
       //computeTotalDistance(directionsDisplay.getDirections());
     }
-     if(status=="ZERO_RESULTS"){
+     else if(status=="ZERO_RESULTS"){
       alert('no route found');
     }
     
@@ -259,6 +259,9 @@ origin: start,
       directionsDisplay.setDirections(response);
       //computeTotalDistance(directionsDisplay.getDirections());
     }
+    else if(status=="ZERO_RESULTS"){
+      alert('no route found');
+    }
     else{
       alert('Please enter both text fields correctly');
     }
@@ -280,7 +283,10 @@ origin: start,
       directionsDisplay.setDirections(response);
       //computeTotalDistance(directionsDisplay.getDirections());
     }
-    else{
+ else if(status=="ZERO_RESULTS"){
+      alert('no route found');
+    }
+        else{
       alert('Please enter both text fields correctly');
     }
   });
