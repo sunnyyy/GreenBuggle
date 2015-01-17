@@ -4,6 +4,7 @@ main.css contains navbar & other cross-website elts
 
 html {
 	font-family: 'Michroma', Verdana, sans-serif;
+	overflow-x: hidden;
 }
 
 /*-------------nav bar-------------*/
@@ -84,6 +85,12 @@ html {
     transition-timing-function: linear;
 }
 
+a.navlinks:link, a.navlinks:visited, a.navlinks:hover, a.navlinks:active {
+    text-decoration:none;
+}
+a.aboutlink:link, a.aboutlink:visited, a.aboutlink:hover, a.aboutlink:active {
+    color: #093;
+}
 
 ul {
     list-style-type: none;
@@ -96,37 +103,22 @@ li {
     float: left;
 }
 
-#aboutinfo {
-	background:#eee;
-	width:600px;
-	position: relative;
-	border: 3px solid;
-	border-color: #093;
-	z-index: -1;
-	float: center;
-
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 150px;
-	margin-bottom: auto;
-    
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
 #aboutblurb {
 	line-height: 150%;
 	text-align: justify;
 	font-family: Verdana, sans-serif;
 	color: #333;
 }
-
-#aboutback {
-	color: #06c;
-	text-decoration: underline;
-	text-align: center;
+.abouttitle {
+	color: #093;
+}
+.closebutton {
+	background-color: #093;
+	color: #fff;
+}
+.closebutton:hover {
+	background-color: #007A29;
+	color: #ccc;
 }
 
 #footer {
@@ -136,4 +128,6 @@ li {
 	bottom:0;
 	left:0;
 	background:#33ad5c;
+	color: #fff;
+	text-align: center;
 }
