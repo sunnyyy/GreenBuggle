@@ -188,6 +188,7 @@ function initialize() {
 }
 
 function calcRoute() {
+  
   var start = document.getElementById('start').value;
   var end = document.getElementById('dest').value;
    var request={
@@ -200,11 +201,15 @@ origin: start,
    
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
+      buttonclick=true;
       directionsDisplay.setDirections(response);
       computeTotalDistance(directionsDisplay.getDirections());
     }
+    else if(status=="ZERO_RESULTS"){
+      alert('no route found');
+    }
     else{
-      alert('Please enter both text fields correctly')
+      alert('Please enter both text fields correctly');
     }
   });
 
@@ -225,8 +230,12 @@ origin: start,
       directionsDisplay.setDirections(response);
       //computeTotalDistance(directionsDisplay.getDirections());
     }
+     if(status=="ZERO_RESULTS"){
+      alert('no route found');
+    }
+    
     else{
-      alert('Please enter both text fields correctly')
+      alert('Please enter both text fields correctly');
     }
   });
 }
@@ -248,7 +257,7 @@ origin: start,
       //computeTotalDistance(directionsDisplay.getDirections());
     }
     else{
-      alert('Please enter both text fields correctly')
+      alert('Please enter both text fields correctly');
     }
   });
 }
@@ -269,7 +278,7 @@ origin: start,
       //computeTotalDistance(directionsDisplay.getDirections());
     }
     else{
-      alert('Please enter both text fields correctly')
+      alert('Please enter both text fields correctly');
     }
   });
 }
