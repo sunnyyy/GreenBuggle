@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-var fakedb = {
+var history = {
   1: {
-    url:'http://6.470.scripts.mit.edu/2015/css/img/logo.svg',
-    caption: '6.148 is great!'
+    origin:'Wellesley',
+    destination: 'Boston',
+    method: 'transit',
+    carbon: 24
   }
 };
 
@@ -22,6 +24,7 @@ router.get('/choices', function(req, res) {
 });
 
 /* GET /tripPlanner */
+//allows the user to add a trip into their history after searching
 router.get('/tripPlanner', function(req, res) {
   res.render('tripPlanner', {});
 });
@@ -31,29 +34,33 @@ router.get('/badges', function(req, res) {
   res.render('badges', {});
 });
 
+/* GET /badges */
+router.get('/records/:id', function(req, res) {
+  var recordsId = req.param('id');
+  res.render('trip', { trip: records[recordsId] });
+});
+
 /* GET /photos/123 */
 router.get('/photos/:id', function(req, res) {
   var photoId = req.param('id');
   res.render('photo', { photo: fakedb[photoId] });
 });
 
-/* a page to add a new photo */
-/* GET /photos/new */
-router.get('/upload', function(req, res) {
-  res.render('new-photo', {});
-});
-
 /* POST /photos */
-router.post('/photos', function(req, res) {
+router.post('/records', function(req, res) {
   // 1. read the submitted url
-  var submittedUrl = req.body['submitted-url'];
-  var caption = req.body['caption'];
+  var origin = req.body['submit-origin'],
+  var destination = req.body['submit-destination'],
+  var method = 'car',
+  var carbon = 123
   // 2. store it.
-  fakedb[counter] = {
-    url: submittedUrl,
-    caption: caption
+  history[counter] = {
+    origin: origin,
+    caption: caption,
+    method: method,
+    carbon: carbon
   };
-  res.redirect('/photos/' + (counter++));
+  res.redirect('/records/' + (counter++));
 });
 
 module.exports = router;

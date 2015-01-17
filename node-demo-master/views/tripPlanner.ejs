@@ -3,8 +3,9 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Displaying text directions with <code>setPanel()</code></title>
+    <title>Trip Planner</title>
     <style>
+
       html, body, #map-canvas {
         height: 100%;
         margin: 0px;
@@ -111,17 +112,17 @@ function init() {
     }
 
        function showTab() {
-            if(buttonclick==true){
-      var selectedId = getHash( this.getAttribute('href') );
-      if (selectedId=="transit"){
-      train();
-  }
-  if (selectedId=="car"){
-      car();
-  }
-  if (selectedId=="walking"){
-      walking();
-  }
+          if(buttonclick==true){
+            var selectedId = getHash( this.getAttribute('href') );
+            if (selectedId=="transit"){
+               train();
+            }
+            if (selectedId=="car"){
+              car();
+            }
+            if (selectedId=="walking"){
+                walking();
+            }
       // Highlight the selected tab, and dim all others.
       // Also show the selected content div, and hide all others.
       for ( var id in contentDivs ) {
@@ -195,7 +196,7 @@ function calcRoute() {
   var start = document.getElementById('start').value;
   var end = document.getElementById('dest').value;
    var request={
-origin: start,
+    origin: start,
     destination: end,
     travelMode: google.maps.TravelMode.DRIVING
 
@@ -248,7 +249,7 @@ function car(){
  var start = document.getElementById('start').value;
   var end = document.getElementById('dest').value;
    var request={
-origin: start,
+    origin: start,
     destination: end,
     travelMode: google.maps.TravelMode.DRIVING
 
@@ -346,6 +347,14 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <p>Total Carbon Dioxide Emmission for Transit: <span id="rail"></span></p>
     <p>Total Carbon Dioxide Emmission for Flight: <span id="flight"></span></p>
   </div>
+
+  <form action="/photos" method="POST">
+      <input type="text" name="submit-origin" value=document.getElementById('start').value/><br />
+      <input type="text" name="submit-destination" value=document.getElementById('end').value/><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+
   </body>
 </html>
 
