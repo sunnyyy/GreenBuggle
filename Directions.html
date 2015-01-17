@@ -69,15 +69,14 @@ div.tabContent.hide { display: none; }
  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
 
-
-
     <script>
-
-var placeSearch, autocomplete,another;
 
 
      var tabLinks = new Array();
     var contentDivs = new Array();
+    var buttonclick=false;
+var autocomplete,another;
+
 function init() {
 
       // Grab the tab links and content divs from the page
@@ -112,6 +111,7 @@ function init() {
     }
 
        function showTab() {
+            if(buttonclick==true){
       var selectedId = getHash( this.getAttribute('href') );
       if (selectedId=="transit"){
       train();
@@ -136,6 +136,12 @@ function init() {
       }
       // Stop the browser following the link
       return false;
+  
+
+    }
+    else{
+      alert('Please click the calculate route button first');
+    }
     }
 
      function getFirstChildWithTagName( element, tagName ) {
@@ -198,11 +204,8 @@ origin: start,
       computeTotalDistance(directionsDisplay.getDirections());
     }
     else{
-
-      document.getElementById('status').innerHTML = status;
+      alert('Please enter both text fields correctly')
     }
-
-
   });
 
 }
@@ -221,6 +224,9 @@ origin: start,
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
       //computeTotalDistance(directionsDisplay.getDirections());
+    }
+    else{
+      alert('Please enter both text fields correctly')
     }
   });
 }
@@ -241,6 +247,9 @@ origin: start,
       directionsDisplay.setDirections(response);
       //computeTotalDistance(directionsDisplay.getDirections());
     }
+    else{
+      alert('Please enter both text fields correctly')
+    }
   });
 }
 
@@ -258,6 +267,9 @@ origin: start,
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
       //computeTotalDistance(directionsDisplay.getDirections());
+    }
+    else{
+      alert('Please enter both text fields correctly')
     }
   });
 }
@@ -311,10 +323,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
  
     <div id="map-canvas"></div>
      <div id="welcome">
-      <p>Status <span id="status"></span></p>
    <p>Total Carbon Dioxide Emmission for Driving: <span id="total"></span></p>
     <p>Total Carbon Dioxide Emmission for Transit: <span id="rail"></span></p>
     <p>Total Carbon Dioxide Emmission for Flight: <span id="flight"></span></p>
   </div>
   </body>
 </html>
+
+
