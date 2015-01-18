@@ -1,4 +1,4 @@
-html, body, #map-canvas {
+#map-canvas {
 	height: 500px;
 	margin: 0px;
 	padding: 0px
@@ -15,20 +15,10 @@ html, body, #map-canvas {
 }
 
 #directions-panel{
-	height: 100%;
+	height: 500px;
 	float: right;
-	width: 390px;
+	width: 100%;
 	overflow: auto;
-}
-
-#welcome{
-	border: 1px solid #c9c3ba;
-	padding: 0.5em;
-	background-color: #f1f0ee;
-}
-
-#map-canvas {
-	margin-right: 400px;
 }
 
 #control {
@@ -58,3 +48,51 @@ ul#tabs li a { color: #42454a; background-color: #dedbde; border: 1px solid #c9c
 ul#tabs li a:hover { background-color: #f1f0ee; }
 ul#tabs li a.selected { color: #000; background-color: #f1f0ee; font-weight: bold; padding: 0.7em 0.3em 0.38em 0.3em; }
 div.tabContent.hide { display: none; }
+
+.modal-dialog {
+	display:block;
+	width:960px;
+	height:300px;
+	border-radius:150px;
+	background: #f00;
+	margin-top:10%;
+	padding-left: auto;
+	padding-right: auto;
+}
+/*blue circles*/
+.modal-content {
+	display:block;
+	width:300px;
+	height:300px;
+	border-radius:150px;
+	background:#06c;
+	margin: auto 10px;
+	padding: 20px 10px;
+	position: relative;
+	float: left; /*IMPORTANT! keeps circles on one line*/
+}
+.circleText {
+	font-size: 18px;
+	vertical-align: middle;
+	line-height: 120%;
+	color:#fff;
+	text-align:center;
+	text-decoration:none;
+}
+
+.container {
+	width: 100%;
+	position: absolute;
+	margin-top: 60px;
+	overflow: hidden;
+}
+
+.buttons{
+	text-align: center;
+	color: #fff;
+}
+
+#shiftleft {
+	padding-right:5%;
+}
+

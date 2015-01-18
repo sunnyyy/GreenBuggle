@@ -212,3 +212,4 @@ function computeTotalDistance(result) {
   document.getElementById('rail').innerHTML = round(railcar,2) + ' kg';
   document.getElementById('flight').innerHTML = round(plane,2) + ' kg';
 }
+
