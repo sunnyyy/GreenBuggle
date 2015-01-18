@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Displaying text directions with <code>setPanel()</code></title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="directions.css" />
+   
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+
+    <script src="directions.js"></script>
+
+    <script>google.maps.event.addDomListener(window, 'load', initialize);</script>
+    
+  </head>
+
+  <body onload="init()">
+    
+    <div id="control">
+      <label for="start">Start address</label>
+      <input type="text" id="start"><span class="address" id="startAdd"></span><br>
+      <label for="dest">Destination address</label>
+      <input type="text" id="dest"><span class="address" id="destAdd"></span><br>
+      <button onclick="calcRoute()">Find Route</button>
+    </div>
+
+    <div id="directions-panel">
+      <ul id="tabs">
+        <li><a href="#car">Car</a></li>
+        <li><a href="#transit">Transit</a></li>
+        <li><a href="#walking">Walking</a></li>
+      </ul>
+    </div>
+
+    <div class="tabContent" id="car"></div>
+    <div class="tabContent" id="transit"></div>
+    <div class="tabContent" id="walking"></div>
+ 
+    <div id="map-canvas"></div>
+
+    <div id="welcome">
+      <p>Total Carbon Dioxide Emmission for Driving: <span id="total"></span></p>
+      <p>Total Carbon Dioxide Emmission for Transit: <span id="rail"></span></p>
+      <p>Total Carbon Dioxide Emmission for Flight: <span id="flight"></span></p>
+    </div>
+
+  </body>
+</html>
+
+
