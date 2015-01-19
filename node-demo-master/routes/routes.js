@@ -34,18 +34,8 @@ router.get('/badges', function(req, res) {
   res.render('badges', {});
 });
 
-/* GET /pastTrips */
-router.get('/pastTrips/:id', function(req, res) {
-  var pasttripsid = req.param('id');
-  models.Trip.findOne({_id: pasttripsid}, function(err, result) {
-    console.log(result);
-    res.render('pastTrips', { trip: result });
-  });
-});
 
-
-
-/* POST /photos */
+/* POST /pastTrips */
 router.post('/pastTrips', function(req, res) {
   // 1. read the submitted things
   var newTrip = new models.Trip({
@@ -57,7 +47,9 @@ router.post('/pastTrips', function(req, res) {
   // 2. store it.
   newTrip.save(function(err, result) {
     console.log(result);
-    res.redirect('/pastTrips/' + result._id);
+    // res.redirect('/pastTrips/' + result._id);
+    res.redirect('/pastTrips/');
+
   });
 });
 

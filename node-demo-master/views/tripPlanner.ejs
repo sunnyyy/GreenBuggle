@@ -71,16 +71,15 @@
           </button>
         </p>
 
-        <form id="myForm" action="/records" method="POST">
+        <form id="myForm" action="/pastTrips" method="POST" onsubmit="return mySubmit()">
           <p class="buttons">
-            <input type="radio" id="drive" name="transportation" value="drive" checked />I'll drive
-            <input type="radio" id="public" name="transportation" value="transit" />I'll take the transit
-            <input type="radio" id="walk" name="transportation" value="walk" />I'll walk
-            <input type="radio" id="no" name="transportation" value="no" />I'm not going
-            <input type='hidden' id= 'carbonInput' name='carbon' value='' />
+            <input type="radio" id="transportation" name="transportation" value="drive" checked />I'll drive
+            <input type="radio" id="transportation" name="transportation" value="transit" />I'll take the transit
+            <input type="radio" id="transportation" name="transportation" value="walk" />I'll walk
+            <input type="radio" id="transportation" name="transportation" value="no" />I'm not going
+            <input type='hidden' id= 'carbonInput' name='carbon' value=14 />
             <input type='hidden' id= 'startInput' name='start' value='' />
             <input type='hidden' id= 'endInput' name='end' value='' />
-
           </p>
           <input type="submit" value="Submit">
         </form>
