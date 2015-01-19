@@ -1,23 +1,19 @@
 var express = require('express');
 var router = express.Router();
 
-var history = {
-  1: {
-    origin:'Wellesley',
-    destination: 'Boston',
-    method: 'transit',
-    carbon: 24
-  }
-};
-
-var counter = 2;
+// Import our models file to the router
+var models = require('../models/models');
+console.log(models);
+// Connect to the database over Mongoose
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/photos-demo');
 
 /* GET / -- homepage */
 router.get('/', function(req, res) {
   res.render('homepage', {});
 });
 
-/* GET /users */
+/* GET /choices */
 //for now: it's just one person and unpersonalized..
 router.get('/choices', function(req, res) {
   res.render('choices', {});
@@ -29,38 +25,40 @@ router.get('/tripPlanner', function(req, res) {
   res.render('tripPlanner', {});
 });
 
+router.get('/pastTrips', function(req, res) {
+  res.render('pastTrips', {});
+});
+
 /* GET /badges */
 router.get('/badges', function(req, res) {
   res.render('badges', {});
 });
 
-/* GET /badges */
-router.get('/records/:id', function(req, res) {
-  var recordsId = req.param('id');
-  res.render('trip', { trip: records[recordsId] });
+/* GET /pastTrips */
+router.get('/pastTrips/:id', function(req, res) {
+  var pasttripsid = req.param('id');
+  models.Trip.findOne({_id: pasttripsid}, function(err, result) {
+    console.log(result);
+    res.render('pastTrips', { trip: result });
+  });
 });
 
-/* GET /photos/123 */
-router.get('/photos/:id', function(req, res) {
-  var photoId = req.param('id');
-  res.render('photo', { photo: fakedb[photoId] });
-});
+
 
 /* POST /photos */
-router.post('/records', function(req, res) {
-  // 1. read the submitted url
-  var origin = req.body['submit-origin'],
-  var destination = req.body['submit-destination'],
-  var method = 'car',
-  var carbon = 123
+router.post('/pastTrips', function(req, res) {
+  // 1. read the submitted things
+  var newTrip = new models.Trip({
+    origin: req.body['start'],
+    destination: req.body['end'],
+    method: req.body['transportation'],
+    carbon: req.body['carbon']
+  });
   // 2. store it.
-  history[counter] = {
-    origin: origin,
-    caption: caption,
-    method: method,
-    carbon: carbon
-  };
-  res.redirect('/records/' + (counter++));
+  newTrip.save(function(err, result) {
+    console.log(result);
+    res.redirect('/pastTrips/' + result._id);
+  });
 });
 
 module.exports = router;

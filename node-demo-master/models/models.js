@@ -6,7 +6,7 @@ var tripSchema = mongoose.Schema({
   origin: String,
   destination: String,
   method: String,
-  carbon: Number
+  carbon: Number,
 });
 
 // For more complex logic, methods go here
@@ -22,7 +22,5 @@ var checkLength = function(s) {
 
 // Validators for our model. When we save or modify our model, these validators
 // get run. If they return false, an error happens.
-Photo.schema.path('caption').validate(checkLength, "Caption cannot be empty");
-Photo.schema.path('url').validate(checkLength, "URL cannot be empty");
 
 exports.Trip = Trip;
