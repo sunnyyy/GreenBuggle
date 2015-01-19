@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="main.css" />
     <link rel="stylesheet" type="text/css" href="directions.css" />
 
-    <!--DO WE NEED THIS ONE--><script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <!--DO WE NEED THIS ONE--><!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>-->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
     
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -48,7 +48,7 @@
               <input type="text" id="start"><span class="address" id="startAdd"></span><br>
               <label for="dest">Destination address</label>
               <input type="text" id="dest"><span class="address" id="destAdd"></span><br>
-              <button onclick="calcRoute()">Find Route</button>
+              <button onclick="calcRoute()" data-toggle="modal" data-target="#travelModal">Find Route</button>
             </div>
           </div>
 
@@ -70,6 +70,16 @@
             Explore your transport options
           </button>
         </p>
+
+        <p class="buttons">
+          <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default">I'll drive</button>
+            <button type="button" class="btn btn-default">I'll take transit</button>
+            <button type="button" class="btn btn-default">I'll walk</button>
+            <button type="button" class="btn btn-danger btn-default">I'm not going</button>
+          </div>
+        </p>
+        
         <p class="buttons">
           <button type="button" class="btn btn-default">I'll drive</button>
           <button type="button" class="btn btn-default">I'll take transit</button>
@@ -77,6 +87,51 @@
           <button type="button" class="btn btn-danger btn-default">I'm not going</button>
         </p>
       </div>
+      <hr>
+      <h1> BOOTSTRAP RADIO BUTTONS </h1>
+      <div class="radio">
+        <label>
+          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+          Option one is this and that, be sure to include why it's great
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+          Option two can be something else and selecting it will deselect option one
+        </label>
+      </div>
+      <div class="radio disabled">
+        <label>
+          <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+          Option three is disabled
+        </label>
+      </div>
+
+      <h3> IF THEY'RE INLINE THEY LOOK LIKE THIS</h3>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
+      </label>
+
+
+
+      <hr>
+      <form id="myForm" action="/pastTrips" method="POST" onsubmit="return mySubmit()">
+        <input type="radio" id="transportation" name="transportation" value="drive" checked />I'll drive</input>
+        <input type="radio" id="transportation" name="transportation" value="transit" />I'll take the transit
+        <input type="radio" id="transportation" name="transportation" value="walk" />I'll walk
+        <input type="radio" id="transportation" name="transportation" value="no" />I'm not going
+        <input type='hidden' id= 'carbonInput' name='carbon' value=14 />
+        <input type='hidden' id= 'startInput' name='start' value='' />
+        <input type='hidden' id= 'endInput' name='end' value='' />
+        <input type="submit" value="Submit">
+      </form>
     
     </div> <!--close #container-->
 
