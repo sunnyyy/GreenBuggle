@@ -20,3 +20,11 @@
   "author": "Guo, Ma, Ye",
   "license": "MIT"
 }
+
+"engines": {
+  "node": "0.10.x"
+},
+"main": "app.js",
+"scripts": {
+  "start": "node app.js"
+}
