@@ -1,21 +1,4 @@
 
-
-#container{
-    text-align: center;
-    height: 700px;
-  	max-height: 700px;
-  	margin-left: auto; /*centers div*/
-  	margin-right: auto; /*centers div*/
-
-  	padding-top: 100px;
-    padding-left: auto;
-    padding-right: auto;
-
-    bottom: 80px;
-
-    z-index: 0;
-}
-
 h1{
 	color:#093;
 }
@@ -24,14 +7,13 @@ h2{
 }
 
 #tree {
-    background: url(TREEbranch.png) no-repeat;
+    background: url(/images/TREEbranch.png) no-repeat;
     height: 600px;
     max-height: 600px;
     width: 600px;
     max-width: 600px;
     margin-left: auto; /*centers div*/
     margin-right: auto; /*centers div*/
-    z-index: 1;
 }
 
 .bigCircle {

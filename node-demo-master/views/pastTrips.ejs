@@ -1,70 +1,66 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="bootstrap.css" type="text/css" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/triphistory.css" />
     <link href='http://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'/>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascript/bootstrap.min.js"></script>
 
-    <title>GreenBuggle: Past Trips</title> 
+    <title>GreenBuggle</title> 
+
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/choices"><img src="/images/bugglelogo-w.png" height="35px" align="top" alt="logo"> GreenBuggle</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li data-toggle="modal" data-target="#myModal"><a href="#">About</a></li>
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Welcome User!<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Log Out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
   </head>
 
   <body>
-
-    <div id="masthead">
-      <div id="masthead-logo" class="masthead-item">
-        <a id="logo" href="index.html">
-        <img id="logo-img" src="buggle-white-nav.png">
-      </a>
-      </div>
-      <div id="about" class="aboutnav" data-toggle="modal" data-target="#myModal"><a href="#" class="navlinks aboutlink">About</a></div>
-      
-      <div id="nav-wrapper">
-        <div id="welcomeUser">
-          Welcome USER!
-        </div>
-      </div>
-    </div>
     
+
     <div id="container" style="background:#fff;width:100%;position:absolute;">
       <h1>Past Trips</h1>
 
 
+        <table class="trips">
+         <% db.forEach(function (trip){ %>
+         <tr class="default">
+            <td class="date" id="date1"><%= trip.date.getMonth()%>/<%= trip.date.getDate()%>/<%= trip.date.getFullYear()%></td>
+            <td class="action" id="action1">You travelled from <%= trip.origin %> to <%= trip.destination %> by <%= trip.method %>, and emitted <%= trip.carbon %> kg of CO<sub>2</sub>.</td> 
+          </tr>
+          <tr class="spacing"></tr>
+          <% }); %>
+        </table>
 
-
-
-
-      
-
-      <!--passing database in and generating a list-->
-    <% todos.forEach( function ( todo ){ %>
-  <div class="item">
-    <a class="update-link" href="/edit/<%= todo._id %>" title="Update this todo item"><%= todo.content %></a>
-    /a>
-  </div>
-<% }); %>
-
-
-
-
-
-
-
-      
-      <table class="trips">
-        <tr class="default">
-          <td class="date" id="date1">01/02/2013</td>
-          <td class="action" id="action1">You travelled from X to Y by Z, and emitted N kg of CO<sub>2</sub>.</td> 
-        </tr>
-        <tr class="spacing"></tr>
-        <tr class="default">
-          <td class="date" id="date2">01/02/2013</td>
-          <td class="action" id="action2">You travelled from X to Y by Z, and emitted N kg of CO<sub>2</sub>.</td>  
-        </tr>
-      </table>
+        
 
       <button type="button" class="btn btn-primary btn-lg" onclick="turnGreen()">
         TestButton
@@ -81,14 +77,6 @@
         $("#action1").css("border-bottom", "3px solid #093");
       }
     </script>
-
-    <footer id="footer" >
-      <p>Place sticky footer content here.</p>
-    </footer>
-
-    <div class="jumbotron">
-      <h1>Hi!</h1>
-    </div>
 
 
     <!--About Modal -->

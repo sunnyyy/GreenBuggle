@@ -1,59 +1,74 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="bootstrap.css" type="text/css" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/choices.css" />
     <link href='http://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="/javascripts/bootstrap.min.js"></script>
+    <title>GreenBuggle</title>
 
-    <title>Choices</title> 
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/choices"><img src="/images/bugglelogo-w.png" height="35px" align="top" alt="logo"> GreenBuggle</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li data-toggle="modal" data-target="#myModal"><a href="#">About</a></li>
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Welcome User!<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Log Out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
   </head>
 
   <body>
-    <div id="masthead">
-      <div id="masthead-logo" class="masthead-item">
-        <img id="logo-img" src="buggleworld4.png">
-      </div>
-      <div id="about" class="aboutnav" data-toggle="modal" data-target="#myModal"><a href="#" class="navlinks aboutlink">About</a></div>
-      
-      <div id="nav-wrapper">
-        <div id="welcomeUser">
-          Welcome USER!
+
+    <div class='jumbotron'>
+
+      <div class='container'>
+        
+        <!--drawing first circle-->
+        <a href="/pastTrips" class="blueText circletext">
+        <div class="blueCircles">
+          My past trips
         </div>
-      </div>
-    </div>
+        </a>
+     
+        <!--drawing middle circle-->
+        <a href="/tripPlanner" class="greenText circletext">
+        <div class="greenCircle">
+          Trip Planner
+        </div>
+        </a>
 
-    <div id="container" style="background:#fff;width:100%;position:absolute;">
-      
-      <!--drawing first circle-->
-      <a href="/pastTrips" class="blueText circletext">
-      <div class="blueCircles">
-        My past trips
-      </div>
-      </a>
-   
-      <!--drawing middle circle-->
-      <a href="/tripPlanner" class="greenText circletext">
-      <div class="greenCircle">
-        Trip Planner
-      </div>
-      </a>
+        <!--drawing right circle-->
+        <a href="/badges" class="blueText circletext">
+        <div class="blueCircles">
+          Badges
+        </div>
+        </a>
 
-      <!--drawing right circle-->
-      <a href="/badges" class="blueText circletext">
-      <div class="blueCircles">
-        Badges
-      </div>
-      </a>
-
-    </div> <!--end #container-->
-
-    <footer id="footer" >
-      <p>Place sticky footer content here.</p>
-    </footer>
+      </div> <!--end #container-->
+    </div> <!--end #jumbotron-->
 
     <!--About Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -81,6 +96,9 @@
         </div>
       </div>
     </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
 
   </body>
 </html>

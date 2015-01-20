@@ -80,19 +80,24 @@ div.tabContent.hide { display: none; }
 	text-decoration:none;
 }
 
-.container {
-	width: 100%;
-	position: absolute;
-	margin-top: 60px;
-	overflow: hidden;
+.jumbotron {
+	background: #fff;
+	margin-top: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 }
 
 .buttons{
 	text-align: center;
-	color: #fff;
 }
 
 #shiftleft {
 	padding-right:5%;
 }
 
+#travelOptions {
+	display: none;
+}
+#travelChoice {
+	display: none;
+}

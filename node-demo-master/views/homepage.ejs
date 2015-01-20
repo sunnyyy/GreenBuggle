@@ -1,87 +1,89 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="bootstrap.css" type="text/css" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/bootstrap.min.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Michroma|Open+Sans' rel='stylesheet' type='text/css'/>
+
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/homepage.css" />
-    <link href='http://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'/>
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="/javascripts/bootstrap.min.js"></script>
+    <link rel="shortcut icon" type="image/png" href="/images/buggle-small.png" alt="logo">
 
     <title>Homepage</title> 
+
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img src="/images/bugglelogo-w.png" height="35px" align="top" alt="logo"> GreenBuggle</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li data-toggle="modal" data-target="#myModal"><a href="#">About</a></li>
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Welcome User!<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Log Out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
   </head>
 
   <body>
-
-     <!--FB authentication code-->
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '785704354835227',
-          xfbml      : true,
-          version    : 'v2.2'
-        });
-      };
-
-      FB.getLoginStatus(function(response) {
-        if (response.status === 'connected') {
-          console.log('Logged in.');
-        }
-        else {
-          FB.login();
-        }
-      });
-
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
-
-    <div id="fb-root"></div>
-      <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=785704354835227&version=v2.0";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    </script>
-
-
-
-
-
-    <div id="masthead">
-      <div id="masthead-logo" class="masthead-item">
-        <a id="logo" href="index.html">
-        <img id="logo-img" src="buggle-white-nav.png">
-      </a>
+    
+    <div class="jumbotron welcome">
+      <div class="container">
+        <h1>Hello!</h1>
+        <h1><small>Welcome to GreenBuggle.</h1>
+        <img src="/images/bugglelogo-blue.png" style="height:200px">
+        <h2>To start, please log in to Facebook.</h2>
+        <img src="https://www.facebook.com/images/fb_icon_325x325.png" alt="FB Logo" style="width:50px;height:0px">
+        <a href="/choices">CLICK HERE FOR NOW</a>
       </div>
-      <div id="about" class="aboutnav" data-toggle="modal" data-target="#myModal"><a href="#" class="navlinks aboutlink">About</a></div>
-      
-      <div id="nav-wrapper">
-        <div id="welcomeUser">
-          Welcome USER!
+    </div>
+
+
+
+    <div class="jumbotron aboutsection" style="background:#33ad5c;">
+      <div class="container">
+        <h1 style="text-align:center;padding-bottom:0.5em;color:#fff">What is GreenBuggle?</h1>
+
+        <div class='row'>
+          <div class='col-md-1'></div>
+          <div class='col-md-10'>
+            <p class='aboutpara'><b>GreenBuggle is a tool that helps you travel responsibly.</b>
+            <br>
+            <br>The world emitted something like 40 billion tons of CO<sub>2</sub> in 2014. Wouldn't it be great if we could reduce that carbon footprint?
+            <br>
+            <br><b>To help, we've built a tool that helps you calculate the monetary, time, and environmental costs of driving vs. taking public transportation or walking.</b> We want to encourage you to take the greenest and most convenient method of transportation available.
+            Collect leaf badges on your green journey and share your progress on Facebook!</p>
+          </div>
         </div>
       </div>
     </div>
-    
-    <div id="container" style="background:#fff;width:100%;position:absolute;">
-      <h1>Hello!</h1>
-      <h1>Welcome to GreenBuggle.</h1>
-      <h2>To start, please log in to Facebook.</h2>
-      <img src="https://www.facebook.com/images/fb_icon_325x325.png" alt="FB Logo" style="width:50px;height:0px">
+
+    <div class="jumbotron details" style="background:#3385D6;">
+      <h1>thing goes here</h1>
+      <a href="faqs.html" target="_blank">FAQs</a>
     </div>
 
-    <footer id="footer" >
-      <p>Place sticky footer content here.</p>
-    </footer>
-
+    <div class="jumbotron foot" style="background:#33ad5c;">
+      <h6>Made by Jessica Guo, Lilian Ma, and Sunnia Ye for 6.148/6.470 at MIT</h6>
+      <h6>Copyright &copy; 2015</h6>
+    </div>
 
     <!--About Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -110,8 +112,10 @@
       </div>
     </div>     
 
-  </body>
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+  </body>
 </html>
 
 

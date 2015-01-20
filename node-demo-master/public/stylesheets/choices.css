@@ -1,20 +1,5 @@
 
 
-#container{
-	/*div properties*/
-	height: 700px;
-  	max-height: 700px;
-  	margin-left: auto; /*centers div*/
-  	margin-right:auto; /*centers div*/
-
-	/*circle alignment properties*/
-	padding-top: 175px;
-  	padding-left: auto; /*centers 3 circles*/
-  	padding-right: auto; /*centers 3 circles*/
-	text-align: center;
-  	vertical-align: middle;
-}
-
 .blueCircles {
 	margin: auto 20px;
 	display:block;

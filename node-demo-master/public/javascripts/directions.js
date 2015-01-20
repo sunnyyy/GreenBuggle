@@ -221,11 +221,11 @@ function mySubmit() {
   document.forms["myForm"]["endInput"].value = document.getElementById('dest').value;
 
   switch(document.forms["myForm"]["transportation"].value){
-    case "drive":
-    document.forms["myForm"]["carbonInput"].value = document.getElementById('flight').innerHTML;
+    case "car":
+    document.forms["myForm"]["carbonInput"].value = document.getElementById('total').innerHTML;
     break;
     case "transit": 
-    document.forms["myForm"]["carbonInput"].value = document.getElementById('flight').innerHTML;
+    document.forms["myForm"]["carbonInput"].value = document.getElementById('rail').innerHTML;
     break;
     case "walk": 0;
     break;
