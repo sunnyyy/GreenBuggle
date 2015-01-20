@@ -13,5 +13,10 @@
     "serve-favicon": "~2.0.1",
     "debug": "~1.0.4",
     "ejs": "~0.8.5"
-  }
+  },
+  "description": "iap2015",
+  "main": "app.js",
+  "devDependencies": {},
+  "author": "Guo, Ma, Ye",
+  "license": "MIT"
 }
