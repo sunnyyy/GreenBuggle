@@ -25,13 +25,20 @@ router.get('/tripPlanner', function(req, res) {
   res.render('tripPlanner', {});
 });
 
-router.get('/pastTrips', function(req, res) {
-  res.render('pastTrips', {});
-});
-
 /* GET /badges */
 router.get('/badges', function(req, res) {
   res.render('badges', {});
+});
+
+/*GET /pasttrips displays all the past history yay*/
+router.get('/pastTrips', function(req, res) {
+  models.Trip.find, function(error, results) {
+  var arrayToSendBack = [] // this might be populated with something else
+  results.forEach(function(result) {
+    arrayToSendBack.push(result);
+  });
+})
+  res.render('pastTrips', {});
 });
 
 
@@ -42,13 +49,13 @@ router.post('/pastTrips', function(req, res) {
     origin: req.body['start'],
     destination: req.body['end'],
     method: req.body['transportation'],
-    carbon: req.body['carbon']
+    carbon: req.body['carbonValue']
   });
   // 2. store it.
   newTrip.save(function(err, result) {
     console.log(result);
-    // res.redirect('/pastTrips/' + result._id);
-    res.redirect('/pastTrips/');
+    // res.redirect('/pastTrips/';
+    res.redirect('/pastTrips');
 
   });
 });

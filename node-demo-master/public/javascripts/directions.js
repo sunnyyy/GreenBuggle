@@ -195,6 +195,7 @@ function walking(){
   });
 }
 
+
 function computeTotalDistance(result) {
   var total = 0;
   var myroute = result.routes[0];
@@ -219,32 +220,36 @@ function mySubmit() {
 
   document.forms["myForm"]["startInput"].value = document.getElementById('start').value;
   document.forms["myForm"]["endInput"].value = document.getElementById('dest').value;
-  // if (document.forms["myForm"]["drive"].checked) {
-//   document.forms["myForm"]["carbonInput"].value = document.getElementById('carbon').value;
-// } else if (document.forms["myForm"]["public"].checked){
-//   document.forms["myForm"]["carbonInput"].value = document.getElementById('railcar').value;
-// } else {
-//       document.forms["myForm"]["carbonInput"].value = 0;
-// }
-//  var type = document.getElementsByName("transportation");
-//         if (type[0].checked) {
-// document.forms["myForm"]["carbonInput"].value = document.getElementById('carbon').value;                
-//      } else if (type[1].checked){
-//      document.forms["myForm"]["carbonInput"].value = document.getElementById('railcar').value;
-// } else {
-//   document.forms["myForm"]["carbonInput"].value = 0;
-console.log(document.forms["myForm"]["startInput"].value);
-console.log(document.getElementById('carbon').value);
-switch(document.forms["myForm"]["startInput"].value){
+
+function computeTotalDistances(result) {
+  var totals = 0;
+  var myroutes = result.routes[0];
+  var carbons=0;
+  var railcars=0;
+  var planes=0;
+  for (var i = 0; i < myroute.legs.length; i++) {
+    total += myroute.legs[i].distance.value;
+  }
+  totals = totals / 1000.0;
+  carbons= (totals/37)*8.7;
+  railcars= totals*.1;
+  planes= totals*.22;
+  document.getElementById('total').innerHTML = round(carbons,2) + ' kg';
+  document.getElementById('rail').innerHTML = round(railcars,2) + ' kg';
+  document.getElementById('flight').innerHTML = round(planes,2) + ' kg';
+}
+
+switch(document.forms["myForm"]["transportation"].value){
   case "drive": 
-  document.forms["myForm"]["carbonInput"].value = document.getElementById('carbon').value;
+  document.forms["myForm"]["carbonInput"].value = carbons;
   break;
   case "transit": 
-  document.forms["myForm"]["carbonInput"].value = document.getElementById('railcar').value;
+  document.forms["myForm"]["carbonInput"].value = railcars;
   break;
   case "walk": 0;
+  break;
   case "no": 0;
-
+  break;
 }
 
 }
