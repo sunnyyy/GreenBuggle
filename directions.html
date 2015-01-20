@@ -92,52 +92,18 @@
           </p>
         </div>
 
-        <div id="travelChoice">
+        <!--
           <p class="buttons">
             <button type="button" class="btn btn-default">I'll drive</button>
             <button type="button" class="btn btn-default">I'll take transit</button>
             <button type="button" class="btn btn-default">I'll walk</button>
             <button type="button" class="btn btn-danger btn-default">I'm not going</button>
           </p>
-        </div>
+        -->
 
       </div>
-      <hr>
-      <h1> BOOTSTRAP RADIO BUTTONS </h1>
-      <div class="radio">
-        <label>
-          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-          Option one is this and that, be sure to include why it's great
-        </label>
-      </div>
-      <div class="radio">
-        <label>
-          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-          Option two can be something else and selecting it will deselect option one
-        </label>
-      </div>
-      <div class="radio disabled">
-        <label>
-          <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-          Option three is disabled
-        </label>
-      </div>
-
-      <h3> IF THEY'RE INLINE THEY LOOK LIKE THIS</h3>
-      <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
-      </label>
-      <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
-      </label>
-      <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
-      </label>
-
-
-
-      <hr>
-      <form id="myForm" action="/pastTrips" method="POST" onsubmit="return mySubmit()">
+      <div id="travelChoice">
+      <form id="myForm" action="triphistory.html" method="POST" onsubmit="return mySubmit()">
         <input type="radio" id="transportation" name="transportation" value="drive" checked />I'll drive</input>
         <input type="radio" id="transportation" name="transportation" value="transit" />I'll take the transit
         <input type="radio" id="transportation" name="transportation" value="walk" />I'll walk
@@ -147,6 +113,7 @@
         <input type='hidden' id= 'endInput' name='end' value='' />
         <input type="submit" value="Submit">
       </form>
+      </div>
     
     </div> <!--close #container-->
 
