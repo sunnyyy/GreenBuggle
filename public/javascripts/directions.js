@@ -124,9 +124,14 @@ function calcRoute() {
       buttonclick=true;
       directionsDisplay.setDirections(response);
       computeTotalDistance(directionsDisplay.getDirections());
+      show_visibility('travelOptions');
     } else if(status=="ZERO_RESULTS"){
+      hide_visibility('travelOptions');
+      hide_visibility('travelChoice');
       alert('no route found');
     } else{
+      hide_visibility('travelOptions');
+      hide_visibility('travelChoice');
       alert('Please enter both text fields correctly');
     }
   });
@@ -195,7 +200,6 @@ function walking(){
   });
 }
 
-
 function computeTotalDistance(result) {
   var total = 0;
   var myroute = result.routes[0];
@@ -209,11 +213,19 @@ function computeTotalDistance(result) {
   carbon= (total/37)*8.7;
   railcar= total*.1;
   plane= total*.22;
-  document.getElementById('total').innerHTML = round(carbon,2);
-  document.getElementById('rail').innerHTML = round(railcar,2);
-  document.getElementById('flight').innerHTML = round(plane,2);
+  document.getElementById('total').innerHTML = round(carbon,2) + ' kg';
+  document.getElementById('rail').innerHTML = round(railcar,2) + ' kg';
+  document.getElementById('flight').innerHTML = round(plane,2) + ' kg';
 }
 
+
+// code for displaying buttons
+function show_visibility(id) {
+  document.getElementById(id).style.display = 'block';
+}
+function hide_visibility(id) {
+  document.getElementById(id).style.display = 'none';
+}
 
 //Lilian's database passing
 function mySubmit() {
