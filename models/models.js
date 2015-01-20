@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-mongoose.createConnection('mongodb://localhost/test');
+mongoose.createConnection('mongodb://heroku_app33376042:a44q25p2665td5s2pq0ojrjqrd@ds031651.m
+ongolab.com:31651/heroku_app33376042');
 
 // Error handler
 mongoose.connection.on('error', function (err) {
@@ -8,7 +9,8 @@ mongoose.connection.on('error', function (err) {
 
 // Reconnect when closed
 mongoose.connection.on('disconnected', function () {
-  mongoose.connect('mongodb://localhost/test');
+  mongoose.connect('mongodb://heroku_app33376042:a44q25p2665td5s2pq0ojrjqrd@ds031651.m
+ongolab.com:31651/heroku_app33376042');
 });
 
 
