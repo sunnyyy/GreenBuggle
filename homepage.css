@@ -12,7 +12,9 @@
 .aboutpara {
 	font-family: 'Open Sans', sans-serif;
 }
-
+.details > h1, .details > a {
+	color: #fff;
+}
 h2{
     color:#06f;
 }

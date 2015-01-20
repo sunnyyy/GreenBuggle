@@ -2,9 +2,9 @@
 main.css contains navbar & other cross-website elts
 *****************************************************/
 
-html, .jumbotron, .container {
+html, .jumbotron {
 	font-family: 'Michroma', sans-serif;
-	background: #fff;
+	background: none;
 }
 
 .jumbotron > h1, .container > h1, .container > h1 > small  {
