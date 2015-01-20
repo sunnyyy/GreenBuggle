@@ -1,0 +1,161 @@
+/*****************************************************
+main.css contains navbar & other cross-website elts
+*****************************************************/
+
+html, .jumbotron {
+	font-family: 'Michroma', sans-serif;
+	background: none;
+}
+
+.jumbotron > h1, .container > h1, .container > h1 > small  {
+	color: #093;
+	text-align: center;
+}
+body {
+	padding-bottom: 0px;
+}
+
+.foot {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-bottom: 0px;
+	color: #fff;
+	text-align: center;
+}
+
+.navbar {
+	font-family: 'Michroma', Verdana, sans-serif;
+}
+
+#about{
+	height:25px;
+	position:relative;
+	float:left;
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:18px;
+	padding-bottom:17px;
+	margin-left:0px;
+	margin-right:20px;
+	list-style-type: none;
+    color: #093;
+
+	transition-property: background-color;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+}
+
+a.navlinks:link, a.navlinks:visited, a.navlinks:hover, a.navlinks:active {
+    text-decoration:none;
+}
+a.aboutlink:link, a.aboutlink:visited, a.aboutlink:hover, a.aboutlink:active {
+    color: #093;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+#aboutblurb {
+	line-height: 150%;
+	text-align: justify;
+	font-size: 120%;
+	font-family: Verdana, sans-serif;
+	color: #333;
+}
+.abouttitle {
+	color: #093;
+}
+.closebutton {
+	background-color: #093;
+	color: #fff;
+}
+.closebutton:hover {
+	background-color: #007A29;
+	color: #ccc;
+}
+
+#footer {
+	width:100%;
+	height:80px;
+	position:absolute;
+	bottom:0;
+	left:0;
+	background:#33ad5c;
+	color: #fff;
+	text-align: center;
+}
+
+/*-------------------------NAVBAR----------------------------*/
+.navbar-default {
+	background-color: #33ad5c;
+	border-color: #33ad5c;
+}
+.navbar-default .navbar-brand {
+	color: #ffffff;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+	color: #ffffff;
+}
+.navbar-default .navbar-text {
+	color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a {
+	color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+	color: #ffffff;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	color: #ffffff;
+	background-color: #009933;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+	color: #ffffff;
+	background-color: #009933;
+}
+.navbar-default .navbar-toggle {
+	border-color: #009933;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+	background-color: #009933;
+}
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #ffffff;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+	border-color: #ffffff;
+}
+.navbar-default .navbar-link {
+	color: #ffffff;
+}
+.navbar-default .navbar-link:hover {
+	color: #ffffff;
+}
+.navbar-brand {
+	padding-left: 5px;
+	padding-top:0.5em;
+	padding-bottom: 0px;
+}
+
+
+@media (max-width: 767px) {
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+		color: #ffffff;
+	}
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+		color: #ffffff;
+	}
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		color: #ffffff;
+		background-color: #009933;
+	}
+}

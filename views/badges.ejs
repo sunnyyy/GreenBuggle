@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/badges.css" />
+    <link href='http://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <title>GreenBuggle</title> 
+
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/choices"><img src="/images/bugglelogo-w.png" height="35px" align="top" alt="logo"> GreenBuggle</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li data-toggle="modal" data-target="#myModal"><a href="#">About</a></li>
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Welcome User!<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Log Out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </head>
+
+  <body>
+
+    <div class='container' >
+
+      <div id="tree" style="width:600px;position:relative;">
+
+
+        <div class="medCircle" style="position:absolute; margin-top:275px; margin-left:205px;" data-toggle="modal" data-target=".bs-modal-sm-1"></div>
+        <div class="smallCircle" style="position:absolute; margin-top:220px; margin-left:322px;" data-toggle="modal" data-target=".bs-modal-sm-2"></div>
+        <div class="smallCircle" style="position:absolute; margin-top:250px; margin-left:385px;" data-toggle="modal" data-target=".bs-modal-sm-3"></div>
+        <div class="medCircle" style="position:absolute; margin-top:150px; margin-left:330px;" data-toggle="modal" data-target=".bs-modal-sm-4"></div>
+        <div class="bigCircle" style="position:absolute; margin-top:175px; margin-left:195px;" data-toggle="modal" data-target=".bs-modal-sm-5"></div>
+        
+        <div class="smallCircle" style="position:absolute; margin-top:210px; margin-left:410px;" data-toggle="modal" data-target=".bs-modal-sm-6"></div>
+        <div class="bigCircle" style="position:absolute; margin-top:230px; margin-left:105px;" data-toggle="modal" data-target=".bs-modal-sm-7"></div>
+        <div class="bigCircle" style="position:absolute; margin-top:310px; margin-left:335px;" data-toggle="modal" data-target=".bs-modal-sm-8"></div>
+        <div class="medCircle" style="position:absolute; margin-top:355px; margin-left:145px;" data-toggle="modal" data-target=".bs-modal-sm-9"></div>
+        <div class="medCircle" style="position:absolute; margin-top:370px; margin-left:280px;" data-toggle="modal" data-target=".bs-modal-sm-10"></div>
+        
+        <!--11 to 15-->
+        <div class="bigCircle" style="position:absolute; margin-top:55px; margin-left:260px;"></div>
+        <div class="medCircle" style="position:absolute; margin-top:85px; margin-left:175px;"></div>
+        <div class="bigCircle" style="position:absolute; margin-top:130px; margin-left:95px;"></div>
+        <div class="bigCircle" style="position:absolute; margin-top:230px; margin-left:445px;"></div>
+        <div class="bigCircle" style="position:absolute; margin-top:125px; margin-left:430px;"></div>
+        
+        <!--16 to 20-->
+        <div class="bigCircle" style="position:absolute; margin-top:45px; margin-left:365px;"></div>
+        <div class="medCircle" style="position:absolute; margin-top:330px; margin-left:455px;"></div>
+        <div class="medCircle" style="position:absolute; margin-top:315px; margin-left:60px;"></div>
+        <div class="medCircle" style="position:absolute; margin-top:250px; margin-left:35px;"></div>
+        <div class="smallCircle" style="position:absolute; margin-top:195px; margin-left:55px;"></div>
+        
+        <!--21 to 25-->
+        <div class="smallCircle" style="position:absolute; margin-top:45px; margin-left:220px;"></div>
+        <div class="medCircle" style="position:absolute; margin-top:380px; margin-left:410px;"></div>
+        <div class="smallCircle" style="position:absolute; margin-top:380px; margin-left:100px;"></div>
+        <div class="smallCircle" style="position:absolute; margin-top:195px; margin-left:515px;"></div>
+        <div class="smallCircle" style="position:absolute; margin-top:80px; margin-left:125px;"></div>
+        
+      </div>
+      
+    </div> <!--end #container-->
+    <div class='jumbotron foot' style="background:#33AD5C;height:100px">
+
+    </div>
+    
+    <!--About Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title abouttitle" id="myModalLabel">About GreenBuggle</h4>
+          </div>
+          <div class="modal-body">
+            <p id=aboutblurb>
+              <b>GreenBuggle is a tool that helps you travel responsibly.</b>
+              <br>
+              <br>The world emitted something like 40 billion tons of CO<sub>2</sub> in 2014. Wouldn't it be great if we could reduce that carbon footprint?
+              <br>
+              <br><b>To help, we've built a tool that helps you calculate the monetary, time, and environmental costs of driving vs. taking public transportation or walking.</b> We want to encourage you to take the greenest and most convenient method of transportation available.
+              Collect leaf badges on your green journey and share your progress on Facebook!
+              <br>
+              <br>Also, if you're traveling, be sure to check out our travel green feature!
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default closebutton" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Small modals -->
+
+    <div class="modal fade bs-modal-sm-1" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title abouttitle" id="myModalLabel">Yay 1</h4>
+          </div>
+          <div class="modal-body">
+            <p>Hey there gorgeous ;)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade bs-modal-sm-2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title abouttitle" id="myModalLabel">Yay 2</h4>
+          </div>
+          <div class="modal-body">
+            <p>My, don't you look dashing today ;)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade bs-modal-sm-3" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title abouttitle" id="myModalLabel">Yay 3</h4>
+          </div>
+          <div class="modal-body">
+            <p>Has anyone told you how lovely your eyes are?
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade bs-modal-sm-4" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title abouttitle" id="myModalLabel">Yay 4</h4>
+          </div>
+          <div class="modal-body">
+            <p>You're the awesomest person in a 1-foot radius, go you!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade bs-modal-sm-5" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title abouttitle" id="myModalLabel">Yay 5</h4>
+          </div>
+          <div class="modal-body">
+            <p>Ba-dum-tss!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade bs-modal-sm-6" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title abouttitle" id="myModalLabel">Yay 6</h4>
+          </div>
+          <div class="modal-body">
+            <p>All the single ladies, all the single ladies~
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade bs-modal-sm-7" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title abouttitle" id="myModalLabel">Yay 7</h4>
+          </div>
+          <div class="modal-body">
+            <p>...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade bs-modal-sm-8" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title abouttitle" id="myModalLabel">Yay 8</h4>
+          </div>
+          <div class="modal-body">
+            <p>...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade bs-modal-sm-9" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title abouttitle" id="myModalLabel">Yay 9</h4>
+          </div>
+          <div class="modal-body">
+            <p>...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade bs-modal-sm-10" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title abouttitle" id="myModalLabel">Yay 10</h4>
+          </div>
+          <div class="modal-body">
+            <p>...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+
+  </body>
+
+</html>
+
+
+
+
