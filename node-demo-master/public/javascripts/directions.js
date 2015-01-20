@@ -209,48 +209,29 @@ function computeTotalDistance(result) {
   carbon= (total/37)*8.7;
   railcar= total*.1;
   plane= total*.22;
-  document.getElementById('total').innerHTML = round(carbon,2) + ' kg';
-  document.getElementById('rail').innerHTML = round(railcar,2) + ' kg';
-  document.getElementById('flight').innerHTML = round(plane,2) + ' kg';
+  document.getElementById('total').innerHTML = round(carbon,2);
+  document.getElementById('rail').innerHTML = round(railcar,2);
+  document.getElementById('flight').innerHTML = round(plane,2);
 }
 
 
 //Lilian's database passing
 function mySubmit() {
-
   document.forms["myForm"]["startInput"].value = document.getElementById('start').value;
   document.forms["myForm"]["endInput"].value = document.getElementById('dest').value;
 
-function computeTotalDistances(result) {
-  var totals = 0;
-  var myroutes = result.routes[0];
-  var carbons=0;
-  var railcars=0;
-  var planes=0;
-  for (var i = 0; i < myroute.legs.length; i++) {
-    total += myroute.legs[i].distance.value;
+  switch(document.forms["myForm"]["transportation"].value){
+    case "drive":
+    document.forms["myForm"]["carbonInput"].value = document.getElementById('flight').innerHTML;
+    break;
+    case "transit": 
+    document.forms["myForm"]["carbonInput"].value = document.getElementById('flight').innerHTML;
+    break;
+    case "walk": 0;
+    break;
+    case "no": 0;
+    break;
   }
-  totals = totals / 1000.0;
-  carbons= (totals/37)*8.7;
-  railcars= totals*.1;
-  planes= totals*.22;
-  document.getElementById('total').innerHTML = round(carbons,2) + ' kg';
-  document.getElementById('rail').innerHTML = round(railcars,2) + ' kg';
-  document.getElementById('flight').innerHTML = round(planes,2) + ' kg';
-}
-
-switch(document.forms["myForm"]["transportation"].value){
-  case "drive": 
-  document.forms["myForm"]["carbonInput"].value = carbons;
-  break;
-  case "transit": 
-  document.forms["myForm"]["carbonInput"].value = railcars;
-  break;
-  case "walk": 0;
-  break;
-  case "no": 0;
-  break;
-}
 
 }
 

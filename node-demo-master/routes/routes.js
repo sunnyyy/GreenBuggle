@@ -31,20 +31,29 @@ router.get('/badges', function(req, res) {
 });
 
 /*GET /pasttrips displays all the past history yay*/
-router.get('/pastTrips', function(req, res) {
-  models.Trip.find, function(error, results) {
-  var arrayToSendBack = [] // this might be populated with something else
-  results.forEach(function(result) {
-    arrayToSendBack.push(result);
-  });
-})
-  res.render('pastTrips', {});
-});
+// router.get('/pastTrips', function(req, res) {
+//   models.Trip.find, function(error, results) {
+//   var arrayToSendBack = [] // this might be populated with something else
+//   results.forEach(function(result) {
+//     arrayToSendBack.push(result);
+//   });
+// })
+//   res.render('pastTrips', {});
+// });
 
+/* GET /past trips displays ONE past history ok*/
+router.get('/pastTrips', function(req, res) {
+  models.Trip.findOne({method: 'drive'}, function (err, result) {
+    console.log(result);
+    res.render('pastTrips', {trip: result});
+  });
+});
 
 /* POST /pastTrips */
 router.post('/pastTrips', function(req, res) {
   // 1. read the submitted things
+  console.log(req.body);
+  if (req.body['transportation']!="no"){
   var newTrip = new models.Trip({
     origin: req.body['start'],
     destination: req.body['end'],
@@ -52,12 +61,16 @@ router.post('/pastTrips', function(req, res) {
     carbon: req.body['carbonValue']
   });
   // 2. store it.
-  newTrip.save(function(err, result) {
-    console.log(result);
-    // res.redirect('/pastTrips/';
-    res.redirect('/pastTrips');
-
+    
+      newTrip.save(function(err, result) {
+      console.log(result);
+      // res.redirect('/pastTrips/';
+      res.redirect('/pastTrips');
+    
   });
+    } else {
+      res.redirect('/choices');
+    }
 });
 
 module.exports = router;
