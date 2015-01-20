@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.createConnection('mongodb://heroku_app33376042:a44q25p2665td5s2pq0ojrjqrd@ds031651.m
+mongoose.connect('mongodb://heroku_app33376042:a44q25p2665td5s2pq0ojrjqrd@ds031651.m
 ongolab.com:31651/heroku_app33376042');
 
 // Error handler
