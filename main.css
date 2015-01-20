@@ -3,25 +3,16 @@ main.css contains navbar & other cross-website elts
 *****************************************************/
 
 html, .jumbotron, .container {
-	font-family: 'Michroma', Verdana, sans-serif;
+	font-family: 'Michroma', sans-serif;
+	background: #fff;
 }
 
-.container > h1, .container > h1 > small  {
+.jumbotron > h1, .container > h1, .container > h1 > small  {
 	color: #093;
+	text-align: center;
 }
 body {
 	padding-bottom: 0px;
-}
-.welcome, .aboutsection, .details {
-	height: 90vh;
-	/*margin-top: 0px;
-	margin-bottom: 0px;*/
-}
-.aboutsection {
-	color: #fff;
-}
-.welcomepage {
-	font-family: 'Open Sans', Verdana, sans-serif;
 }
 
 .foot {
@@ -33,77 +24,8 @@ body {
 }
 
 .navbar {
-	border-bottom: 3px solid #093;
 	font-family: 'Michroma', Verdana, sans-serif;
-	color: #093;
 }
-
-/*-------------nav bar-------------
-#masthead{
-	z-index: 100;
-	margin:0px;
-	position:fixed;
-	top:0px;
-	background-color: rgba(255,255,255,1);
-	width:100%;
-	height:60px;
-	min-width: 775px;
-	border-bottom-style: solid;
-	border-bottom-width: 2px;
-	border-color: #093;
-}
-.masthead-item{
-	margin-left:10px;
-	margin-right:10px;
-	font-size: 12pt;
-}
-
-
-/*-------------logo image------------
-#masthead-logoS{
-	margin:0px;
-	float:left;
-	height:100%;
-}
-
-#logoS{
-	height:100%;
-}
-
-#logo-imgS{
-	margin:none;
-	padding-left:20px;
-	padding-right:20px;
-	padding-top:15px;
-	padding-bottom:15px;
-	position:relative;
-	height: 50%;
-	width:50%;
-}
-
-
-#nav-wrapper{
-	float:right;
-}
-
-#welcomeUser{
-	height:25px;
-	position:relative;
-	float:left;
-	padding-left:20px;
-	padding-right:20px;
-	padding-top:18px;
-	padding-bottom:17px;
-	margin-left:0px;
-	margin-right:20px;
-	list-style-type: none;
-    color:#06c;
-
-	transition-property: background-color;
-    transition-duration: 0.2s;
-    transition-timing-function: linear;
-
-}*/
 
 #about{
 	height:25px;

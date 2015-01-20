@@ -1,15 +1,16 @@
-#container{
-  	max-height: 600px;
-  	margin-left: auto; /*centers div*/
-  	margin-right: auto; /*centers div*/
+.welcome, .aboutsection, .details {
+	min-height: 90vh;
+	/*margin-top: 0px;
+	margin-bottom: 0px;*/
 }
-
-body {
-	padding-bottom: 0px;
+.welcome {
+	text-align: center;
 }
-
-h1{
-	color:#093;
+.aboutsection {
+	color: #fff;
+}
+.aboutpara {
+	font-family: 'Open Sans', sans-serif;
 }
 
 h2{

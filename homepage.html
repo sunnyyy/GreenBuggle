@@ -1,67 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="bootstrap.min.css"/>
     <link href='http://fonts.googleapis.com/css?family=Michroma|Open+Sans' rel='stylesheet' type='text/css'/>
 
     <link rel="stylesheet" type="text/css" href="main.css" />
     <link rel="stylesheet" type="text/css" href="homepage.css" />
+    <link rel="shortcut icon" type="image/png" href="buggle-small.png">
 
     <title>Homepage</title> 
 
     <nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#"><img src="bugglelogo-w.png" height="35px" align="top"> GreenBuggle</a>
-    </div>
+      <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img src="bugglelogo-w.png" height="35px" align="top"> GreenBuggle</a>
+      </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li data-toggle="modal" data-target="#myModal"><a href="#">About</a></li>
-      </ul>
-      
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Welcome User!<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Log Out</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li data-toggle="modal" data-target="#myModal"><a href="#">About</a></li>
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Welcome User!<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Log Out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
   </head>
 
   <body>
-
-    <!--<div id="masthead">
-      <div id="masthead-logo" class="masthead-item">
-        <a id="logo" href="index.html">
-        <img id="logo-img" src="buggle-white-nav.png">
-      </a>
-      </div>
-      <div id="about" class="aboutnav" data-toggle="modal" data-target="#myModal"><a href="#" class="navlinks aboutlink">About</a></div>
-      
-      <div id="nav-wrapper">
-        <div id="welcomeUser">
-          Welcome USER!
-        </div>
-      </div>
-    </div>-->
     
     <div class="jumbotron welcome" style="background:#fff;">
       <div id="container" class="container" style="background:#fff;">
         <h1>Hello!</h1>
         <h1><small>Welcome to GreenBuggle.</h1>
+        <img src="bugglelogo-blue.png" style="height:35vh">
         <h2>To start, please log in to Facebook.</h2>
         <img src="https://www.facebook.com/images/fb_icon_325x325.png" alt="FB Logo" style="width:50px;height:0px">
       </div>
@@ -71,11 +58,12 @@
 
     <div class="jumbotron aboutsection" style="background:#33ad5c;">
       <div class="container">
+        <h1 style="text-align:center;padding-bottom:0.5em;color:#fff">What is GreenBuggle?</h1>
+
         <div class='row'>
-          <h1 style="text-align:center;padding-bottom:0.5em">What is GreenBuggle?</h1>
           <div class='col-md-1'></div>
           <div class='col-md-10'>
-            <p class="welcomepage"><b>GreenBuggle is a tool that helps you travel responsibly.</b>
+            <p class='aboutpara'><b>GreenBuggle is a tool that helps you travel responsibly.</b>
             <br>
             <br>The world emitted something like 40 billion tons of CO<sub>2</sub> in 2014. Wouldn't it be great if we could reduce that carbon footprint?
             <br>

@@ -1,21 +1,4 @@
 
-
-#container{
-    text-align: center;
-    height: 700px;
-  	max-height: 700px;
-  	margin-left: auto; /*centers div*/
-  	margin-right: auto; /*centers div*/
-
-  	padding-top: 100px;
-    padding-left: auto;
-    padding-right: auto;
-
-    bottom: 80px;
-
-    z-index: 0;
-}
-
 h1{
 	color:#093;
 }
@@ -31,7 +14,6 @@ h2{
     max-width: 600px;
     margin-left: auto; /*centers div*/
     margin-right: auto; /*centers div*/
-    z-index: 1;
 }
 
 .bigCircle {

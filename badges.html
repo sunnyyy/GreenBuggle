@@ -1,32 +1,50 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="bootstrap.css" type="text/css" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="main.css" />
     <link rel="stylesheet" type="text/css" href="badges.css" />
     <link href='http://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="bootstrap.min.js"></script>
-    <title>Homepage</title> 
+    <title>GreenBuggle</title> 
+
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img src="bugglelogo-w.png" height="35px" align="top"> GreenBuggle</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li data-toggle="modal" data-target="#myModal"><a href="#">About</a></li>
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Welcome User!<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Log Out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
   </head>
 
   <body>
 
-    <div id="masthead">
-      <div id="masthead-logo" class="masthead-item">
-        <img id="logo-img" src="buggleworld4.png">
-      </div>
-      <div id="about" class="aboutnav" data-toggle="modal" data-target="#myModal"><a href="#" class="navlinks aboutlink">About</a></div>
-      
-      <div id="nav-wrapper">
-        <div id="welcomeUser">
-          Welcome USER!
-        </div>
-      </div>
-    </div>
-
-    <div id="container" style="background:#fff;width:99%;position:absolute;">
+    <div class='container' >
 
       <div id="tree" style="width:600px;position:relative;">
 
@@ -67,11 +85,9 @@
       </div>
       
     </div> <!--end #container-->
+    <div class='jumbotron foot' style="background:#33AD5C;height:100px">
 
-    <footer id="footer" >
-      <p>Place sticky footer content here.</p>
-    </footer>
-
+    </div>
     
     <!--About Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -110,7 +126,7 @@
             <h4 class="modal-title abouttitle" id="myModalLabel">Yay 1</h4>
           </div>
           <div class="modal-body">
-            <p>...
+            <p>Hey there gorgeous ;)
             </p>
           </div>
         </div>
@@ -125,7 +141,7 @@
             <h4 class="modal-title abouttitle" id="myModalLabel">Yay 2</h4>
           </div>
           <div class="modal-body">
-            <p>...
+            <p>My, don't you look dashing today ;)
             </p>
           </div>
         </div>
@@ -140,7 +156,7 @@
             <h4 class="modal-title abouttitle" id="myModalLabel">Yay 3</h4>
           </div>
           <div class="modal-body">
-            <p>...
+            <p>Has anyone told you how lovely your eyes are?
             </p>
           </div>
         </div>
@@ -155,7 +171,7 @@
             <h4 class="modal-title abouttitle" id="myModalLabel">Yay 4</h4>
           </div>
           <div class="modal-body">
-            <p>...
+            <p>You're the awesomest person in a 1-foot radius, go you!
             </p>
           </div>
         </div>
@@ -170,7 +186,7 @@
             <h4 class="modal-title abouttitle" id="myModalLabel">Yay 5</h4>
           </div>
           <div class="modal-body">
-            <p>...
+            <p>Ba-dum-tss!
             </p>
           </div>
         </div>
@@ -185,7 +201,7 @@
             <h4 class="modal-title abouttitle" id="myModalLabel">Yay 6</h4>
           </div>
           <div class="modal-body">
-            <p>...
+            <p>All the single ladies, all the single ladies~
             </p>
           </div>
         </div>

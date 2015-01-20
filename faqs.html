@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="bootstrap.css" type="text/css" rel="stylesheet"/>
+    <link href="bootstrap.min.css" type="text/css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="main.css" />
     <link rel="stylesheet" type="text/css" href="faqs.css" />
     <link href='http://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'>
@@ -10,34 +10,61 @@
     <script src="bootstrap.min.js"></script>
 
     <title>Homepage</title> 
+
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img src="bugglelogo-w.png" height="35px" align="top"> GreenBuggle</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li data-toggle="modal" data-target="#myModal"><a href="#">About</a></li>
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Welcome User!<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Log Out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
   </head>
 
   <body>
 
-    <div id="masthead">
-      <div id="masthead-logo" class="masthead-item">
-        <img id="logo-img" src="buggleworld4.png">
-      </div>
-      <div id="about" class="aboutnav" data-toggle="modal" data-target="#myModal"><a href="#" class="navlinks aboutlink">About</a></div>
-      
-      <div id="nav-wrapper">
-        <div id="welcomeUser">
-          Welcome USER!
-        </div>
-      </div>
-    </div>
+    <div class="container">
 
-    <div id="container" style="background:#fff;width:95%;position:absolute;">
       <h1>FAQs</h1>
-
       <hr>
+      <div class='row'>
+        <div class='col-md-3'>
+          <br>
+          <h4><a href='#generalqs' class='q'>General</h4>
+          <h4><a href='#dataqs' class='q'>Data</h4>
+          <h4><a href='#mapqs' class='q'>Google Maps</a></h4>
+        </div>
+        <div class='col-md-9'>
+    
 
         <h3> </h3>
         <p class="answer">
         </p>
 
 
-      <h2>General</h2>
+      <h2 id='generalqs'>General</h2>
 
       <div class="qgroup">
         <div class="panel-group" id="Gaccordion" role="tablist" aria-multiselectable="true">
@@ -46,16 +73,14 @@
             <div class="panel-heading" role="tab" id="headingGOne">
               <h3 class="panel-title">
                 <a class="q" data-toggle="collapse" data-parent="#accordion" href="#collapseGOne" aria-expanded="false" aria-controls="collapseGOne">
-                  How accurate is GreenBuggle?
+                  Hello!
                 </a>
               </h3>
             </div>
             <div id="collapseGOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingGOne">
               <div class="panel-body">
                 <p class="answer">
-                  Legal disclosure: We do not guarantee that our estimates are in any way accurate.
-                  <br><br>
-                  That said, we try to provide reasonable estimates for our data. For more information, please see "How we get our data".
+                  Hello!  
                 </p>
               </div>
             </div>
@@ -65,11 +90,45 @@
             <div class="panel-heading" role="tab" id="headingGTwo">
               <h3 class="panel-title">
                 <a class="q" data-toggle="collapse" data-parent="#accordion" href="#collapseGTwo" aria-expanded="false" aria-controls="collapseGTwo">
-                  Do you guys cover anything other than cars, transit, and walking?
+                  Do you guys calculate carbon footprints?
                 </a>
               </h3>
             </div>
             <div id="collapseGTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingGTwo">
+              <div class="panel-body">
+                <p class="answer">
+                  Not quite. Your carbon footprint encompasses a lot of things, including your water and electricity use, among other things. <b>GreenBuggle tries to help you calculate your everyday carbon emissions from various modes of transportation</b>, since fuel is a big part of most people's overall carbon footprint. From there, we hope you'll be able to make better and more informed decisions about your travel options.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingG3">
+              <h3 class="panel-title">
+                <a class="q" data-toggle="collapse" data-parent="#accordion" href="#collapseG3" aria-expanded="false" aria-controls="collapseG3">
+                  How accurate is GreenBuggle?
+                </a>
+              </h3>
+            </div>
+            <div id="collapseG3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingG3">
+              <div class="panel-body">
+                <p class="answer">
+                  While we cannot guarantee that our estimates are "perfectly" accurate, we try to provide reasonable estimates for our data. For more information, please see the section on "How we get our data".
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingG4">
+              <h3 class="panel-title">
+                <a class="q" data-toggle="collapse" data-parent="#accordion" href="#collapseG4" aria-expanded="false" aria-controls="collapseG4">
+                  Do you guys cover anything other than cars, transit, and walking?
+                </a>
+              </h3>
+            </div>
+            <div id="collapseG4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingG4">
               <div class="panel-body">
                 <p class="answer">As of right now, no. </p>
               </div>
@@ -82,7 +141,7 @@
 
       <hr>
 
-      <h2>How we get our data</h2>
+      <h2 id='dataqs'>How we get our data</h2>
 
       <div class="qgroup">
 
@@ -116,15 +175,17 @@
             <div id="collapseHTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingHTwo">
               <div class="panel-body">
                 <p class="answer">
-                  For the calculations, we found statistics from 2014 from <a href="http://www.eia.gov/tools/faqs/faq.cfm?id=307&t=10">the US Energy Information Administration</a> and <a href="http://www.ecopassenger.org/">ecopassenger.org</a> to use as measurements for how much carbon dioxide is emitted depending on fuel consumption and method of travel. Then, we do lots of algebra.
+                  For the calculations, we found statistics from 2014 from <a href="http://www.eia.gov/tools/faqs/faq.cfm?id=307&t=10">the US Energy Information Administration</a> and <a href="http://www.ecopassenger.org/">ecopassenger.org</a> to use as measurements for how much carbon dioxide is emitted depending on fuel consumption and method of travel. Then, we take the distance we got from Google Maps and do lots of algebra.
                   <br><br>
-                  For example, since the average car has an average mileage of 23mpg (37km per gallon), we use the distance of the user's trip and then divide by 37 to calculate how many gallons of gasoline fuel the car would consume. Then, using the statistic that 8.7 kg of CO2 is emitted per gallon of gas, we multiplied the number of gallons by 8.7 to get the total CO2 emission.
+                  For example, since the average car* has an average mileage of 23mpg (37km per gallon), we use the distance of the user's trip and then divide by 37 to calculate how many gallons of gasoline fuel the car would consume. Then, using the statistic that 8.7 kg of CO2 is emitted per gallon of gas, we multiplied the number of gallons by 8.7 to get the total CO2 emission.
                   <br><br>
                   For the transit travel mode, we found that commuter rail trains, light rail trains, heavy rail trains, etc. all have relatively similar CO2 emissions per individual, so we just used the statistic .2 lbs of CO2 is emitted per mile on a train, converted that to kg (.9 kg per mile), and then multiplied that by the distance travelled to get the CO2 emission of a train ride.
                   <br><br>
                   For flights, there is a difference in CO2 emission depending on the length of the trip, so we took the average of short, medium, and long flights and got .23kg per mile flown, and then multiplied that by the distance travelled to get the CO2 emission of a flight.
                   <br><br>
                   While these measurements are by no means perfect, we believe that this info provides a reasonable estimate of the carbon emissions you use while travelling, and more importantly, can help you make more informed decisions regarding your carbon footprint.
+                  <br><br>
+                  *At this time, we are unable to give you the option of saving your car(s)' fuel efficiency.
                 </p>
               </div>
             </div>
@@ -136,7 +197,7 @@
 
       <hr>
 
-      <h2>Google Maps related questions</h2>
+      <h2 id='mapqs'>Google Maps related questions</h2>
 
       <div class="qgroup">
 
@@ -184,7 +245,7 @@
             <div class="panel-heading" role="tab" id="headingMThree">
               <h3 class="panel-title">
                 <a class="q" data-toggle="collapse" data-parent="#accordion" href="#collapseMThree" aria-expanded="false" aria-controls="collapseMThree">
-                  Why won't it calculate the driving directions from, say, New York City, USA to London, UK?
+                  Why won't it calculate the driving directions from, say, NYC to London?
                 </a>
               </h3>
             </div>
@@ -212,24 +273,25 @@
             <div id="collapseMFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingMFour">
               <div class="panel-body">
                 <p class="answer">
-                  Because we were curious to the limitations of Google Maps, we have tried some random searches and found the following:
+                  Because we were curious to the limitations of Google Maps, we tried some random searches and found the following:
                 </p>
                 <ul class="answer">
-                  <li>You can get driving/walking directions from Magadan, Russia (eastern Russia) to Cape Town, South Africa. (Afro-Asia cross-continent trip.)</li>
-                  <li>You can get driving/walking directions from Magadan, Russia to Lisbon, Portugal. (East to west across Eurasia.)</li>
-                  <li>You can get driving/walking directions from Oslo, Norway to Johannesburg, South Africa. (Northern Europe to southern Africa.) </li>
-                  <li>You can get driving/walking directions from Juneau, Alaska (USA) to Panama City, Panama. (Northern North America to southern North America.)</li>
-                  <li>You can get driving/walking directions from Caracas, Venezuela to Puntas Arenas, Chile. (Northern South America to southern South America.)</li>
+                  <li>You can get driving/walking directions from Magadan, Russia (eastern Russia) to Cape Town, South Africa.</li>
+                  <li>You can get driving/walking directions from Magadan, Russia to Lisbon, Portugal.</li>
+                  <li>You can get driving/walking directions from Oslo, Norway to Johannesburg, South Africa.</li>
+                  <li>You can get driving/walking directions from Juneau, Alaska to Panama City, Panama, but not South America.</li>
+                  <li>You can get driving/walking directions from Caracas, Venezuela to Puntas Arenas, Chile.</li>
                   <li>You can occasionally get driving/walking directions from island to island within countries, e.g. Okinawa, Japan, to Tokyo, Japan, though these routes may include ferries.</li>
                 </ul>
                 <p class="answer">
-                  Please note that we are unlikely to generate accurate data for directions of such long distances.
-                  <br><br>
-                  To learn more about Google Maps, you can do a Google search or play with it at <a href="https://www.google.com/maps">https://www.google.com/maps</a>. Please be kind to us developers and do not search endlessly on GreenBuggle for nefarious and/or non-app-related purposes - we get charged for excessive traffic.
+                  <br>Please note, however, that we are unlikely to generate accurate data for directions of such long distances.
                 </p>
               </div>
             </div>
           </div>
+          </div>
+
+      </div>
 
         </div> <!--end collapse group-->
 
@@ -241,10 +303,6 @@
 
     </div>
 
-
-    <footer id="footer" >
-      <p>Place sticky footer content here.</p>
-    </footer>
 
     <!--About Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
