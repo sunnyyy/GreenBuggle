@@ -94,3 +94,10 @@ div.tabContent.hide { display: none; }
 #shiftleft {
 	padding-right:5%;
 }
+
+#travelOptions {
+	display: none;
+}
+#travelChoice {
+	display: none;
+}

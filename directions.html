@@ -56,56 +56,51 @@
   <body onload="init()">
 
     <div class='jumbotron'>
-        
-        <div class='row'>
+      <div class='row'>
 
-          <div class='col-md-9'>
-            <div id="map-canvas"></div>
-              <div id="control">
-                <label for="start">Start address</label>
-                <input type="text" id="start"><span class="address" id="startAdd"></span><br>
-                <label for="dest">Destination address</label>
-                <input type="text" id="dest"><span class="address" id="destAdd"></span><br>
-                <button onclick="calcRoute()" data-toggle="modal" data-target="#travelModal">Find Route</button>
-              </div>
-            </div>
-
-          <div class='col-md-3'>
-            <div id="directions-panel">
-              <ul id="tabs">
-                <li><a href="#car">Car</a></li>
-                <li><a href="#transit">Transit</a></li>
-                <li><a href="#walking">Walking</a></li>
-              </ul>
-            </div>
+        <div class='col-md-9'>
+          <div id="map-canvas"></div>
+          <div id="control">
+            <label for="start">Start address</label>
+            <input type="text" id="start"><span class="address" id="startAdd"></span><br>
+            <label for="dest">Destination address</label>
+            <input type="text" id="dest"><span class="address" id="destAdd"></span><br>
+            <button onclick="calcRoute()">Find Route</button>
           </div>
+        </div>
 
-        </div> <!--end row-->
+        <div class='col-md-3'>
+          <div id="directions-panel">
+            <ul id="tabs">
+              <li><a href="#car">Car</a></li>
+              <li><a href="#transit">Transit</a></li>
+              <li><a href="#walking">Walking</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div> <!--end row-->
     </div> <!--close #jumbotron-->
 
     <div class='container'>
       <div id="shiftleft">
-        <p class="buttons">
-          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#travelModal">
-            Explore your transport options
-          </button>
-        </p>
+        <div id="travelOptions">
+          <p class="buttons">
+            <button type="button" onclick="show_visibility('travelChoice');" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#travelModal">
+              Explore your green options
+            </button>
+          </p>
+        </div>
 
-        <p class="buttons">
-          <div class="btn-group" role="group" aria-label="...">
+        <div id="travelChoice">
+          <p class="buttons">
             <button type="button" class="btn btn-default">I'll drive</button>
             <button type="button" class="btn btn-default">I'll take transit</button>
             <button type="button" class="btn btn-default">I'll walk</button>
             <button type="button" class="btn btn-danger btn-default">I'm not going</button>
-          </div>
-        </p>
-        
-        <p class="buttons">
-          <button type="button" class="btn btn-default">I'll drive</button>
-          <button type="button" class="btn btn-default">I'll take transit</button>
-          <button type="button" class="btn btn-default">I'll walk</button>
-          <button type="button" class="btn btn-danger btn-default">I'm not going</button>
-        </p>
+          </p>
+        </div>
+
       </div>
       <hr>
       <h1> BOOTSTRAP RADIO BUTTONS </h1>

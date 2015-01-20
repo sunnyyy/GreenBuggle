@@ -124,9 +124,14 @@ function calcRoute() {
       buttonclick=true;
       directionsDisplay.setDirections(response);
       computeTotalDistance(directionsDisplay.getDirections());
+      show_visibility('travelOptions');
     } else if(status=="ZERO_RESULTS"){
+      hide_visibility('travelOptions');
+      hide_visibility('travelChoice');
       alert('no route found');
     } else{
+      hide_visibility('travelOptions');
+      hide_visibility('travelChoice');
       alert('Please enter both text fields correctly');
     }
   });
@@ -213,3 +218,11 @@ function computeTotalDistance(result) {
   document.getElementById('flight').innerHTML = round(plane,2) + ' kg';
 }
 
+
+// code for displaying buttons
+function show_visibility(id) {
+  document.getElementById(id).style.display = 'block';
+}
+function hide_visibility(id) {
+  document.getElementById(id).style.display = 'none';
+}
