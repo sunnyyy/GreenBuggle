@@ -2,7 +2,9 @@
   "name": "greenbuggle",
   "version": "0.0.0",
   "private": true,
-
+  "scripts": {
+    "start": "node ./bin/www"
+  },
   "dependencies": {
     "express": "~4.8.6",
     "body-parser": "~1.6.6",
@@ -13,17 +15,8 @@
     "ejs": "~0.8.5"
   },
   "description": "iap2015",
+  "main": "app.js",
   "devDependencies": {},
   "author": "Guo, Ma, Ye",
   "license": "MIT"
-
-
-"engines": {
-  "node": "0.10.x"
-},
-"main": "app.js",
-"scripts": {
-  "start": "node app.js"
 }
-
-},
