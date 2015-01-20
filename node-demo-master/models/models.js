@@ -1,5 +1,16 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+mongoose.createConnection('mongodb://localhost/test');
+
+// Error handler
+mongoose.connection.on('error', function (err) {
+  console.log(err)
+});
+
+// Reconnect when closed
+mongoose.connection.on('disconnected', function () {
+  mongoose.connect('mongodb://localhost/test');
+});
+
 
 // Define a schema: this gives us a structure for our data
 var tripSchema = mongoose.Schema({
@@ -7,6 +18,7 @@ var tripSchema = mongoose.Schema({
   destination: String,
   method: String,
   carbon: Number,
+  date: { type: Date, default: Date.now }
 });
 
 // For more complex logic, methods go here
@@ -16,9 +28,6 @@ var tripSchema = mongoose.Schema({
 // We compile the schema into a model, which is actually a class we can do things on.
 var Trip = mongoose.model('Trip', tripSchema);
 
-var checkLength = function(s) {
-  return s.length > 0;
-};
 
 // Validators for our model. When we save or modify our model, these validators
 // get run. If they return false, an error happens.

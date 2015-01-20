@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<h1>Your Past Trips</h1>
+</head>
+
+
+
+<style>
+p.one {
+    border-style: solid;
+    border-color: #3366FF;
+    margin: 0 auto;
+   	width: 500px;
+   	height: 20px;
+   	margin-bottom: 20px;
+}
+
+p.two {
+    border-style: solid;
+    border-color: #66FF66;
+    margin: 0 auto;
+    margin-bottom:50px;
+   	width: 500px;
+   	height: 20px;
+}
+
+h1 {
+
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.3999996185303px;
+	text-align:center;
+	color:#3366FF;
+}
+
+</style>
+
+
+
+<body>
+	<script type="text/javascript">
+var first= "You traveled from";
+var middle= "by";
+var last= " , and emitted ";
+var co= "g CO2."
+var car= "car";
+var walking= "walking";
+var transit= "public transport";
+
+var boxone = {
+    from:"MIT",
+    to:"Wellesley",
+    route: this.from + "to" + this.to,
+    method:transit,
+    amount: "5";
+    
+};
+ document.getElementById('a').outerHTML = boxone.route.toString();
+
+
+</script>
+
+<p class="one"><span id="a"> first <b>boxone.route</b>middle<b> boxone.method</b> last <b>boxone.amount</b> carbon</span></p>
+<p class="two"></p>
+
+</body>
+</html>
