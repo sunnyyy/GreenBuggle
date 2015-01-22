@@ -14,7 +14,7 @@ var session = require('express-session');
 
 console.log("creating the connection of doom"); // load up the user model var
 mongoose = require('mongoose');
-mongoose.create('mongodb://localhost/demo');
+mongoose.connect('mongodb://localhost/demo');
 
 var models = require('./models/models');
 console.log(models);
@@ -143,9 +143,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
-
-app.listen(3000);
-
 
 module.exports = app;
