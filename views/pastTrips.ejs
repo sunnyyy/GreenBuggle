@@ -59,7 +59,7 @@ wheee
          <% db.forEach(function (trip){ %>
          yay i'm in this
          <tr class="default">
-            <td class="date"><%= trip.date.getMonth()%>/<%= trip.date.getDate()%>/<%= trip.date.getFullYear()%></td>
+            <td class="date"><%= trip.date.getMonth()+1%>/<%= trip.date.getDate()%>/<%= trip.date.getFullYear()%></td>
             <td class="action">You travelled from <%= trip.origin %> to <%= trip.destination %> by <%= trip.method %>, and emitted <%= trip.carbon %> kg of CO<sub>2</sub>.</td> 
           </tr>
           <tr class="spacing"></tr>
