@@ -115,7 +115,6 @@ passport.deserializeUser(function(obj, done) {
         clientID        : FACEBOOK_APP_ID,
         clientSecret: FACEBOOK_APP_SECRET,
         callbackURL: "https://greenbuggle.herokuapp.com/auth/facebook/callback"
-        passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
 
     },
     function(req, token, refreshToken, profile, done) {
