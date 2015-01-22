@@ -14,7 +14,7 @@ var session = require('express-session');
 
 console.log("creating the connection of doom"); // load up the user model var
 mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/demo');
+mongoose.connect('mongodb://heroku_app33376042:a44q25p2665td5s2pq0ojrjqrd@ds031651.mongolab.com:31651/heroku_app33376042');
 
 var models = require('./models/models');
 console.log(models);
@@ -77,7 +77,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new FacebookStrategy({
     clientID: FACEBOOK_APP_ID,
     clientSecret: FACEBOOK_APP_SECRET,
-    callbackURL: "http://localhost:3000/auth/facebook/callback"
+    callbackURL: "https://greenbuggle.herokuapp.com/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     console.log('Now Check User');

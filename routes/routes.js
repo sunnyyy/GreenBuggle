@@ -8,7 +8,7 @@ var models = require('../models/models');
 console.log(models);
 // Connect to the database over Mongoose
 var mongoose = require('mongoose');
-mongoose.createConnection('mongodb://localhost/greenBuggle');
+mongoose.createConnection('mongodb://heroku_app33376042:a44q25p2665td5s2pq0ojrjqrd@ds031651.mongolab.com:31651/heroku_app33376042');
 
 
 /* GET / -- homepage */
