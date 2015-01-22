@@ -54,11 +54,17 @@ router.post('/pastTrips', function(req, res) {
     carbon: req.body['carbonValue']
   });
   // 2. store it.
-      newTrip.save(function(err, result) {
-      console.log(newTrip);
-      console.log("printed newTrip")
-      // res.redirect('/pastTrips/';
-      res.redirect('/pastTrips');
+    newTrip.save(function(err, result) {
+      if (err) {
+        console.log(err);
+      }
+      else {
+        console.log(newTrip);
+        console.log("printed newTrip")
+        // res.redirect('/pastTrips/';
+        res.redirect('/pastTrips');        
+      }
+
   });
     } else {
       res.redirect('/choices');
