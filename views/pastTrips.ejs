@@ -49,22 +49,15 @@
     <div id="container" style="background:#fff;width:100%;position:absolute;">
       <h1>Past Trips</h1>
 
-wheee
         <table class="trips">
-          yes?
-          <tr class="default">
-             <td class="date">print da date</td>
-            <td class="action">print da trip</td> 
-          </tr>
+         
          <% db.forEach(function (trip){ %>
-         yay i'm in this
          <tr class="default">
             <td class="date"><%= trip.date.getMonth()+1%>/<%= trip.date.getDate()%>/<%= trip.date.getFullYear()%></td>
             <td class="action">You travelled from <%= trip.origin %> to <%= trip.destination %> by <%= trip.method %>, and emitted <%= trip.carbon %> kg of CO<sub>2</sub>.</td> 
           </tr>
           <tr class="spacing"></tr>
           <% }); %>
-          i guess not?
         </table>
 
         
