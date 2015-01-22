@@ -24,18 +24,18 @@ router.get('/choices', function(req, res) {
 
 /* GET /tripPlanner */
 //allows the user to add a trip into their history after searching
-router.get('/tripPlanner', ensureAuthenticated, function(req, res) {
+router.get('/tripPlanner', function(req, res) {
   res.render('tripPlanner', {});
 });
 
 /* GET /badges */
-router.get('/badges', ensureAuthenticated, function(req, res) {
+router.get('/badges', function(req, res) {
   res.render('badges', {});
 });
 
 
 /* GET /past trips displays ONE past history ok*/
-router.get('/pastTrips', ensureAuthenticated, function(req, res) {
+router.get('/pastTrips', function(req, res) {
   console.log("entered the past trips page");
   models.Trip.find({}, 'origin destination carbon method date', function (err, results){
     console.log("entered the find phase");
