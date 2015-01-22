@@ -146,7 +146,7 @@ passport.deserializeUser(function(obj, done) {
                 });
 
             } 
-        });
+        }
 
     }));
 
