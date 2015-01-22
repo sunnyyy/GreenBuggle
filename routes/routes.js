@@ -18,7 +18,7 @@ router.get('/', function(req, res) {
 
 /* GET /choices */
 //for now: it's just one person and unpersonalized..
-router.get('/choices#_=_', function(req, res) {
+router.get('/choices', function(req, res) {
   res.render('choices', { user: req.user });
 });
 
@@ -91,7 +91,7 @@ router.get('/auth/facebook', passport.authenticate('facebook'),
 //   request.  If authentication fails, the user will be redirected back to the
 //   homepage to login.  Otherwise, the primary route function function will be called,
 //   which, in this example, will redirect the user to the choices page.
-router.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/404' }),
+router.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/homepage' }),
   function(req, res) {
     console.log("successfully authenitcate");
     res.redirect('/choices');
