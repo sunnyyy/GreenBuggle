@@ -213,9 +213,9 @@ function computeTotalDistance(result) {
   carbon= (total/37)*8.7;
   railcar= total*.1;
   plane= total*.22;
-  document.getElementById('total').innerHTML = round(carbon,2) + ' kg';
-  document.getElementById('rail').innerHTML = round(railcar,2) + ' kg';
-  document.getElementById('flight').innerHTML = round(plane,2) + ' kg';
+  document.getElementById('total').innerHTML = round(carbon,2);
+  document.getElementById('rail').innerHTML = round(railcar,2);
+  document.getElementById('flight').innerHTML = round(plane,2);
 }
 
 
