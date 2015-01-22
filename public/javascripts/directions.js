@@ -124,6 +124,7 @@ function calcRoute() {
       buttonclick=true;
       directionsDisplay.setDirections(response);
       computeTotalDistance(directionsDisplay.getDirections());
+      document.getElementById('tabs').style.visibility="visible";
       show_visibility('travelOptions');
     } else if(status=="ZERO_RESULTS"){
       hide_visibility('travelOptions');
