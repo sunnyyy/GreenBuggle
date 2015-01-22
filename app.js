@@ -6,23 +6,52 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-var passport = require('passport')
-var util = require('util')
-var FacebookStrategy = require('passport-facebook').Strategy
-var session = require('express-session')
+var passport = require('passport');
+var util = require('util');
+var FacebookStrategy = require('passport-facebook');
+var session = require('express-session');
 // require('./config/passport')(passport); // pass passport for configuration
 
 console.log("creating the connection of doom"); // load up the user model var
 mongoose = require('mongoose');
-mongoose.createConnection('mongodb://localhost/greenBuggle');
+mongoose.create('mongodb://localhost/demo');
 
 var models = require('./models/models');
 console.log(models);
 
 
-var FACEBOOK_APP_ID = "785704354835227"
+var FACEBOOK_APP_ID = "785704354835227";
 var FACEBOOK_APP_SECRET = "7118531d3c79e20622f75e7272b75406";
 
+
+
+/* Initialize the Express application */
+var app = express();
+
+//intialize passport stuff
+app.use(passport.initialize());
+app.use(passport.session());
+
+/* More Express magic */
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({ secret: 'keyboard cat' }));
+app.use(methodOverride());
+
+
+
+/* Tell app to use routes file */
+var routes = require('./routes/routes');
+app.use('/', routes);
+// require('./routes/routes.js')(app, passport); 
 
 // Passport session setup.
 //   To support persistent login sessions, Passport needs to be able to
@@ -82,33 +111,6 @@ passport.use(new FacebookStrategy({
 ));
 
 console.log("setup the fb stuff successfully!");
-/* Initialize the Express application */
-var app = express();
-
-//intialize passport stuff
-app.use(passport.initialize());
-app.use(passport.session());
-
-/* More Express magic */
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
-app.use(favicon(__dirname + '/public/images/favicon.ico'));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({ secret: 'keyboard cat' }));
-app.use(methodOverride());
-
-
-
-/* Tell app to use routes file */
-var routes = require('./routes/routes');
-app.use('/', routes);
-// require('./routes/routes.js')(app, passport); 
 
 /* Error handling below here -- leave as is */
 // catch 404 and forward to error handler
@@ -130,7 +132,7 @@ if (app.get('env') === 'development') {
             error: err
         });
     });
-}
+};
 
 // production error handler
 // no stacktraces leaked to user

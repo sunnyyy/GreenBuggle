@@ -8,7 +8,7 @@ var models = require('../models/models');
 console.log(models);
 // Connect to the database over Mongoose
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/greenBuggle');
+mongoose.createConnection('mongodb://localhost/greenBuggle');
 
 
 /* GET / -- homepage */
@@ -141,7 +141,7 @@ router.use(function(req, res, next){
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/')
-}
+};
 
 
 module.exports = router;
