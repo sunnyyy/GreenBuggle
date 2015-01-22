@@ -120,12 +120,10 @@ passport.deserializeUser(function(obj, done) {
     function(req, token, refreshToken, profile, done) {
 
         // asynchronous
-        process.nextTick(function() {
-
             // check if the user is already logged in
             if (!req.user) {
                 console.log("checking login");    
-                User.findOne({ 'facebook_id' : profile.id }, function(err, user) {
+                models.User.findOne({ 'facebook_id' : profile.id }, function(err, user) {
                     if (err)
                         return done(err);
 
@@ -134,7 +132,7 @@ passport.deserializeUser(function(obj, done) {
                     } else {
                         // if there is no user, create them
                         console.log("creating new user in database");
-                        var newUser = new User();
+                        var newUser = new models.User();
                         facebook_id    = profile.id;
                         name  = profile.name.givenName;
                        
@@ -147,23 +145,7 @@ passport.deserializeUser(function(obj, done) {
                     }
                 });
 
-            } else {
-                // user already exists and is logged in, we have to link accounts
-                var user            = req.user; // pull the user out of the session
-
-                user.facebook.id    = profile.id;
-                user.facebook.token = token;
-                user.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
-                user.facebook.email = (profile.emails[0].value || '').toLowerCase();
-
-                user.save(function(err) {
-                    if (err)
-                        return done(err);
-                        
-                    return done(null, user);
-                });
-
-            }
+            } 
         });
 
     }));
