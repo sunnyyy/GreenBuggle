@@ -74,41 +74,92 @@ passport.deserializeUser(function(obj, done) {
 //   Strategies in Passport require a `verify` function, which accept
 //   credentials (in this case, an accessToken, refreshToken, and Facebook
 //   profile), and invoke a callback with a user object.
-passport.use(new FacebookStrategy({
-    clientID: FACEBOOK_APP_ID,
-    clientSecret: FACEBOOK_APP_SECRET,
-    callbackURL: "https://greenbuggle.herokuapp.com/auth/facebook/callback"
-  },
-  function(accessToken, refreshToken, profile, done) {
-    console.log('Now Check User');
-    models.User.findOne({
-        facebook_id: profile.id
-    }, function(err, doc) {
-        if (err) {
-            console.log('user is alredy registered!');
-            return done(err);
-        }
-        if (!models.User()) {
-            var newUser = new models.User({
-                personName: profile.first_name,
-                facebook_id: profile.id
-            });
-            newUser.save(function(err) {
-                if (err) {
-                    console.log(err);
-                } else {
-                    console.log('Saved');
-                }
-                return done(err, doc);
-            });
-        } else {
-            //found user. Return
-            console.log('user is alredy registered!');
-            return done(err, doc);
-        }
-    });
-}
-));
+// passport.use(new FacebookStrategy({
+//     clientID: FACEBOOK_APP_ID,
+//     clientSecret: FACEBOOK_APP_SECRET,
+//     callbackURL: "https://greenbuggle.herokuapp.com/auth/facebook/callback"
+//   },
+//   function(accessToken, refreshToken, profile, done) {
+//     console.log('Now Check User');
+//     models.User.findOne({
+//         facebook_id: profile.id
+//     }, function(err, doc) {
+//         if (err) {
+//             console.log('user is alredy registered!');
+//             return done(err);
+//         }
+//         if (!models.User()) {
+//             var newUser = new models.User({
+//                 personName: profile.first_name,
+//                 facebook_id: profile.id
+//             });
+//             newUser.save(function(err) {
+//                 if (err) {
+//                     console.log(err);
+//                 } else {
+//                     console.log('Saved');
+//                 }
+//                 return done(err, doc);
+//             });
+//         } else {
+//             //found user. Return
+//             console.log('user is alredy registered!');
+//             return done(err, doc);
+//         }
+//     });
+// }
+// ));
+
+ passport.use(new FacebookStrategy({
+
+        clientID        : FACEBOOK_APP_ID,
+        clientSecret: FACEBOOK_APP_SECRET,
+        callbackURL: "https://greenbuggle.herokuapp.com/auth/facebook/callback"
+        passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
+
+    },
+    function(req, token, refreshToken, profile, done) {
+            // check if the user is already logged in
+                User.findOne({ 'facebook_id' : profile.id }, function(err, user) {
+                    if (err)
+                        return done(err);
+
+                    if (user) {
+
+                        // if there is a user id already but no token (user was linked at one point and then removed)
+                        if (!user.facebook.token) {
+                            name  = profile.name.givenName;
+                            user.save(function(err) {
+                                if (err)
+                                    return done(err);
+                                    
+                                return done(null, user);
+                            });
+                        }
+
+                        return done(null, user); // user found, return that user
+                    } else {
+                        // if there is no user, create them
+                        console.log("creating new user in database");
+                        var newUser            = new User();
+                        facebook_id    = profile.id;
+                        name  = profile.name.givenName;
+                       
+                        newUser.save(function(err) {
+                            if (err)
+                                return done(err);
+                                
+                            return done(null, newUser);
+                        });
+                    }
+                });
+
+  
+        });
+
+    }));
+
+
 
 console.log("setup the fb stuff successfully!");
 

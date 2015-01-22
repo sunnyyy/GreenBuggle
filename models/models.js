@@ -23,9 +23,7 @@ var tripSchema = mongoose.Schema({
 });
 
 var userSchema = mongoose.Schema({
-	id           : String,
-  token        : String,
-  email        : String,
+	facebook_id: String,
   name         : String
 });
 
