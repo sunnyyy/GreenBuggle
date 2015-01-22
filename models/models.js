@@ -14,11 +14,19 @@ mongoose.connection.on('disconnected', function () {
 
 // Define a schema: this gives us a structure for our data
 var tripSchema = mongoose.Schema({
+  person: String,
   origin: String,
   destination: String,
   method: String,
   carbon: Number,
   date: { type: Date, default: Date.now }
+});
+
+var userSchema = mongoose.Schema({
+	id           : String,
+  token        : String,
+  email        : String,
+  name         : String
 });
 
 // For more complex logic, methods go here
@@ -27,9 +35,11 @@ var tripSchema = mongoose.Schema({
 
 // We compile the schema into a model, which is actually a class we can do things on.
 var Trip = mongoose.model('Trip', tripSchema);
+var User = mongoose.model('User', userSchema);
 
 
 // Validators for our model. When we save or modify our model, these validators
 // get run. If they return false, an error happens.
 
 exports.Trip = Trip;
+exports.User = User;

@@ -14,7 +14,10 @@
     "debug": "~1.0.4",
     "ejs": "~0.8.5",
     "mongodb": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "method-override": ">= 2.0.2",
+    "passport": ">= 0.0.0",
+    "passport-facebook": ">= 0.0.0"
   },
   "description": "iap2015",
   "main": "app.js",
