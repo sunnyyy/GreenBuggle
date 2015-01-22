@@ -239,7 +239,7 @@ function mySubmit() {
     case "transit": 
     document.forms["myForm"]["carbonInput"].value = document.getElementById('rail').innerHTML;
     break;
-    case "walk": 0;
+    case "walking": 0;
     break;
     case "no": 0;
     break;
