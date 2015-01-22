@@ -88,7 +88,7 @@ passport.use(new FacebookStrategy({
             console.log('user is alredy registered!');
             return done(err);
         }
-        if (!insertUser) {
+        if (!models.User()) {
             var newUser = new models.User({
                 personName: profile.first_name,
                 facebook_id: profile.id
