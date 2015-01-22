@@ -34,9 +34,12 @@ router.get('/badges', function(req, res) {
 
 /* GET /past trips displays ONE past history ok*/
 router.get('/pastTrips', function(req, res) {
-  models.Trip.find({}, 'origin destination carbon method date', function ( err, results ){
-      if( err ) return handleError(err);
-      res.render('pastTrips', {db: results});
+  console.log("entered the past trips page");
+  models.Trip.find({}, 'origin destination carbon method date', function (err, results){
+    console.log("entered the find phase");
+    if( err ) return handleError(err);
+    console.log(results);
+    res.render('pastTrips', {db: results});
   });
 });
 
