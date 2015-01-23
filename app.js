@@ -43,7 +43,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('keyboard cat'));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({ secret: 'keyboard cat', resave: true}));
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: false}));
 app.use(methodOverride());
 
 
@@ -82,7 +82,7 @@ passport.deserializeUser(function(obj, done) {
         // asynchronous
         process.nextTick(function() {
                 models.User.findOne({ 'facebook_id' : profile.id }, function(err, user) {
-                    //req.session.userid = profile.id;  
+                    req.session.userid = profile.id;  
 
                     if (err)
                         return done(err);
