@@ -117,14 +117,10 @@ passport.deserializeUser(function(obj, done) {
         callbackURL: "https://greenbuggle.herokuapp.com/auth/facebook/callback"
 
     },
-    function(req, token, refreshToken, profile, done) {
+        function(req, token, refreshToken, profile, done) {
 
         // asynchronous
         process.nextTick(function() {
-
-            // check if the user is already logged in
-            if (!req.user) {
-                console.log("checking login");    
                 models.User.findOne({ 'facebook_id' : profile.id }, function(err, user) {
                     if (err)
                         return done(err);
@@ -132,7 +128,8 @@ passport.deserializeUser(function(obj, done) {
                     if (user) {
 
                         // if there is a user id already but no token (user was linked at one point and then removed)
-                        if (!user.facebook.token) {
+                        if (!user.facebook_id) {
+                            console.log("saving new person");
                             name  = profile.name.givenName;
                             user.save(function(err) {
                                 if (err)
@@ -145,11 +142,10 @@ passport.deserializeUser(function(obj, done) {
                         return done(null, user); // user found, return that user
                     } else {
                         // if there is no user, create them
-                        console.log("creating new user in database");
-                        var newUser          = new models.User();
-                        facebook_id    = profile.id;
-                        name  = profile.name.givenName;
-                       
+                        var newUser            = new models.User();
+
+                        newUser.facebook_id    = profile.id;
+                        newUser.name  = profile.name.givenName;
                         newUser.save(function(err) {
                             if (err)
                                 return done(err);
@@ -159,23 +155,6 @@ passport.deserializeUser(function(obj, done) {
                     }
                 });
 
-            } else {
-                // user already exists and is logged in, we have to link accounts
-                // var user            = req.user; // pull the user out of the session
-
-                // user.facebook.id    = profile.id;
-                // user.facebook.token = token;
-                // user.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
-                // user.facebook.email = (profile.emails[0].value || '').toLowerCase();
-
-                // user.save(function(err) {
-                //     if (err)
-                //         return done(err);
-                        
-                //     return done(null, user);
-                });
-
-            }
         });
 
     }));
