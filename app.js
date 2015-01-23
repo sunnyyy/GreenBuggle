@@ -126,7 +126,9 @@ passport.deserializeUser(function(obj, done) {
                         return done(err);
 
                     if (user) {
-
+                        req.session.userid=profile.id;
+                        console.log(profile.id);
+                        console.log("saving a id session to be accessed later");
                         // if there is a user id already but no token (user was linked at one point and then removed)
                         if (!user.facebook_id) {
                             console.log("saving new person");
