@@ -14,7 +14,7 @@ var session = require('express-session');
 
 console.log("creating the connection of doom"); // load up the user model var
 mongoose = require('mongoose');
-mongoose.connect('mongodb://heroku_app33376042:a44q25p2665td5s2pq0ojrjqrd@ds031651.mongolab.com:31651/heroku_app33376042');
+mongoose.connect('mongodb://heroku_app33430818:opd13h4g80ugutu7r6hp436b4c@ds031711.mongolab.com:31711/heroku_app33430818');
 
 var models = require('./models/models');
 console.log(models);

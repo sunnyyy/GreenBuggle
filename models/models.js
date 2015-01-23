@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.createConnection('mongodb://heroku_app33376042:a44q25p2665td5s2pq0ojrjqrd@ds031651.mongolab.com:31651/heroku_app33376042');
+mongoose.createConnection('mongodb://heroku_app33430818:opd13h4g80ugutu7r6hp436b4c@ds031711.mongolab.com:31711/heroku_app33430818');
 
 // Error handler
 mongoose.connection.on('error', function (err) {
@@ -8,7 +8,7 @@ mongoose.connection.on('error', function (err) {
 
 // Reconnect when closed
 mongoose.connection.on('disconnected', function () {
-  mongoose.connect('mongodb://heroku_app33376042:a44q25p2665td5s2pq0ojrjqrd@ds031651.mongolab.com:31651/heroku_app33376042');
+  mongoose.connect('mongodb://heroku_app33430818:opd13h4g80ugutu7r6hp436b4c@ds031711.mongolab.com:31711/heroku_app33430818');
 });
 
 
