@@ -41,9 +41,9 @@ app.use(favicon(__dirname + '/public/images/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser('keyboard cat'));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({ secret: 'keyboard cat', resave: true, }));
+app.use(session({ secret: 'keyboard cat', resave: true}));
 app.use(methodOverride());
 
 
@@ -122,13 +122,15 @@ passport.deserializeUser(function(obj, done) {
         // asynchronous
         process.nextTick(function() {
                 models.User.findOne({ 'facebook_id' : profile.id }, function(err, user) {
+                    req.session.userid = profile.id;  
+
                     if (err)
                         return done(err);
 
                     if (user) {
-                        req.session.userid=profile.id;
+                        // req.session.userid=profile.id;
                         console.log(profile.id);
-                        console.log("saving a id session to be accessed later");
+                        console.log("saving a id session to be as")
                         // if there is a user id already but no token (user was linked at one point and then removed)
                         if (!user.facebook_id) {
                             console.log("saving new person");

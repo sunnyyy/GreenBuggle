@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var session = require('express-session');
 
 
 // Import our models file to the router
