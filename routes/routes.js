@@ -29,7 +29,7 @@ router.get('/tripPlanner', function(req, res) {
 });
 
 /* GET /badges */
-router.get('/badges', function(req, res) {
+router.get('/badges', ensureAuthenticated, function(req, res) {
   res.render('badges', {});
 });
 
