@@ -82,7 +82,7 @@ passport.deserializeUser(function(obj, done) {
         // asynchronous
         process.nextTick(function() {
                 models.User.findOne({ 'facebook_id' : profile.id }, function(err, user) {
-                    req.session.userid = profile.id;  
+                    //req.session.userid = profile.id;  
 
                     if (err)
                         return done(err);
