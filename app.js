@@ -70,46 +70,6 @@ passport.deserializeUser(function(obj, done) {
 
 
 
-// Use the FacebookStrategy within Passport.
-//   Strategies in Passport require a `verify` function, which accept
-//   credentials (in this case, an accessToken, refreshToken, and Facebook
-//   profile), and invoke a callback with a user object.
-// passport.use(new FacebookStrategy({
-//     clientID: FACEBOOK_APP_ID,
-//     clientSecret: FACEBOOK_APP_SECRET,
-//     callbackURL: "https://greenbuggle.herokuapp.com/auth/facebook/callback"
-//   },
-//   function(accessToken, refreshToken, profile, done) {
-//     console.log('Now Check User');
-//     models.User.findOne({
-//         facebook_id: profile.id
-//     }, function(err, doc) {
-//         if (err) {
-//             console.log('user is alredy registered!');
-//             return done(err);
-//         }
-//         if (!models.User()) {
-//             var newUser = new models.User({
-//                 personName: profile.first_name,
-//                 facebook_id: profile.id
-//             });
-//             newUser.save(function(err) {
-//                 if (err) {
-//                     console.log(err);
-//                 } else {
-//                     console.log('Saved');
-//                 }
-//                 return done(err, doc);
-//             });
-//         } else {
-//             //found user. Return
-//             console.log('user is alredy registered!');
-//             return done(err, doc);
-//         }
-//     });
-// }
-// ));
-
  passport.use(new FacebookStrategy({
 
         clientID        : FACEBOOK_APP_ID,
@@ -128,9 +88,9 @@ passport.deserializeUser(function(obj, done) {
                         return done(err);
 
                     if (user) {
-                        // req.session.userid=profile.id;
+                        req.session.userid=profile.id;
                         console.log(profile.id);
-                        console.log("saving a id session to be as")
+                        console.log("saving a id session to be as");
                         // if there is a user id already but no token (user was linked at one point and then removed)
                         if (!user.facebook_id) {
                             console.log("saving new person");
