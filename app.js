@@ -49,9 +49,8 @@ app.use(methodOverride());
 
 
 /* Tell app to use routes file */
-var routes = require('./routes/routes');
-app.use('/', routes);
-// require('./routes/routes.js')(app, passport); 
+// var routes = require('./routes/routes');
+// app.use('/', routes);
 
 // Passport session setup.
 //   To support persistent login sessions, Passport needs to be able to
@@ -159,4 +158,6 @@ app.use(function(err, req, res, next) {
     });
 });
 
-module.exports = app;
+require('./routes/routes.js')(app, passport); 
+
+// module.exports = app;
