@@ -55,7 +55,7 @@ router.get('/pastTrips', function(req, res) {
 
 
 /* POST /pastTrips */
-router.post('/pastTrips', function(req, res) {
+router.post('/pastTrips', ensureAuthenticated, function(req, res) {
   // 1. read the submitted things
   if (req.body['transportation']!="no"){
   var newTrip = new models.Trip({
