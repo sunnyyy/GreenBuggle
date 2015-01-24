@@ -29,6 +29,7 @@ var FACEBOOK_APP_SECRET = "7118531d3c79e20622f75e7272b75406";
 var app = express();
 
 //intialize passport stuff
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: false}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -43,7 +44,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('keyboard cat'));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: false}));
 app.use(methodOverride());
 
 
