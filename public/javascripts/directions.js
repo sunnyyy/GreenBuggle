@@ -232,6 +232,7 @@ function hide_visibility(id) {
 function mySubmit() {
   document.forms["myForm"]["startInput"].value = document.getElementById('start').value;
   document.forms["myForm"]["endInput"].value = document.getElementById('dest').value;
+  document.forms["myForm"]["personName"].value = req.user.name;
 
   switch(document.forms["myForm"]["transportation"].value){
     case "car":
