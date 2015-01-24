@@ -56,7 +56,7 @@ router.post('/pastTrips', function(req, res) {
     destination: req.body['end'],
     method: req.body['transportation'],
     carbon: req.body['carbonValue'],
-    person: req.body['personName']
+    person: req.user.name
   });
   // 2. store it.
     newTrip.save(function(err, result) {
