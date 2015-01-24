@@ -19,6 +19,7 @@ router.get('/', function(req, res) {
 /* GET /choices */
 //for now: it's just one person and unpersonalized..
 router.get('/choices', function(req, res) {
+  console.log(req.user);
   res.render('choices', { user: req.user });
 });
 
