@@ -14,7 +14,7 @@ mongoose.connection.on('disconnected', function () {
 
 // Define a schema: this gives us a structure for our data
 var tripSchema = mongoose.Schema({
-  user: String,
+  person: String,
   origin: String,
   destination: String,
   method: String,
