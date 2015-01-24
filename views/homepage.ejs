@@ -53,12 +53,10 @@
         <h1>Hello!</h1>
         <h1><small>Welcome to GreenBuggle.</h1>
         <img src="/images/bugglelogo-blue.png" style="height:200px">
-        <% if (!user) { %>
           <h2>To start, please log in to Facebook.</h2>
           <a href="/auth/facebook"><img src="/images/login-with-facebook.png" width="154" height="22"></a>
-        <% } else { %>
-          <h2>Hello, <%= user.username %>.</h2>
-        <% } %>
+
+
         
         <a href="/choices">CLICK HERE FOR NOW</a>
         <p></p>
