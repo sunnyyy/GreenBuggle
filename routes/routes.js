@@ -13,7 +13,7 @@ mongoose.createConnection('mongodb://heroku_app33430818:opd13h4g80ugutu7r6hp436b
 
 /* GET / -- homepage */
 router.get('/', function(req, res) {
-  res.render('homepage', { user: req.user });
+  res.render('homepage', {});
 });
 
 /* GET /choices */
