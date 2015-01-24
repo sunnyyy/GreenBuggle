@@ -31,7 +31,13 @@ router.get('/tripPlanner', function(req, res) {
 
 /* GET /badges */
 router.get('/badges', function(req, res) {
-  res.render('badges', {user: req.user});
+  var currentUser = req.user.facebook_id;
+  models.Trip.find({personID: currentUser }, 'origin destination carbon method date', function (err, results){
+    console.log("entered the find phase");
+    if( err ) return handleError(err);
+    console.log(results);
+    res.render('badges', {db: results, user: req.user});
+  });
 });
 
 
