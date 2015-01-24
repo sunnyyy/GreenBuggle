@@ -26,12 +26,12 @@ router.get('/choices', function(req, res) {
 /* GET /tripPlanner */
 //allows the user to add a trip into their history after searching
 router.get('/tripPlanner', function(req, res) {
-  res.render('tripPlanner', {});
+  res.render('tripPlanner', {user: req.user});
 });
 
 /* GET /badges */
 router.get('/badges', function(req, res) {
-  res.render('badges', {});
+  res.render('badges', {user: req.user});
 });
 
 
@@ -42,7 +42,7 @@ router.get('/pastTrips', function(req, res) {
     console.log("entered the find phase");
     if( err ) return handleError(err);
     console.log(results);
-    res.render('pastTrips', {db: results});
+    res.render('pastTrips', {db: results, user: req.user});
   });
 });
 
