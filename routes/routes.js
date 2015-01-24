@@ -38,7 +38,8 @@ router.get('/badges', function(req, res) {
 /* GET /past trips displays ONE past history ok*/
 router.get('/pastTrips', function(req, res) {
   console.log("entered the past trips page");
-  models.Trip.find({}, 'origin destination carbon method date', function (err, results){
+  var currentUser = req.user.facebook_id);
+  models.Trip.find({personID: currentUser }, 'origin destination carbon method date', function (err, results){
     console.log("entered the find phase");
     if( err ) return handleError(err);
     console.log(results);
@@ -56,7 +57,7 @@ router.post('/pastTrips', function(req, res) {
     destination: req.body['end'],
     method: req.body['transportation'],
     carbon: req.body['carbonValue'],
-    person: req.user.name
+    personID: req.user.facebook_id
   });
   // 2. store it.
     newTrip.save(function(err, result) {
