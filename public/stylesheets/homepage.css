@@ -1,12 +1,12 @@
 .welcome, .aboutsection, .details {
-	min-height: 90vh;
-	/*margin-top: 0px;
-	margin-bottom: 0px;*/
+	min-height: 100vh;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 .welcome {
 	text-align: center;
 }
-.aboutsection {
+.aboutsection, .details {
 	color: #fff;
 }
 .aboutpara {
@@ -15,6 +15,6 @@
 .details > h1, .details > a {
 	color: #fff;
 }
-h2{
+h2, h4 {
     color:#06f;
 }

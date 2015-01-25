@@ -6,7 +6,6 @@ html, .jumbotron {
 	font-family: 'Michroma', sans-serif;
 	background: none;
 }
-
 .jumbotron > h1, .container > h1, .container > h1 > small  {
 	color: #093;
 	text-align: center;
@@ -14,7 +13,9 @@ html, .jumbotron {
 body {
 	padding-bottom: 0px;
 }
-
+a:link, a:hover, a:visited, a:active {
+	color: inherit;
+}
 .foot {
 	padding-top: 5px;
 	padding-bottom: 5px;
@@ -22,47 +23,9 @@ body {
 	color: #fff;
 	text-align: center;
 }
-
-.navbar {
-	font-family: 'Michroma', Verdana, sans-serif;
+h1, h5, h6 {
+	text-align: center;
 }
-
-#about{
-	height:25px;
-	position:relative;
-	float:left;
-	padding-left:20px;
-	padding-right:20px;
-	padding-top:18px;
-	padding-bottom:17px;
-	margin-left:0px;
-	margin-right:20px;
-	list-style-type: none;
-    color: #093;
-
-	transition-property: background-color;
-    transition-duration: 0.2s;
-    transition-timing-function: linear;
-}
-
-a.navlinks:link, a.navlinks:visited, a.navlinks:hover, a.navlinks:active {
-    text-decoration:none;
-}
-a.aboutlink:link, a.aboutlink:visited, a.aboutlink:hover, a.aboutlink:active {
-    color: #093;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-li {
-    float: left;
-}
-
 #aboutblurb {
 	line-height: 150%;
 	text-align: justify;
@@ -82,21 +45,11 @@ li {
 	color: #ccc;
 }
 
-#footer {
-	width:100%;
-	height:80px;
-	position:absolute;
-	bottom:0;
-	left:0;
-	background:#33ad5c;
-	color: #fff;
-	text-align: center;
-}
-
 /*-------------------------NAVBAR----------------------------*/
 .navbar-default {
 	background-color: #33ad5c;
 	border-color: #33ad5c;
+	font-family: 'Michroma', Verdana, sans-serif;
 }
 .navbar-default .navbar-brand {
 	color: #ffffff;
