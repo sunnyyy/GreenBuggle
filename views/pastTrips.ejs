@@ -54,7 +54,7 @@
           total = total + trip.carbon });%> kg of CO<sub>2</sub>.
       </h2>
 
-        <% if (db.count()==0){ %>
+        <% if (db.collection.count()==0){ %>
           No past trips!
         
         <% } else { %>
