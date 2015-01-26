@@ -110,7 +110,7 @@
             <input type='hidden' id= 'carbonInput' name='carbonValue' value= 0 />
             <input type='hidden' id= 'startInput' name='start' value='' />
             <input type='hidden' id= 'endInput' name='end' value='' />
-            <input class="btn btn-default" type="submit" value="I'll drive">
+            <input class="btn btn-default" type="submit" value="Submit">
           </form>
 
           <form class="inline" id="myFormTransit" action="/pastTrips" method="POST" onsubmit="return mySubmit()">
@@ -145,7 +145,7 @@
       <form id="myForm" action="/pastTrips" method="POST" onsubmit="return mySubmit()">
           <p class="buttons">
             <input type="radio" id="transportation" name="transportation" value="car" checked />I'll drive
-            <input type="radio" id="transportation" name="transportation" value="transit" />I'll take the transit
+            <input type="radio" id="transportation" name="transportation" value="transit" />I'll take transit
             <input type="radio" id="transportation" name="transportation" value="walking" />I'll walk
             <input type="radio" id="transportation" name="transportation" value="no" />I'm not going
             <input type='hidden' id= 'carbonInput' name='carbonValue' value= 0 />
