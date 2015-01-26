@@ -102,7 +102,45 @@
         -->
 
       </div>
+
+      <div id="travelChoice">
+
+          <form class="inline" id="myFormCar" action="/pastTrips" method="POST" onsubmit="return mySubmit()">
+            <input type='hidden' id="transportation" name="transportation" value="car">
+            <input type='hidden' id= 'carbonInput' name='carbonValue' value= 0 />
+            <input type='hidden' id= 'startInput' name='start' value='' />
+            <input type='hidden' id= 'endInput' name='end' value='' />
+            <input class="btn btn-default" type="submit" value="I'll drive">
+          </form>
+
+          <form class="inline" id="myFormTransit" action="/pastTrips" method="POST" onsubmit="return mySubmit()">
+            <input type='hidden' id="transportation" name="transportation" value="transit">
+            <input type='hidden' id= 'carbonInput' name='carbonValue' value= 0 />
+            <input type='hidden' id= 'startInput' name='start' value='' />
+            <input type='hidden' id= 'endInput' name='end' value='' />
+            <input class="btn btn-default" type="submit" value="I'll take transit">
+          </form>
+
+          <form class="inline" id="myFormWalk" action="/pastTrips" method="POST" onsubmit="return mySubmit()">
+            <input type='hidden' id="transportation" name="transportation" value="walking">
+            <input type='hidden' id= 'carbonInput' name='carbonValue' value= 0 />
+            <input type='hidden' id= 'startInput' name='start' value='' />
+            <input type='hidden' id= 'endInput' name='end' value='' />
+            <input class="btn btn-default" type="submit" value="I'll walk">
+          </form>
+
+          <form class="inline" id="myFormNo" action="/pastTrips" method="POST" onsubmit="return mySubmit()">
+            <input type='hidden' id="transportation" name="transportation" value="no">
+            <input type='hidden' id= 'carbonInput' name='carbonValue' value= 0 />
+            <input type='hidden' id= 'startInput' name='start' value='' />
+            <input type='hidden' id= 'endInput' name='end' value='' />
+            <input class="btn btn-danger" type="submit" value="I'm not going">
+          </form>
+
+        </div>
       
+
+      <!--
       <div id="travelChoice">
       <form id="myForm" action="/pastTrips" method="POST" onsubmit="return mySubmit()">
           <p class="buttons">
@@ -118,6 +156,7 @@
           <input type="submit" value="Submit">
         </form>
       </div>
+    -->
     
     </div> <!--close #container-->
 

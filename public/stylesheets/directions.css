@@ -101,3 +101,10 @@ div.tabContent.hide { display: none; }
 #travelChoice {
 	display: none;
 }
+
+.inline {
+	float:left;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.clearBoth { clear:both; }
