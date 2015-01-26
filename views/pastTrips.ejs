@@ -52,10 +52,15 @@
         <% var totalTrips = 0 %>
         <% db.forEach(function (trip){ 
           totalCarbon = totalCarbon + trip.carbon;
-          totalTrips = totalTrips + 1; }); %>
+          totalTrips = totalTrips + 1; }); 
+          if (totalTrips>0){ %>
       <h2>Of the <%=totalTrips %> trips you've taken, you've emitted
          <%=totalCarbon %> kg of CO<sub>2</sub>.
       </h2>
+      <% } else { %>
+      <h2>You have no past trips!
+      </h2>
+      <% } %>
 
                  
         <table class="trips">
