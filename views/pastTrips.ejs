@@ -48,10 +48,13 @@
 
     <div id="container" style="background:#fff;width:100%;position:absolute;">
       <h1>Past Trips</h1>
-      <h2>Of the <%=user.numberTrips%> trips you've taken, you've emitted
-        <% var total = 0 %>
+      <% var totalCarbon = 0 %>
+        <% var totalTrips = 0 %>
         <% db.forEach(function (trip){ 
-          total = total + trip.carbon }); %> <%=total%> kg of CO<sub>2</sub>.
+          totalCarbon = totalCarbon + trip.carbon;
+          totalTrips = totalTrips + 1; }); %>
+      <h2>Of the <%=totalTrips %> trips you've taken, you've emitted
+         <%=totalCarbon %> kg of CO<sub>2</sub>.
       </h2>
 
                  
