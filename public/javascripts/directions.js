@@ -111,32 +111,6 @@ function round(value, decimals) {
   return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
 
-function calcRoute() {
-  var start = document.getElementById('start').value;
-  var end = document.getElementById('dest').value;
-  var request={
-    origin: start,
-    destination: end,
-    travelMode: google.maps.TravelMode.TRANSIT
-  }
-  directionsService.route(request, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      buttonclick=true;
-      directionsDisplay.setDirections(response);
-      computeTotalDistance(directionsDisplay.getDirections());
-      show_visibility('travelOptions');
-      show_visibility2('bcirc_transit');
-    } else if(status=="ZERO_RESULTS"){
-      hide_visibility2('bcirc_transit');
-      calcRoute2(); // IMPORTANT!! SWITCHES TO CAR IF TRANSIT UNAVAILABLE
-    } else{
-      hide_visibility('travelOptions');
-      hide_visibility('travelChoice');
-      alert('Please enter both text fields correctly');
-    }
-  });
-}
-
 function calcRoute2() {
   var start = document.getElementById('start').value;
   var end = document.getElementById('dest').value;
@@ -163,6 +137,31 @@ function calcRoute2() {
   });
 }
 
+function calcRoute() {
+  var start = document.getElementById('start').value;
+  var end = document.getElementById('dest').value;
+  var request={
+    origin: start,
+    destination: end,
+    travelMode: google.maps.TravelMode.TRANSIT
+  }
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      buttonclick=true;
+      directionsDisplay.setDirections(response);
+      computeTotalDistance(directionsDisplay.getDirections());
+      show_visibility('travelOptions');
+      show_visibility2('bcirc_transit');
+    } else if(status=="ZERO_RESULTS"){
+      hide_visibility2('bcirc_transit');
+      calcRoute2(); // IMPORTANT!! SWITCHES TO CAR IF TRANSIT UNAVAILABLE
+    } else{
+      hide_visibility('travelOptions');
+      hide_visibility('travelChoice');
+      alert('Please enter both text fields correctly');
+    }
+  });
+}
 
 function train(){
   var start = document.getElementById('start').value;
@@ -177,10 +176,13 @@ function train(){
       show_visibility2('bcirc_transit');
       directionsDisplay.setDirections(response);
       //computeTotalDistance(directionsDisplay.getDirections());
-    } else if(status=="ZERO_RESULTS"){
+    }
+     else if(status=="ZERO_RESULTS"){
       hide_visibility2('bcirc_transit');
       alert('no route found');
-    } else{
+    }
+    
+    else{
       alert('Please enter both text fields correctly');
     }
   });
@@ -239,9 +241,9 @@ function computeTotalDistance(result) {
   carbon= (total/37)*8.7;
   railcar= total*.1;
   plane= total*.22;
-  document.getElementById('total').innerHTML = round(carbon,2);
-  document.getElementById('rail').innerHTML = round(railcar,2);
-  document.getElementById('flight').innerHTML = round(plane,2);
+  document.getElementById('total').innerHTML = round(carbon,2) + ' kg';
+  document.getElementById('rail').innerHTML = round(railcar,2) + ' kg';
+  document.getElementById('flight').innerHTML = round(plane,2) + ' kg';
 }
 
 
