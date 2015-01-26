@@ -55,7 +55,6 @@ div.tabContent.hide { display: none; }
 	width:960px;
 	height:300px;
 	border-radius:150px;
-	background: #f00;
 	margin-top:10%;
 	padding-left: auto;
 	padding-right: auto;
@@ -65,7 +64,6 @@ div.tabContent.hide { display: none; }
 	width:300px;
 	height:300px;
 	border-radius:150px;
-	background:#06c;
 	margin: auto 10px;
 	padding: 20px 10px;
 	position: relative;
@@ -81,12 +79,15 @@ div.tabContent.hide { display: none; }
 }
 #bcirc_car {
 	display:block;
+	background:#06c;
 }
 #bcirc_transit {
 	display:block;
+	background:#06c;
 }
 #bcirc_walk {
 	display:block;
+	background:#06c;
 }
 
 .jumbotron {

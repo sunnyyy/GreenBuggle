@@ -35,8 +35,6 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        
-        
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Welcome <%= user.name%>!<span class="caret"></span></a>
@@ -70,7 +68,7 @@
           <div id="directions-panel">
             <ul id="tabs" class="nav nav-pills">
               <li id='transli' role="presentation"><a href="#transit">Transit</a></li>
-              <li id='driveli' role="presentation"><a href="#car">Car</a></li>
+              <li id='driveli' role="presentation"><a href="#car">Driving</a></li>
               <li id='walkli' role="presentation"><a href="#walking">Walking</a></li>
             </ul>
           </div>
@@ -154,16 +152,16 @@
     <!-- 3 Circles Modal -->
     <div class="modal fade infoCircles" id="travelModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
-        <div class="modal-content" id='bcirc_car'>
-          <div class="circleText"><h3>If you <u>drove</u>,</h3>
-            <p>your CO<sub>2</sub> emissions<br>for this trip would be around</p>
-            <p><span id="total"></span></p>
-          </div>
-        </div>
         <div class="modal-content" id='bcirc_transit'>
           <div class="circleText"><h3>If you took <br><u>transit</u>,</h3>
             <p>your CO<sub>2</sub> emissions<br>for this trip would be around</p>
             <p><span id="rail"></span></p>
+          </div>
+        </div>
+        <div class="modal-content" id='bcirc_car'>
+          <div class="circleText"><h3>If you <u>drove</u>,</h3>
+            <p>your CO<sub>2</sub> emissions<br>for this trip would be around</p>
+            <p><span id="total"></span></p>
           </div>
         </div>
         <div class="modal-content" id='bcirc_walk'>
