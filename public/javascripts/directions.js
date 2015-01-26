@@ -260,8 +260,8 @@ function computeTotalDistance(result) {
     total += myroute.legs[i].distance.value;
   }
   total = total / 1000.0;
-  carbon= round((total/37)*8.7,2);
-  railcar= round(total*.1,2);
+  carbon= round((total/37)*8.7, 2);
+  railcar= round(total*.1, 2);
   //plane= total*.22;
   document.getElementById('total').innerHTML = carbon;
   document.getElementById('rail').innerHTML = railcar;
