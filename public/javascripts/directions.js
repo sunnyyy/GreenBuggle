@@ -230,6 +230,8 @@ function hide_visibility(id) {
 
 //Lilian's database passing
 function mySubmit(id) {
+
+
   document.forms[id]["startInput"].value = document.getElementById('start').value;
   document.forms[id]["endInput"].value = document.getElementById('dest').value;
 
