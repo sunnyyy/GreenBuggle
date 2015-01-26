@@ -54,7 +54,8 @@
           totalCarbon = totalCarbon + trip.carbon;
           totalTrips = totalTrips + 1; }); 
           if (totalTrips>0){ %>
-      <h2>Of the <%=totalTrips %> trips you've taken, you've emitted
+      <h2>Based on your <%=totalTrips %> <%if (totalTrips==1){ %>trip<%} else { %>
+        trips<%}%>, you emitted
          <%=totalCarbon %> kg of CO<sub>2</sub>.
       </h2>
       <% } else { %>
