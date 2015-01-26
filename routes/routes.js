@@ -41,7 +41,7 @@ router.get('/badges', isLoggedIn, function(req, res) {
     console.log("entered the find phase");
     if( err ) return handleError(err);
     function(error, results) {
-      var arrayToSendBack = [] // this might be populated with something else
+      var arrayToSendBack = []; // this might be populated with something else
       results.forEach(function(result) {
         arrayToSendBack.push(result);
       });
