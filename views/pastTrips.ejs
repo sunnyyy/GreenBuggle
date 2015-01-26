@@ -48,7 +48,7 @@
 
     <div id="container" style="background:#fff;width:100%;position:absolute;">
       <h1>Past Trips</h1>
-      <h2>Of the <%= db.collection.count('') %> trips you've taken, you've emitted 
+      <h2>Of the trips you've taken, you've emitted 
         <% var total = 0 %>
         <% db.forEach(function (trip){ 
           total = total + trip.carbon });%> kg of CO<sub>2</sub>.
