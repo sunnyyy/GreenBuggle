@@ -16,16 +16,17 @@ function init() {
     }
   }
   // Assign onclick events to the tab links, and
-
+    var i = 0;
   
   for ( var id in tabLinks ) {
     tabLinks[id].onclick = showTab;
     tabLinks[id].onfocus = function() { this.blur() };
+     if ( i == 0 ) tabLinks[id].className = 'selected'
     i++;
   }
 
   // Hide all content divs 
-
+ var i = 0;
   for ( var id in contentDivs ) {
     contentDivs[id].className = 'tabContent hide';
     i++;
