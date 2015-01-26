@@ -117,6 +117,32 @@ function calcRoute() {
   var request={
     origin: start,
     destination: end,
+    travelMode: google.maps.TravelMode.TRANSIT
+  }
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      buttonclick=true;
+      directionsDisplay.setDirections(response);
+      computeTotalDistance(directionsDisplay.getDirections());
+      show_visibility('travelOptions');
+      show_visibility2('bcirc_transit');
+    } else if(status=="ZERO_RESULTS"){
+      hide_visibility2('bcirc_transit');
+      calcRoute2(); // IMPORTANT!! SWITCHES TO CAR IF TRANSIT UNAVAILABLE
+    } else{
+      hide_visibility('travelOptions');
+      hide_visibility('travelChoice');
+      alert('Please enter both text fields correctly');
+    }
+  });
+}
+
+function calcRoute2() {
+  var start = document.getElementById('start').value;
+  var end = document.getElementById('dest').value;
+  var request={
+    origin: start,
+    destination: end,
     travelMode: google.maps.TravelMode.DRIVING
   }
   directionsService.route(request, function(response, status) {
@@ -124,7 +150,6 @@ function calcRoute() {
       buttonclick=true;
       directionsDisplay.setDirections(response);
       computeTotalDistance(directionsDisplay.getDirections());
-      document.getElementById('tabs').style.visibility="visible";
       show_visibility('travelOptions');
     } else if(status=="ZERO_RESULTS"){
       hide_visibility('travelOptions');
@@ -138,6 +163,7 @@ function calcRoute() {
   });
 }
 
+
 function train(){
   var start = document.getElementById('start').value;
   var end = document.getElementById('dest').value;
@@ -148,14 +174,13 @@ function train(){
    }
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
+      show_visibility2('bcirc_transit');
       directionsDisplay.setDirections(response);
       //computeTotalDistance(directionsDisplay.getDirections());
-    }
-     else if(status=="ZERO_RESULTS"){
+    } else if(status=="ZERO_RESULTS"){
+      hide_visibility2('bcirc_transit');
       alert('no route found');
-    }
-    
-    else{
+    } else{
       alert('Please enter both text fields correctly');
     }
   });
@@ -226,6 +251,14 @@ function show_visibility(id) {
 }
 function hide_visibility(id) {
   document.getElementById(id).style.display = 'none';
+}
+
+// code for displaying buttons
+function show_visibility2(id) {
+  document.getElementById(id).style.visibility = 'visible';
+}
+function hide_visibility2(id) {
+  document.getElementById(id).style.visibility = 'hidden';
 }
 
 //Lilian's database passing
