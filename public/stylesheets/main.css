@@ -26,15 +26,8 @@ a:link, a:hover, a:visited, a:active {
 h1, h5, h6 {
 	text-align: center;
 }
-#aboutblurb {
-	line-height: 150%;
-	text-align: justify;
-	font-size: 120%;
-	font-family: Verdana, sans-serif;
-	color: #333;
-}
-.abouttitle {
-	color: #093;
+.helptitle {
+	color: #d00;
 }
 .closebutton {
 	background-color: #093;
