@@ -51,7 +51,7 @@
       <h2>Of the trips you've taken, you've emitted 
         <% var total = 0 %>
         <% db.forEach(function (trip){ 
-          total = total + trip.carbon }); total%> kg of CO<sub>2</sub>.
+          total = total + trip.carbon }); document.write(total);%> kg of CO<sub>2</sub>.
       </h2>
 
                  
