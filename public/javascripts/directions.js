@@ -16,19 +16,18 @@ function init() {
     }
   }
   // Assign onclick events to the tab links, and
-  // highlight the first tab
-  var i = 0;
+
+  
   for ( var id in tabLinks ) {
     tabLinks[id].onclick = showTab;
     tabLinks[id].onfocus = function() { this.blur() };
-    if ( i == 0 ) tabLinks[id].className = 'selected';
     i++;
   }
 
-  // Hide all content divs except the first
-  var i = 0;
+  // Hide all content divs 
+
   for ( var id in contentDivs ) {
-    if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+    contentDivs[id].className = 'tabContent hide';
     i++;
   }
 }
