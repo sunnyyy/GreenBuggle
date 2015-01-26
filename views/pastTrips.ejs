@@ -53,7 +53,7 @@
         <% db.forEach(function (trip){ 
           totalCarbon = totalCarbon + trip.carbon;
           totalTrips = totalTrips + 1; }); 
-        totalCarbon = Math.round(totalCarbon * 100) / 100;
+          totalCarbon = Math.round(totalCarbon * 100) / 100;
           if (totalTrips>0){ %>
       <h2>Based on your <%=totalTrips %> <%if (totalTrips==1){ %>trip<%} else { %>
         trips<%}%>, you emitted

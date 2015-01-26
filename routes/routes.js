@@ -64,7 +64,7 @@ router.get('/pastTrips', isLoggedIn, function(req, res) {
 
 
 /* POST /pastTrips */
-router.post('/pastTrips', function(req, res) {
+router.post('/pastTrips', isLoggedIn, function(req, res) {
   // 1. read the submitted things
   console.log(req.body['transportation']);
   if (req.body['transportation']!="no"){
