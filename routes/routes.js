@@ -29,6 +29,11 @@ router.get('/tripPlanner', function(req, res) {
   res.render('tripPlanner', {user: req.user});
 });
 
+/* GET /FAQ*/
+router.get('/faqs', function(req, res) {
+  res.render('faqs', {user: req.user});
+});
+
 /* GET /badges */
 router.get('/badges', function(req, res) {
   var currentUser = req.user.facebook_id;
