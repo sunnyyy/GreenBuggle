@@ -68,7 +68,7 @@ router.post('/pastTrips', function(req, res) {
     var currentUser = req.user.facebook_id;
     models.User.find({personID: currentUser }, function (err, results){
       if( err ) return handleError(err);
-      result.update(
+      results.update(
         {$inc: {numberTrips:1}})
     })
     var newTrip = new models.Trip({
