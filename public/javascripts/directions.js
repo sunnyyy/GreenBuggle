@@ -284,24 +284,27 @@ function hide_visibility2(id) {
 }
 
 //Lilian's database passing
-function mySubmit() {
+function mySubmitCar() {
+  document.forms["myFormCar"]["startInput"].value = document.getElementById('start').value;
+  document.forms["myFormCar"]["endInput"].value = document.getElementById('dest').value;
+  document.forms["myFormCar"]["carbonInput"].value = document.getElementById('total').innerHTML;
+}
 
-
-  document.forms["myForm"]["startInput"].value = document.getElementById('start').value;
-  document.forms["myForm"]["endInput"].value = document.getElementById('dest').value;
-
-  switch(document.forms["myForm"]["transportation"].value){
-    case "car":
-    document.forms["myForm"]["carbonInput"].value = document.getElementById('total').innerHTML;
-    break;
-    case "transit": 
-    document.forms["myForm"]["carbonInput"].value = document.getElementById('rail').innerHTML;
-    break;
-    case "walking": 0;
-    break;
-    case "no": 0;
-    break;
+function mySubmitTransit() {
+  document.forms["myFormTransit"]["startInput"].value = document.getElementById('start').value;
+  document.forms["myFormTransit"]["endInput"].value = document.getElementById('dest').value;
+  document.forms["myFormTransit"]["carbonInput"].value = document.getElementById('rail').innerHTML;
+    
   }
+
+function mySubmitWalk() {
+  document.forms["myFormWalk"]["startInput"].value = document.getElementById('start').value;
+  document.forms["myFormWalk"]["endInput"].value = document.getElementById('dest').value;    
+  }
+
+
+
+
 
 }
 //Portions of this page are modifications based on work created and shared by Google 
