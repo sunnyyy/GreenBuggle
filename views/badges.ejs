@@ -55,9 +55,9 @@
         <% if (totalTrips>0) {%>
         <div class="medCircle" style="position:absolute; margin-top:275px; margin-left:205px;" data-toggle="modal" data-target=".bs-modal-sm-1"></div>
         <%} if (totalTrips>1) {%>
-        <div class="smallCircle" style="position:absolute; margin-top:220px; margin-left:322px;" data-toggle="modal" data-target=".bs-modal-sm-2"></div>
+        <div class="smallCircle" style="position:absolute; margin-top:220px; margin-left:322px;" data-toggle="modal" data-target=".bs-modal-sm-1"></div>
         <%} if (totalTrips>2) {%>
-        <div class="smallCircle" style="position:absolute; margin-top:250px; margin-left:385px;" data-toggle="modal" data-target=".bs-modal-sm-3"></div>
+        <div class="smallCircle" style="position:absolute; margin-top:250px; margin-left:385px;" data-toggle="modal" data-target=".bs-modal-sm-1"></div>
         <%} if (totalTrips>3) {%>
         <div class="medCircle" style="position:absolute; margin-top:150px; margin-left:330px;" data-toggle="modal" data-target=".bs-modal-sm-4"></div>
         <%} if (totalTrips>4) {%>
@@ -144,21 +144,22 @@
     </div>
 
     <!-- Small modals -->
-
+    <% db.forEach(function (trip){ %>
     <div class="modal fade bs-modal-sm-1" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title abouttitle" id="myModalLabel"><%=db.next().method %></h4>
+            <h4 class="modal-title abouttitle" id="myModalLabel"><%=trip.method %></h4>
           </div>
           <div class="modal-body">
-            <p>Hey there gorgeous ;)
+            <p> You travelled from <%= trip.origin.substr(0, trip.origin.indexOf(',')) %> to <%= trip.destination.substr(0, trip.destination.indexOf(',')) %> by <%= trip.method %>, and emitted <%= trip.carbon %> kg of CO<sub>2</sub>.
             </p>
           </div>
         </div>
       </div>
     </div>
+    <% }); %>
 
     <div class="modal fade bs-modal-sm-2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-sm">
