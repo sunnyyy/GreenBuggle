@@ -40,8 +40,12 @@ router.get('/badges', isLoggedIn, function(req, res) {
   models.Trip.find({personID: currentUser }, 'origin destination carbon method date', function (err, results){
     console.log("entered the find phase");
     if( err ) return handleError(err);
-    console.log(results);
-    res.render('badges', {db: results, user: req.user});
+    function(error, results) {
+      var arrayToSendBack = [] // this might be populated with something else
+      results.forEach(function(result) {
+        arrayToSendBack.push(result);
+      });
+    res.render('badges', {db: arrayToSendBack, user: req.user});
   });
 });
 
