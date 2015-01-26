@@ -54,9 +54,13 @@
           total = total + trip.carbon });%> kg of CO<sub>2</sub>.
       </h2>
 
-
+        <% if (db.count()==0){ %>
+          No past trips!
+        
+        <% } else { %>
+                 
         <table class="trips">
-         
+
          <% db.forEach(function (trip){ %>
          <tr class="default">
             <td class="date"><%= trip.date.getMonth()+1%>/<%= trip.date.getDate()%>/<%= trip.date.getFullYear()%></td>
@@ -65,6 +69,7 @@
           <tr class="spacing"></tr>
           <% }); %>
         </table>
+        <% } %>
 
         
 
