@@ -37,10 +37,8 @@ router.get('/faqs', function(req, res) {
 /* GET /badges */
 router.get('/badges', isLoggedIn, function(req, res) {
   var currentUser = req.user.facebook_id;
-  models.Trip.find({personID: currentUser }, 'origin destination carbon method date', function (err, results){
-    console.log("entered the find phase");
-    if( err ) return handleError(err);
-    function(error, results) {
+  models.Trip.find({personID: currentUser }, function(err, results) {
+      if( err ) return handleError(err);
       var arrayToSendBack = []; // this might be populated with something else
       results.forEach(function(result) {
         arrayToSendBack.push(result);
