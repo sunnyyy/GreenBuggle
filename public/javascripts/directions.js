@@ -190,10 +190,13 @@ function train(){
       document.getElementById('transli').className = 'active';
       document.getElementById('driveli').className = '';
       document.getElementById('walkli').className = '';
-    } else if(status=="ZERO_RESULTS"){
+    }
+     else if(status=="ZERO_RESULTS"){
       hide_visibility2('bcirc_transit');
       alert('no route found');
-    } else{
+    }
+    
+    else{
       alert('Please enter both text fields correctly');
     }
   });
@@ -250,17 +253,17 @@ function computeTotalDistance(result) {
   var myroute = result.routes[0];
   var carbon=0;
   var railcar=0;
-  var plane=0;
+  //var plane=0;
   for (var i = 0; i < myroute.legs.length; i++) {
     total += myroute.legs[i].distance.value;
   }
   total = total / 1000.0;
   carbon= (total/37)*8.7;
   railcar= total*.1;
-  plane= total*.22;
+  //plane= total*.22;
   document.getElementById('total').innerHTML = round(carbon,2) + ' kg';
   document.getElementById('rail').innerHTML = round(railcar,2) + ' kg';
-  document.getElementById('flight').innerHTML = round(plane,2) + ' kg';
+  //document.getElementById('flight').innerHTML = round(plane,2) + ' kg';
 }
 
 
