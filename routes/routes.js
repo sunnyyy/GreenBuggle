@@ -47,7 +47,7 @@ router.get('/badges', function(req, res) {
 
 
 /* GET /past trips displays ONE past history ok*/
-router.get('/pastTrips', function(req, res) {
+router.get('/pastTrips', isLoggedIn, function(req, res) {
   console.log("entered the past trips page");
   var currentUser = req.user.facebook_id;
   models.Trip.find({personID: currentUser }, 'origin destination carbon method date', function (err, results){
@@ -60,7 +60,7 @@ router.get('/pastTrips', function(req, res) {
 
 
 /* POST /pastTrips */
-router.post('/pastTrips', isLoggedIn, function(req, res) {
+router.post('/pastTrips', function(req, res) {
   // 1. read the submitted things
   console.log(req.body['transportation']);
   if (req.body['transportation']!="no"){
