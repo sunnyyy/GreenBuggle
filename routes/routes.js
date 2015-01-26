@@ -60,9 +60,11 @@ router.get('/pastTrips', function(req, res) {
 
 
 /* POST /pastTrips */
-router.post('/pastTrips', ensureAuthenticated, function(req, res) {
+router.post('/pastTrips', isLoggedIn, function(req, res) {
   // 1. read the submitted things
+  console.log(req.body['transportation']);
   if (req.body['transportation']!="no"){
+    console.log(req.body['start']);
   var newTrip = new models.Trip({
     origin: req.body['start'],
     destination: req.body['end'],
@@ -152,10 +154,12 @@ router.use(function(req, res, next){
 //   the request is authenticated (typically via a persistent login session),
 //   the request will proceed.  Otherwise, the user will be redirected to the
 //   homepage to login.
-function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) { return next(); }
-  res.redirect('/')
-};
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated())
+    return next();
+
+  res.redirect('/');
+}
 
 
 module.exports = router;
