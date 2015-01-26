@@ -46,7 +46,7 @@ router.get('/badges', function(req, res) {
 });
 
 
-/* GET /past trips displays ONE past history ok*/
+/* GET /past trips displays the past trips of the user*/
 router.get('/pastTrips', isLoggedIn, function(req, res) {
   console.log("entered the past trips page");
   var currentUser = req.user.facebook_id;
@@ -157,8 +157,8 @@ router.use(function(req, res, next){
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated())
     return next();
-
-  res.redirect('/');
+  else
+    res.redirect('/');
 }
 
 
