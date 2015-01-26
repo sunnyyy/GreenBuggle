@@ -24,8 +24,7 @@ var tripSchema = mongoose.Schema({
 
 var userSchema = mongoose.Schema({
 	facebook_id: String,
-  name: String,
-  numberTrips: { type: Number, default: 0 }
+  name         : String
 });
 
 // For more complex logic, methods go here

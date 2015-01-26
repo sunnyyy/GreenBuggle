@@ -18,14 +18,14 @@ router.get('/', function(req, res) {
 
 /* GET /choices */
 //for now: it's just one person and unpersonalized..
-router.get('/choices', function(req, res) {
+router.get('/choices', isLoggedIn, function(req, res) {
   console.log(req.user);
   res.render('choices', { user: req.user });
 });
 
 /* GET /tripPlanner */
 //allows the user to add a trip into their history after searching
-router.get('/tripPlanner', function(req, res) {
+router.get('/tripPlanner', isLoggedIn, function(req, res) {
   res.render('tripPlanner', {user: req.user});
 });
 
@@ -35,7 +35,7 @@ router.get('/faqs', function(req, res) {
 });
 
 /* GET /badges */
-router.get('/badges', function(req, res) {
+router.get('/badges', isLoggedIn, function(req, res) {
   var currentUser = req.user.facebook_id;
   models.Trip.find({personID: currentUser }, 'origin destination carbon method date', function (err, results){
     console.log("entered the find phase");
@@ -64,19 +64,13 @@ router.post('/pastTrips', function(req, res) {
   // 1. read the submitted things
   console.log(req.body['transportation']);
   if (req.body['transportation']!="no"){
-    //increments the number of trips the user has taken
-    var currentUser = req.user.facebook_id;
-    models.User.find({personID: currentUser }, function (err, results){
-      if( err ) return handleError(err);
-      results.update(
-        {$inc: {numberTrips:1}})
-    })
-    var newTrip = new models.Trip({
-      origin: req.body['start'],
-      destination: req.body['end'],
-      method: req.body['transportation'],
-      carbon: req.body['carbonValue'],
-      personID: currentUser
+    console.log(req.body['start']);
+  var newTrip = new models.Trip({
+    origin: req.body['start'],
+    destination: req.body['end'],
+    method: req.body['transportation'],
+    carbon: req.body['carbonValue'],
+    personID: req.user.facebook_id
   });
   // 2. store it.
     newTrip.save(function(err, result) {
