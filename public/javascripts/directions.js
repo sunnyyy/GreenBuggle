@@ -130,11 +130,13 @@ function calcRoute() {
       computeTotalDistance(directionsDisplay.getDirections());
       show_visibility('travelOptions');
       show_visibility2('bcirc_transit');
+      enable_transit();
       document.getElementById('transli').className = 'active';
       document.getElementById('driveli').className = '';
       document.getElementById('walkli').className = '';
     } else if(status=="ZERO_RESULTS"){
       hide_visibility2('bcirc_transit');
+      disable_transit();
       calcRoute2(); // IMPORTANT!! SWITCHES TO CAR IF TRANSIT UNAVAILABLE
     } else{
       hide_visibility('travelOptions');
@@ -275,12 +277,20 @@ function hide_visibility(id) {
   document.getElementById(id).style.display = 'none';
 }
 
-// code for displaying buttons
+// code for displaying circles
 function show_visibility2(id) {
   document.getElementById(id).style.visibility = 'visible';
 }
 function hide_visibility2(id) {
   document.getElementById(id).style.visibility = 'hidden';
+}
+
+// code for disabling transit button
+function disable_transit() {
+  document.getElementById('transitButton').disabled = 'disabled';
+}
+function enable_transit() {
+  document.getElementById('transitButton').disabled = '';
 }
 
 //Lilian's database passing
@@ -294,13 +304,12 @@ function mySubmitTransit() {
   document.forms["myFormTransit"]["startInput"].value = document.getElementById('start').value;
   document.forms["myFormTransit"]["endInput"].value = document.getElementById('dest').value;
   document.forms["myFormTransit"]["carbonInput"].value = document.getElementById('rail').innerHTML;
-    
-  }
+}
 
 function mySubmitWalk() {
   document.forms["myFormWalk"]["startInput"].value = document.getElementById('start').value;
   document.forms["myFormWalk"]["endInput"].value = document.getElementById('dest').value;    
-  }
+}
 
 
 
