@@ -42,11 +42,12 @@
 	  width: auto;
 	}
 }
-ul#tabs { list-style-type: none; margin: 30px 0 0 0; padding: 0 0 0.3em 0;visibility:hidden; }
+/*
+ul#tabs { list-style-type: none; margin: 30px 0 0 0; padding: 0 0 0.3em 0; }
 ul#tabs li { display: inline; }
 ul#tabs li a { color: #42454a; background-color: #dedbde; border: 1px solid #c9c3ba; border-bottom: none; padding: 0.3em; text-decoration: none; }
 ul#tabs li a:hover { background-color: #f1f0ee; }
-ul#tabs li a.selected { color: #000; background-color: #f1f0ee; font-weight: bold; padding: 0.7em 0.3em 0.38em 0.3em; }
+ul#tabs li a.selected { color: #000; background-color: #f1f0ee; font-weight: bold; padding: 0.7em 0.3em 0.38em 0.3em; } */
 div.tabContent.hide { display: none; }
 
 .modal-dialog {
@@ -54,18 +55,15 @@ div.tabContent.hide { display: none; }
 	width:960px;
 	height:300px;
 	border-radius:150px;
-	background: #f00;
 	margin-top:10%;
 	padding-left: auto;
 	padding-right: auto;
 }
 /*blue circles*/
 .modal-content {
-	display:block;
 	width:300px;
 	height:300px;
 	border-radius:150px;
-	background:#06c;
 	margin: auto 10px;
 	padding: 20px 10px;
 	position: relative;
@@ -78,6 +76,18 @@ div.tabContent.hide { display: none; }
 	color:#fff;
 	text-align:center;
 	text-decoration:none;
+}
+#bcirc_car {
+	display:block;
+	background:#06c;
+}
+#bcirc_transit {
+	display:block;
+	background:#06c;
+}
+#bcirc_walk {
+	display:block;
+	background:#06c;
 }
 
 .jumbotron {
@@ -97,9 +107,14 @@ div.tabContent.hide { display: none; }
 
 #travelOptions {
 	display: none;
+	font-family: 'Michroma', sans-serif;
 }
 #travelChoice {
 	display: none;
+	padding-left: auto;
+	padding-right: auto;
+	text-align: center;
+	font-family: 'Michroma', sans-serif;
 }
 
 .inline {
@@ -107,4 +122,6 @@ div.tabContent.hide { display: none; }
 	margin-left: 10px;
 	margin-right: 10px;
 }
-.clearBoth { clear:both; }
+.clearBoth {
+	clear:both;
+}

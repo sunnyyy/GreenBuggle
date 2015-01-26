@@ -9,7 +9,6 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/directions.css" />
 
-    <!--DO WE NEED THIS ONE--><!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>-->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -36,10 +35,6 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li data-toggle="modal" data-target="#myModal"><a href="#">About</a></li>
-        </ul>
-        
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Welcome <%= user.name%>!<span class="caret"></span></a>
@@ -71,10 +66,10 @@
 
         <div class='col-md-3'>
           <div id="directions-panel">
-            <ul id="tabs">
-              <li><a href="#car">Car</a></li>
-              <li><a href="#transit">Transit</a></li>
-              <li><a href="#walking">Walking</a></li>
+            <ul id="tabs" class="nav nav-pills">
+              <li id='transli' role="presentation"><a href="#transit">Transit</a></li>
+              <li id='driveli' role="presentation"><a href="#car">Driving</a></li>
+              <li id='walkli' role="presentation"><a href="#walking">Walking</a></li>
             </ul>
           </div>
         </div>
@@ -86,100 +81,94 @@
       <div id="shiftleft">
         <div id="travelOptions">
           <p class="buttons">
-            <button type="button" onclick="show_visibility('travelChoice');" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#travelModal">
+            <button type="button" onclick="show_visibility('travelChoice');" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#travelModal">
               Explore your green options
             </button>
           </p>
         </div>
-
-        <!--
-          <p class="buttons">
-            <button type="button" class="btn btn-default">I'll drive</button>
-            <button type="button" class="btn btn-default">I'll take transit</button>
-            <button type="button" class="btn btn-default">I'll walk</button>
-            <button type="button" class="btn btn-danger btn-default">I'm not going</button>
-          </p>
-        -->
-
       </div>
 
-      <div id="travelChoice">
+        
+      <div class='row'>
+        <div class='col-md-3'></div>
+        <div class='col-md-6'>
+        
+          <div id="travelChoice">
+            <form class="inline" id="myFormCar" action="/pastTrips" method="POST" onsubmit="return mySubmit()">
+              <input type='hidden' id="transportation" name="transportation" value="car">
+              <input type='hidden' id= 'carbonInput' name='carbonValue' value= 0 />
+              <input type='hidden' id= 'startInput' name='start' value='' />
+              <input type='hidden' id= 'endInput' name='end' value='' />
+              <input class="btn btn-default" type="submit" value="I'll drive">
+            </form>
 
-          <form class="inline" id="myFormCar" action="/pastTrips" method="POST" onsubmit="return mySubmit()">
-            <input type='hidden' id="transportation" name="transportation" value="car">
-            <input type='hidden' id= 'carbonInput' name='carbonValue' value= 0 />
-            <input type='hidden' id= 'startInput' name='start' value='' />
-            <input type='hidden' id= 'endInput' name='end' value='' />
-            <input class="btn btn-default" type="submit" value="I'll drive">
-          </form>
+            <form class="inline" id="myFormTransit" action="/pastTrips" method="POST" onsubmit="return mySubmit()">
+              <input type='hidden' id="transportation" name="transportation" value="transit">
+              <input type='hidden' id= 'carbonInput' name='carbonValue' value= 0 />
+              <input type='hidden' id= 'startInput' name='start' value='' />
+              <input type='hidden' id= 'endInput' name='end' value='' />
+              <input class="btn btn-default" type="submit" value="I'll take transit">
+            </form>
 
-          <form class="inline" id="myFormTransit" action="/pastTrips" method="POST" onsubmit="return mySubmit()">
-            <input type='hidden' id="transportation" name="transportation" value="transit">
-            <input type='hidden' id= 'carbonInput' name='carbonValue' value= 0 />
-            <input type='hidden' id= 'startInput' name='start' value='' />
-            <input type='hidden' id= 'endInput' name='end' value='' />
-            <input class="btn btn-default" type="submit" value="I'll take transit">
-          </form>
+            <form class="inline" id="myFormWalk" action="/pastTrips" method="POST" onsubmit="return mySubmit()">
+              <input type='hidden' id="transportation" name="transportation" value="walking">
+              <input type='hidden' id= 'carbonInput' name='carbonValue' value= 0 />
+              <input type='hidden' id= 'startInput' name='start' value='' />
+              <input type='hidden' id= 'endInput' name='end' value='' />
+              <input class="btn btn-default" type="submit" value="I'll walk">
+            </form>
 
-          <form class="inline" id="myFormWalk" action="/pastTrips" method="POST" onsubmit="return mySubmit()">
-            <input type='hidden' id="transportation" name="transportation" value="walking">
-            <input type='hidden' id= 'carbonInput' name='carbonValue' value= 0 />
-            <input type='hidden' id= 'startInput' name='start' value='' />
-            <input type='hidden' id= 'endInput' name='end' value='' />
-            <input class="btn btn-default" type="submit" value="I'll walk">
-          </form>
-
-          <form class="inline" id="myFormNo" action="/pastTrips" method="POST" onsubmit="return mySubmit()">
-            <input type='hidden' id="transportation" name="transportation" value="no">
-            <input type='hidden' id= 'carbonInput' name='carbonValue' value= 0 />
-            <input type='hidden' id= 'startInput' name='start' value='' />
-            <input type='hidden' id= 'endInput' name='end' value='' />
-            <input class="btn btn-danger" type="submit" value="I'm not going">
-          </form>
+            <form class="inline" id="myFormNo" action="/pastTrips" method="POST" onsubmit="return mySubmit()">
+              <input type='hidden' id="transportation" name="transportation" value="no">
+              <input type='hidden' id= 'carbonInput' name='carbonValue' value= 0 />
+              <input type='hidden' id= 'startInput' name='start' value='' />
+              <input type='hidden' id= 'endInput' name='end' value='' />
+              <input class="btn btn-danger" type="submit" value="I'm not going">
+            </form>
+          </div>
+          <br class="clearBoth" />
+        
 
         </div>
-      
-
+        <div class='col-md-3'></div>
+      </div>
       <!--
-      <div id="travelChoice">
-      <form id="myForm" action="/pastTrips" method="POST" onsubmit="return mySubmit()">
-          <p class="buttons">
-            <input type="radio" id="transportation" name="transportation" value="car" checked />I'll drive
-            <input type="radio" id="transportation" name="transportation" value="transit" />I'll take transit
-            <input type="radio" id="transportation" name="transportation" value="walking" />I'll walk
-            <input type="radio" id="transportation" name="transportation" value="no" />I'm not going
-            <input type='hidden' id= 'carbonInput' name='carbonValue' value= 0 />
-            <input type='hidden' id= 'startInput' name='start' value='' />
-            <input type='hidden' id= 'endInput' name='end' value='' />
-
-          </p>
-          <input type="submit" value="Submit">
-        </form>
+      <div>
+      <form id="myForm" action="triphistory.html" method="POST" onsubmit="return mySubmit()">
+        <input type="radio" id="transportation" name="transportation" value="drive" checked />I'll drive</input>
+        <input type="radio" id="transportation" name="transportation" value="transit" />I'll take the transit
+        <input type="radio" id="transportation" name="transportation" value="walk" />I'll walk
+        <input type="radio" id="transportation" name="transportation" value="no" />I'm not going
+        <input type='hidden' id= 'carbonInput' name='carbon' value=14 />
+        <input type='hidden' id= 'startInput' name='start' value='' />
+        <input type='hidden' id= 'endInput' name='end' value='' />
+        <input type="submit" value="Submit">
+      </form>
       </div>
     -->
     
     </div> <!--close #container-->
 
 
-    <!-- Modal -->
+    <!-- 3 Circles Modal -->
     <div class="modal fade infoCircles" id="travelModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="circleText"><h3>If you <u>drove</u>,</h3>
-            <p>your CO<sub>2</sub> emissions<br>for this trip would be around</p>
-            <p><span id="total"></span>kg</p>
-          </div>
-        </div>
-        <div class="modal-content">
+        <div class="modal-content" id='bcirc_transit'>
           <div class="circleText"><h3>If you took <br><u>transit</u>,</h3>
             <p>your CO<sub>2</sub> emissions<br>for this trip would be around</p>
-            <p><span id="rail"></span>kg</p>
+            <p><span id="rail"></span></p>
           </div>
         </div>
-        <div class="modal-content">
-          <div class="circleText"><h3>If you <u>flew</u>,</h3>
+        <div class="modal-content" id='bcirc_car'>
+          <div class="circleText"><h3>If you <u>drove</u>,</h3>
             <p>your CO<sub>2</sub> emissions<br>for this trip would be around</p>
-            <p><span id="flight"></span>kg</p>
+            <p><span id="total"></span></p>
+          </div>
+        </div>
+        <div class="modal-content" id='bcirc_walk'>
+          <div class="circleText"><h3>If you <u>walked</u>,</h3>
+            <p>your CO<sub>2</sub> emissions<br>for this trip would be</p>
+            <p>0 kg</p>
           </div>
         </div>
       </div>

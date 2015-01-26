@@ -16,19 +16,18 @@ function init() {
     }
   }
   // Assign onclick events to the tab links, and
-  // highlight the first tab
-  var i = 0;
+    var i = 0;
+  
   for ( var id in tabLinks ) {
     tabLinks[id].onclick = showTab;
     tabLinks[id].onfocus = function() { this.blur() };
-    if ( i == 0 ) tabLinks[id].className = 'selected';
     i++;
   }
 
-  // Hide all content divs except the first
-  var i = 0;
+  // Hide all content divs 
+ var i = 0;
   for ( var id in contentDivs ) {
-    if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+    contentDivs[id].className = 'tabContent hide';
     i++;
   }
 }
@@ -38,13 +37,17 @@ function showTab() {
   var selectedId = getHash( this.getAttribute('href') );
     if (selectedId=="transit"){
       train();
+      
     }
     if (selectedId=="car"){
       car();
+      
     }
     if (selectedId=="walking"){
       walking();
+      
     }
+    /*
     // Highlight the selected tab, and dim all others.
     // Also show the selected content div, and hide all others.
     for ( var id in contentDivs ) {
@@ -56,7 +59,7 @@ function showTab() {
         tabLinks[id].className = '';
         contentDivs[id].className = 'tabContent hide';
       }
-    }
+    } */
     // Stop the browser following the link
     return false;
   } else{
@@ -111,7 +114,38 @@ function round(value, decimals) {
   return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
 
+// CALCULATES TRANSIT ROUTE AT BEGINNING
 function calcRoute() {
+  var start = document.getElementById('start').value;
+  var end = document.getElementById('dest').value;
+  var request={
+    origin: start,
+    destination: end,
+    travelMode: google.maps.TravelMode.TRANSIT
+  }
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      buttonclick=true;
+      directionsDisplay.setDirections(response);
+      computeTotalDistance(directionsDisplay.getDirections());
+      show_visibility('travelOptions');
+      show_visibility2('bcirc_transit');
+      document.getElementById('transli').className = 'active';
+      document.getElementById('driveli').className = '';
+      document.getElementById('walkli').className = '';
+    } else if(status=="ZERO_RESULTS"){
+      hide_visibility2('bcirc_transit');
+      calcRoute2(); // IMPORTANT!! SWITCHES TO CAR IF TRANSIT UNAVAILABLE
+    } else{
+      hide_visibility('travelOptions');
+      hide_visibility('travelChoice');
+      alert('Please enter both text fields correctly');
+    }
+  });
+}
+
+// DEFAULTS TO CAR ROUTE IF TRANSIT UNAVAILABLE
+function calcRoute2() {
   var start = document.getElementById('start').value;
   var end = document.getElementById('dest').value;
   var request={
@@ -124,8 +158,10 @@ function calcRoute() {
       buttonclick=true;
       directionsDisplay.setDirections(response);
       computeTotalDistance(directionsDisplay.getDirections());
-      document.getElementById('tabs').style.visibility="visible";
       show_visibility('travelOptions');
+      document.getElementById('transli').className = '';
+      document.getElementById('driveli').className = 'active';
+      document.getElementById('walkli').className = '';
     } else if(status=="ZERO_RESULTS"){
       hide_visibility('travelOptions');
       hide_visibility('travelChoice');
@@ -148,10 +184,15 @@ function train(){
    }
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
+      show_visibility2('bcirc_transit');
       directionsDisplay.setDirections(response);
       //computeTotalDistance(directionsDisplay.getDirections());
+      document.getElementById('transli').className = 'active';
+      document.getElementById('driveli').className = '';
+      document.getElementById('walkli').className = '';
     }
      else if(status=="ZERO_RESULTS"){
+      hide_visibility2('bcirc_transit');
       alert('no route found');
     }
     
@@ -173,6 +214,9 @@ function car(){
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
       //computeTotalDistance(directionsDisplay.getDirections());
+      document.getElementById('transli').className = '';
+      document.getElementById('driveli').className = 'active';
+      document.getElementById('walkli').className = '';
     } else if (status=="ZERO_RESULTS"){
       alert('no route found');
     } else{
@@ -193,6 +237,9 @@ function walking(){
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
       //computeTotalDistance(directionsDisplay.getDirections());
+      document.getElementById('transli').className = '';
+      document.getElementById('driveli').className = '';
+      document.getElementById('walkli').className = 'active';
     } else if (status=="ZERO_RESULTS"){
       alert('no route found');
     } else{
@@ -206,17 +253,17 @@ function computeTotalDistance(result) {
   var myroute = result.routes[0];
   var carbon=0;
   var railcar=0;
-  var plane=0;
+  //var plane=0;
   for (var i = 0; i < myroute.legs.length; i++) {
     total += myroute.legs[i].distance.value;
   }
   total = total / 1000.0;
   carbon= (total/37)*8.7;
   railcar= total*.1;
-  plane= total*.22;
-  document.getElementById('total').innerHTML = round(carbon,2);
-  document.getElementById('rail').innerHTML = round(railcar,2);
-  document.getElementById('flight').innerHTML = round(plane,2);
+  //plane= total*.22;
+  document.getElementById('total').innerHTML = round(carbon,2) + ' kg';
+  document.getElementById('rail').innerHTML = round(railcar,2) + ' kg';
+  //document.getElementById('flight').innerHTML = round(plane,2) + ' kg';
 }
 
 
@@ -226,6 +273,14 @@ function show_visibility(id) {
 }
 function hide_visibility(id) {
   document.getElementById(id).style.display = 'none';
+}
+
+// code for displaying buttons
+function show_visibility2(id) {
+  document.getElementById(id).style.visibility = 'visible';
+}
+function hide_visibility2(id) {
+  document.getElementById(id).style.visibility = 'hidden';
 }
 
 //Lilian's database passing
