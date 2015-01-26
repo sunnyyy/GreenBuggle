@@ -31,7 +31,7 @@ router.get('/tripPlanner', function(req, res) {
 
 /* GET /FAQ*/
 router.get('/faqs', function(req, res) {
-  res.render('faqs', {user: req.user});
+  res.render('faqs', {});
 });
 
 /* GET /badges */
