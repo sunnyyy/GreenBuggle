@@ -64,13 +64,19 @@ router.post('/pastTrips', function(req, res) {
   // 1. read the submitted things
   console.log(req.body['transportation']);
   if (req.body['transportation']!="no"){
-    console.log(req.body['start']);
-  var newTrip = new models.Trip({
-    origin: req.body['start'],
-    destination: req.body['end'],
-    method: req.body['transportation'],
-    carbon: req.body['carbonValue'],
-    personID: req.user.facebook_id
+    //increments the number of trips the user has taken
+    var currentUser = req.user.facebook_id;
+    models.User.find({personID: currentUser }, function (err, results){
+      if( err ) return handleError(err);
+      result.update(
+        {$inc: {numberTrips:1}})
+    })
+    var newTrip = new models.Trip({
+      origin: req.body['start'],
+      destination: req.body['end'],
+      method: req.body['transportation'],
+      carbon: req.body['carbonValue'],
+      personID: currentUser
   });
   // 2. store it.
     newTrip.save(function(err, result) {
