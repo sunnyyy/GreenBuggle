@@ -296,7 +296,7 @@ function allTimes(){
     travelMode: google.maps.TravelMode.WALKING
   }
   turnGreen(rtime, ctime, wtime);
-  
+
   directionsService.route(cartime, function(response,status){
     ctime=computeTotalTime(response);
     document.getElementById('dtime').innerHTML=convertTime(ctime);
@@ -347,7 +347,7 @@ function convertTime(secs) {
 }
 
 function turnGreen(t, c, w) { //takes in seconds as parameters
-  if (w <= 1800) {
+  /*if (w <= 1800) {
     //walk is green
     document.getElementById('bcirc_car').style.background = '#06c';
     document.getElementById('bcirc_transit').style.background = '#06c';
@@ -357,12 +357,12 @@ function turnGreen(t, c, w) { //takes in seconds as parameters
     document.getElementById('bcirc_car').style.background = '#06c';
     document.getElementById('bcirc_transit').style.background = '#093';
     document.getElementById('bcirc_walk').style.background = '#06c';
-  } else {
+  } else { */
     //car is green bc it's the most reasonable
     document.getElementById('bcirc_car').style.background = '#093';
     document.getElementById('bcirc_transit').style.background = '#06c';
     document.getElementById('bcirc_walk').style.background = '#06c';
-  }
+  //}
 }
 
 //-----------------------------------------------------------------------------
