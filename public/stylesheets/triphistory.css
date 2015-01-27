@@ -3,17 +3,16 @@ h1, h3{
 }
 h2, h4{
     color:#06f;
+    text-align: center;
 }
 h1, h2, h3, h4 {
     font-family: 'Michroma', Verdana, sans-serif;
 }
 
 .trips {
-	width: 80%;
+	width: 100%;
 	border-bottom: 3px solid;
 	text-align: left;
-	margin-left: auto;
-	margin-right: auto;
 }
 .default {
 }
