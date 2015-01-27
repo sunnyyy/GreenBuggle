@@ -140,18 +140,13 @@ function callback(response, status) {
       
       for (var j = 0; j < results.length; j++) {
       	if(results[j].status=='OK'){
-      	if (j==0){
-      		railtime=results[j].duration;
-      	}
-        if(j==1){
-            cartime=results[j].duration;
-        }
-        if(j==2){
-        	walkingtime=results[j].duration;
-        }
+      	if (j==0){railtime=results[j].duration;}
+        if(j==1){cartime=results[j].duration;}
+        if(j==2){walkingtime=results[j].duration;}
         }
     }
       }
+}
 
 // CALCULATES TRANSIT ROUTE AT BEGINNING
 function calcRoute() {
