@@ -251,6 +251,10 @@ function computeTotalDistance(result) {
 
 //-----------------------------------------------------------------------------
 // function to calculate travel times
+var d;
+var t;
+var w;
+
 function allTimes(){
  var start = document.getElementById('start').value;
   var end = document.getElementById('dest').value;
@@ -275,18 +279,21 @@ function allTimes(){
 
   directionsService.route(cartime, function(response,status){
     ctime=computeTotalTime(response);
+    d=ctime;
     document.getElementById('dtime').innerHTML=convertTime(ctime);
   });
   directionsService.route(railtime, function(response,status){
     rtime=computeTotalTime(response);
+    t=rtime;
     document.getElementById('ttime').innerHTML=convertTime(rtime);
   });
   directionsService.route(walktime, function(response,status){
     wtime=computeTotalTime(response);
+    w=wtime;
     document.getElementById('watime').innerHTML=convertTime(wtime);
   });
 
-  turnGreen(rtime, ctime, wtime);
+  turnGreen();
 }
 
 function computeTotalTime(result){
@@ -324,12 +331,9 @@ function convertTime(secs) {
   return str;
 }
 
-function turnGreen(t, c, w) { //takes in seconds as parameters
-  var transit= t;
-  var car= c;
-  var walk=w;
-  
-  if (walk <= 1800) {
+function turnGreen() { //takes in seconds as parameters
+ 
+  if (w <= 1800) {
     //walk is green
     document.getElementById('bcirc_car').style.background = '#06c';
     document.getElementById('bcirc_transit').style.background = '#06c';
@@ -338,7 +342,7 @@ function turnGreen(t, c, w) { //takes in seconds as parameters
     document.getElementById('driveButton').className = 'btn btn-primary';
     document.getElementById('transitButton').className = 'btn btn-primary';
     document.getElementById('walkButton').className = 'btn btn-success';
-  } else if ((transit < 18000 && transit < 1.5*car) || transit < 1800) {
+  } else if ((t < 18000 && t < 1.5*c) || t < 1800) {
     //transit is green if it takes less than half an hour 
     document.getElementById('bcirc_car').style.background = '#06c';
     document.getElementById('bcirc_transit').style.background = '#093';
