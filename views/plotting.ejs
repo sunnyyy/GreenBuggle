@@ -81,9 +81,9 @@
 
 
         db.forEach(function(trip) {
-            var month = num.toString(trip.date.getMonth() + 1);
-            var day = num.toString(trip.date.getDate());
-            var year = num.toString(trip.date.getFullYear());
+            var month = trip.date.getMonth() + 1;
+            var day = trip.date.getDate();
+            var year = trip.date.getFullYear();
             var time = month + "-" + day + "-" + year;
             var carbon = trip.carbon;
             dates[i] = time;
@@ -144,3 +144,4 @@
         });
     </script>
 </body>
+</html>
