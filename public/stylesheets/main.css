@@ -29,14 +29,7 @@ h1, h5, h6 {
 .helptitle {
 	color: #d00;
 }
-.closebutton {
-	background-color: #093;
-	color: #fff;
-}
-.closebutton:hover {
-	background-color: #007A29;
-	color: #ccc;
-}
+
 
 /*-------------------------NAVBAR----------------------------*/
 .navbar-default {

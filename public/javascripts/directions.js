@@ -123,6 +123,7 @@ function calcRoute() {
     destination: end,
     travelMode: google.maps.TravelMode.TRANSIT
   }
+  allTimes();
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       buttonclick=true;
@@ -131,6 +132,7 @@ function calcRoute() {
       show_visibility('travelOptions');
       show_visibility2('bcirc_transit');
       enable_transit();
+      
       document.getElementById('transli').className = 'active';
       document.getElementById('driveli').className = '';
       document.getElementById('walkli').className = '';
@@ -155,12 +157,14 @@ function calcRoute2() {
     destination: end,
     travelMode: google.maps.TravelMode.DRIVING
   }
+  allTimes();
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       buttonclick=true;
       directionsDisplay.setDirections(response);
       computeTotalDistance(directionsDisplay.getDirections());
       show_visibility('travelOptions');
+
       document.getElementById('transli').className = '';
       document.getElementById('driveli').className = 'active';
       document.getElementById('walkli').className = '';
@@ -267,6 +271,54 @@ function computeTotalDistance(result) {
   document.getElementById('rail').innerHTML = railcar;
   //document.getElementById('flight').innerHTML = round(plane,2) + ' kg';
 }
+
+//-----------------------------------------------------------------------------
+// function to calculate travel times
+function allTimes(){
+ var start = document.getElementById('start').value;
+  var end = document.getElementById('dest').value;
+  var ctime=0;
+  var rtime=0;
+  var wtime=0;
+  var cartime={
+    origin: start,
+    destination: end,
+    travelMode: google.maps.TravelMode.DRIVING
+  }
+  var railtime={
+    origin: start,
+    destination: end,
+    travelMode: google.maps.TravelMode.TRANSIT
+  }
+  var walktime={
+    origin: start,
+    destination: end,
+    travelMode: google.maps.TravelMode.WALKING
+  }
+  directionsService.route(cartime, function(response,status){
+    ctime=round(computeTotalTime(response)/60),1);
+    document.getElementById('dtime').innerHTML=ctime;
+  });
+  directionsService.route(railtime, function(response,status){
+    rtime=round(computeTotalTime(response)/60),1);
+    document.getElementById('ttime').innerHTML=rtime;
+  });
+  directionsService.route(walktime, function(response,status){
+    wtime=round(computeTotalTime(response)/60),1);
+    document.getElementById('watime').innerHTML=wtime;
+  });
+}
+
+function computeTotalTime(result){
+  var myroute = result.routes[0];
+  var total=0;
+  for (var i = 0; i < myroute.legs.length; i++) {
+    total += myroute.legs[i].duration.value;
+  }
+  return total;
+}
+
+//-----------------------------------------------------------------------------
 
 
 // code for displaying buttons

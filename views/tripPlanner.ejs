@@ -56,7 +56,7 @@
         <div class='col-md-9'>
           
           <div id="flight-panel">
-            <button id="but" type="button" onmouseover="showpop()" onmouseout="hidepop()" class="btn btn-default greenbutton" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Consider taking public transit in your destination city! (ex: if going to London, see if you can get from Heathrow airport to your hotel by bus)">
+            <button id="but" type="button" onmouseover="showpop()" onmouseout="hidepop()" class="btn btn-success" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Consider taking public transit in your destination city! (ex: if going to London, see if you can get from Heathrow airport to your hotel by bus)">
               Flying somewhere?
             </button>
           </div>
@@ -85,6 +85,10 @@
     </div> <!--close #jumbotron-->
 
     <div class='container'>
+      Driving time was <span id='dtime'></span> seconds
+      Train time was <span id='ttime'></span> seconds
+      Walk time was <span id='watime'></span> seconds
+
       <div id="shiftleft">
         <div id="travelOptions">
           <p class="buttons">
