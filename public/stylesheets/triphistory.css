@@ -11,9 +11,11 @@
 h1{
 	color:#093;
 }
-
 h2{
     color:#06f;
+}
+h1, h2, h3, h4 {
+    font-family: 'Michroma', Verdana, sans-serif;
 }
 
 .trips {
