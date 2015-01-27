@@ -48,26 +48,26 @@
       <br><br>
       
       <% var totalCarbon = 0 %>
-        <% var totalTrips = 0 %>
-        <% db.forEach(function (trip){ 
-          totalCarbon = totalCarbon + trip.carbon;
-          totalTrips = totalTrips + 1; }); 
-          totalCarbon = Math.round(totalCarbon * 100) / 100;
-          if (totalTrips>0){ %>
-      <h4>Based on your <%=totalTrips %> <%if (totalTrips==1){ %>trip<%} else { %>
-        trips<%}%>, you emitted
-         <%=totalCarbon %> kg of CO<sub>2</sub>.
-      </h4>
+      <% var totalTrips = 0 %>
+      <% db.forEach(function (trip){ 
+        totalCarbon = totalCarbon + trip.carbon;
+        totalTrips = totalTrips + 1;
+      }); 
+      totalCarbon = Math.round(totalCarbon * 100) / 100;
+      if (totalTrips>0){ %>
+        <h2>Based on your <%=totalTrips %> <%if (totalTrips==1){ %>trip<%} else { %>
+          trips<%}%>, you emitted
+           <%=totalCarbon %> kg of CO<sub>2</sub>.
+        </h2>
       <% } else { %>
-      <h4>You have no past trips!
-      </h4>
+        <h2>You have no past trips!</h2>
       <% } %>
 
       <br><br>
 
       <div class='row'>
-        <div class='col-md-9'></div>
-        <div class='col-md-9'>
+        <div class='col-md-3'></div>
+        <div class='col-md-6'>
                  
           <table class="trips">
             <% db.forEach(function (trip){ %>
