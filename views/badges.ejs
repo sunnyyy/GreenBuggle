@@ -55,7 +55,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title abouttitle" id="myModalLabel">On <%= db[0].date.getMonth()+1%>/<%= db[0].date.getDate()%>/<%= db[0].date.getFullYear()%></h4>
+                <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[0].date.getMonth()+1%>/<%= db[0].date.getDate()%>/<%= db[0].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
                 <p>You travelled from <%= db[0].origin.substr(0, db[0].origin.indexOf(',')) %> to <%= db[0].destination.substr(0, db[0].destination.indexOf(',')) %> by <%= db[0].method %>, and emitted <%= db[0].carbon %> kg of CO<sub>2</sub>.
