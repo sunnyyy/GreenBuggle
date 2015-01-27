@@ -44,8 +44,9 @@
 
     <div id="container">
       
-      <h1>Past Trips</h1>
       <br><br>
+      <h1>Past Trips</h1>
+      <br>
       
       <% var totalCarbon = 0 %>
       <% var totalTrips = 0 %>
@@ -55,12 +56,12 @@
       }); 
       totalCarbon = Math.round(totalCarbon * 100) / 100;
       if (totalTrips>0){ %>
-        <h2>Based on your <%=totalTrips %> <%if (totalTrips==1){ %>trip<%} else { %>
-          trips<%}%>, you emitted
+        <h4>You've gone on <%=totalTrips %> <%if (totalTrips==1){ %>trip<%} else { %>
+          trips<%}%> so far and emitted
            <%=totalCarbon %> kg of CO<sub>2</sub>.
-        </h2>
+        </h4>
       <% } else { %>
-        <h2>You have no past trips!</h2>
+        <h4>You have no past trips!</h4>
       <% } %>
 
       <br><br>
