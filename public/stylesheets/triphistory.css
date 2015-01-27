@@ -6,15 +6,16 @@ h2, h4{
     text-align: center;
 }
 h1, h2, h3, h4 {
-    font-family: 'Michroma', Verdana, sans-serif;
+    font-family: 'Michroma', 'Open Sans', sans-serif;
 }
 
 .trips {
-	width: 80%;
+	width: 100%;
 	border-bottom: 3px solid;
 	text-align: left;
 	padding-left: auto;
 	padding-right: auto;
+	font-family: 'Michroma', 'Open Sans', sans-serif;
 }
 .default {
 }
