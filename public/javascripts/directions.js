@@ -131,6 +131,7 @@ function calcRoute() {
       show_visibility('travelOptions');
       show_visibility2('bcirc_transit');
       enable_transit();
+      allTimes();
       document.getElementById('transli').className = 'active';
       document.getElementById('driveli').className = '';
       document.getElementById('walkli').className = '';
@@ -161,6 +162,7 @@ function calcRoute2() {
       directionsDisplay.setDirections(response);
       computeTotalDistance(directionsDisplay.getDirections());
       show_visibility('travelOptions');
+      allTimes();
       document.getElementById('transli').className = '';
       document.getElementById('driveli').className = 'active';
       document.getElementById('walkli').className = '';
