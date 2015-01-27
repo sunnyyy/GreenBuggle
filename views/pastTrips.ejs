@@ -43,8 +43,10 @@
   <body>
     
 
-    <div id="container" style="background:#fff;width:100%;position:absolute;">
+    <div id="container">
       <h1>Past Trips</h1>
+      <br><br>
+      
       <% var totalCarbon = 0 %>
         <% var totalTrips = 0 %>
         <% db.forEach(function (trip){ 
@@ -52,15 +54,16 @@
           totalTrips = totalTrips + 1; }); 
           totalCarbon = Math.round(totalCarbon * 100) / 100;
           if (totalTrips>0){ %>
-      <h2>Based on your <%=totalTrips %> <%if (totalTrips==1){ %>trip<%} else { %>
+      <h4>Based on your <%=totalTrips %> <%if (totalTrips==1){ %>trip<%} else { %>
         trips<%}%>, you emitted
          <%=totalCarbon %> kg of CO<sub>2</sub>.
-      </h2>
+      </h4>
       <% } else { %>
       <h2>You have no past trips!
       </h2>
       <% } %>
 
+      <br><br>
                  
         <table class="trips">
 

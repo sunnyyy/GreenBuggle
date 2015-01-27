@@ -1,17 +1,7 @@
-#container{
-    text-align: center;
-    height: 700px;
-  	max-height: 700px;
-  	margin-left: auto; /*centers div*/
-  	margin-right: auto; /*centers div*/
-
-  	padding-top: 150px;
-}
-
-h1{
+h1, h3{
 	color:#093;
 }
-h2{
+h2, h4{
     color:#06f;
 }
 h1, h2, h3, h4 {
@@ -30,7 +20,7 @@ h1, h2, h3, h4 {
 .spacing {
 	height: 0.5em;
 }
-.date {
+.dateb {
 	border-bottom: 3px solid;
 	border-top: 3px solid;
 	border-left: 3px solid;
@@ -39,11 +29,28 @@ h1, h2, h3, h4 {
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 }
-.action{
+.actionb {
 	border-bottom: 3px solid;
 	border-top: 3px solid;
 	border-right: 3px solid;
 	border-color: #06c;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+.dateg {
+	border-bottom: 3px solid;
+	border-top: 3px solid;
+	border-left: 3px solid;
+	border-color: #093;
+	padding-left: 0.5em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+.actiong {
+	border-bottom: 3px solid;
+	border-top: 3px solid;
+	border-right: 3px solid;
+	border-color: #093;
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 }
