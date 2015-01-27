@@ -34,7 +34,16 @@ router.get('/faqs', function(req, res) {
   res.render('faqs', {});
 });
 
-
+router.get('/plotting', isLoggedIn, function(req, res) {
+  console.log("entered the past trips page");
+  var currentUser = req.user.facebook_id;
+  models.Trip.find({personID: currentUser }, 'origin destination carbon method date', function (err, results){
+    console.log("entered the find phase");
+    if( err ) return handleError(err);
+    console.log(results);
+    res.render('plotting', {db: results, user: req.user});
+  });
+});
 
 /* GET /badges */
 router.get('/badges', isLoggedIn, function(req, res) {
