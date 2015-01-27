@@ -131,7 +131,6 @@ function calcRoute() {
       show_visibility('travelOptions');
       show_visibility2('bcirc_transit');
       enable_transit();
-      allTimes();
       document.getElementById('transli').className = 'active';
       document.getElementById('driveli').className = '';
       document.getElementById('walkli').className = '';
@@ -162,7 +161,6 @@ function calcRoute2() {
       directionsDisplay.setDirections(response);
       computeTotalDistance(directionsDisplay.getDirections());
       show_visibility('travelOptions');
-      allTimes();
       document.getElementById('transli').className = '';
       document.getElementById('driveli').className = 'active';
       document.getElementById('walkli').className = '';
@@ -269,6 +267,45 @@ function computeTotalDistance(result) {
   document.getElementById('rail').innerHTML = railcar;
   //document.getElementById('flight').innerHTML = round(plane,2) + ' kg';
 }
+
+//-----------------------------------------------------------------------------
+// function to calculate travel times
+function allTimes(){
+ var start = document.getElementById('start').value;
+  var end = document.getElementById('dest').value;
+  var ctime=0;
+  var rtime=0;
+  var wtime=0;
+  var cartime={
+    origin: start,
+    destination: end,
+    travelMode: google.maps.TravelMode.DRIVING
+  }
+  var railtime={
+    origin: start,
+    destination: end,
+    travelMode: google.maps.TravelMode.TRANSIT
+  }
+  var walktime={
+    origin: start,
+    destination: end,
+    travelMode: google.maps.TravelMode.WALKING
+  }
+  directionsService.route(cartime, function(response,status){
+    ctime=computeTotalTime(response);
+    document.getElementById('dtime').innerHTML=ctime;
+  });
+  directionsService.route(railtime, function(response,status){
+    rtime=computeTotalTime(response);
+    document.getElementById('ttime').innerHTML=rtime;
+  });
+  directionsService.route(walktime, function(response,status){
+    wtime=computeTotalTime(response);
+    document.getElementById('watime').innerHTML=wtime;
+  });
+}
+
+//-----------------------------------------------------------------------------
 
 
 // code for displaying buttons
