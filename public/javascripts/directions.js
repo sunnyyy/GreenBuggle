@@ -114,6 +114,45 @@ function round(value, decimals) {
   return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
 
+ function calculateTimes() {
+  var service = new google.maps.DistanceMatrixService();
+    var start = document.getElementById('start').value;
+  var end = document.getElementById('dest').value;
+  service.getDistanceMatrix(
+    {
+      origins: [start, start,start],
+      destinations: [end,end,end],
+      travelMode: [google.maps.TravelMode.TRANSIT,google.maps.TravelMode.DRIVING,google.maps.TravelMode.WALKING],
+    }, callback);
+}
+var railtime;
+var cartime;
+var walktime;
+
+function callback(response, status) {
+    var origins = response.originAddresses;
+    var destinations = response.destinationAddresses;
+       railtime=0;
+       cartime=0;
+       walktime=0;
+      for (var i = 0; i < origins.length; i++) {
+      var results = response.rows[i].elements;
+      
+      for (var j = 0; j < results.length; j++) {
+      	if(results[j].status=='OK'){
+      	if (j==0){
+      		railtime=results[j].duration;
+      	}
+        if(j==1){
+            cartime=results[j].duration;
+        }
+        if(j==2){
+        	walkingtime=results[j].duration;
+        }
+        }
+    }
+      }
+
 // CALCULATES TRANSIT ROUTE AT BEGINNING
 function calcRoute() {
   var start = document.getElementById('start').value;
@@ -123,7 +162,9 @@ function calcRoute() {
     destination: end,
     travelMode: google.maps.TravelMode.TRANSIT
   }
+  calculateTimes();
   directionsService.route(request, function(response, status) {
+    
     if (status == google.maps.DirectionsStatus.OK) {
       buttonclick=true;
       directionsDisplay.setDirections(response);
@@ -155,7 +196,9 @@ function calcRoute2() {
     destination: end,
     travelMode: google.maps.TravelMode.DRIVING
   }
+  calculateTimes();
   directionsService.route(request, function(response, status) {
+     
     if (status == google.maps.DirectionsStatus.OK) {
       buttonclick=true;
       directionsDisplay.setDirections(response);
