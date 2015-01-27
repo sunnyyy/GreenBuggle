@@ -44,7 +44,7 @@
     <div class='container' >
 
       <h1>How green are you?</h1>
-      <h4><b>Every time you choose to walk or take the bus, you earn a leaf!<b></h4>
+      <h4><b>Every time you choose to walk or take transit, you earn a leaf!<b></h4>
 
       <div id="tree" style="width:600px;position:relative;">
 
@@ -61,8 +61,13 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[0].date.getMonth()+1%>/<%= db[0].date.getDate()%>/<%= db[0].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[0].origin.substr(0, db[0].origin.indexOf(',')) %> to <%= db[0].destination.substr(0, db[0].destination.indexOf(',')) %> by <%= db[0].method %>, and emitted <%= db[0].carbon %> kg of CO<sub>2</sub>.
+                <% if (db[0].origin.indexOf(',')==-1 || db[0].destination.indexOf(',')==-1) { %>
+                <p>You travelled from <%= db[0].origin %> to <%= db[0].destination %> by <%= db[0].method %>, and emitted <%= db[0].carbon %> kg of CO<sub>2</sub>.
                 </p>
+                  <% } else { %>
+                  <p>You travelled from <%= db[0].origin.substr(0, db[0].origin.indexOf(',')) %> to <%= db[0].destination.substr(0, db[0].destination.indexOf(',')) %> by <%= db[0].method %>, and emitted <%= db[0].carbon %> kg of CO<sub>2</sub>.
+                </p>
+                <% } %>
               </div>
             </div>
           </div>
