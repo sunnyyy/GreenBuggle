@@ -35,20 +35,29 @@ body {
     <%
     
     var arrData=[];
+    var words=[];
+    var nums=[];
   
      db.forEach(function(trip) {
             
      
-            var month = trip.date.getMonth() + 1;
-            var day = trip.date.getDate();
-            var year = trip.date.getFullYear();
-            var word= month + "/" + day  + "/" + year;
+            var m = trip.date.getMonth() + 1;
+            var d = trip.date.getDate();
+            var y = trip.date.getFullYear();
+            var month= m.toString();
+            var day= d.toString();
+            var year= y.toString();
+            var word= month + "/" + day + "/" + year;
             var carbon = trip.carbon;
-            var obj = {
-              date: word, num: carbon
-            };
-            arrData.push(obj);
+            words.push(word);
+            nums.push(carbon);
         });
+        
+         for(var j=0; i<words.length; j++){
+         var obj = {word: words[i], num: nums[i]};
+         arrData.push(obj);
+         }
+        
      
      
      
