@@ -61,13 +61,8 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[0].date.getMonth()+1%>/<%= db[0].date.getDate()%>/<%= db[0].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <% if (db[0].origin.indexOf(',')==-1 || db[0].destination.indexOf(',')==-1) { %>
-                <p>You travelled from <%= db[0].origin %> to <%= db[0].destination %> by <%= db[0].method %>, and emitted <%= db[0].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[0].origin %> to <%= db[0].destination%> by <%= db[0].method %>, and emitted <%= db[0].carbon %> kg of CO<sub>2</sub>.
                 </p>
-                  <% } else { %>
-                  <p>You travelled from <%= db[0].origin.substr(0, db[0].origin.indexOf(',')) %> to <%= db[0].destination.substr(0, db[0].destination.indexOf(',')) %> by <%= db[0].method %>, and emitted <%= db[0].carbon %> kg of CO<sub>2</sub>.
-                </p>
-                <% } %>
               </div>
             </div>
           </div>
@@ -82,7 +77,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[1].date.getMonth()+1%>/<%= db[1].date.getDate()%>/<%= db[1].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[1].origin.substr(0, db[1].origin.indexOf(',')) %> to <%= db[1].destination.substr(0, db[1].destination.indexOf(',')) %> by <%= db[1].method %>, and emitted <%= db[1].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[1].origin %> to <%= db[1].destination%> by <%= db[1].method %>, and emitted <%= db[1].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -98,7 +93,7 @@
             <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[2].date.getMonth()+1%>/<%= db[2].date.getDate()%>/<%= db[2].date.getFullYear()%></h4>
           </div>
           <div class="modal-body">
-            <p>You travelled from <%= db[2].origin.substr(0, db[2].origin.indexOf(',')) %> to <%= db[2].destination.substr(0, db[2].destination.indexOf(',')) %> by <%= db[2].method %>, and emitted <%= db[2].carbon %> kg of CO<sub>2</sub>.
+            <p>You travelled from <%= db[2].origin %> to <%= db[2].destination %> by <%= db[2].method %>, and emitted <%= db[2].carbon %> kg of CO<sub>2</sub>.
             </p>
           </div>
         </div>
@@ -114,7 +109,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[3].date.getMonth()+1%>/<%= db[3].date.getDate()%>/<%= db[3].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[3].origin.substr(0, db[3].origin.indexOf(',')) %> to <%= db[3].destination.substr(0, db[3].destination.indexOf(',')) %> by <%= db[3].method %>, and emitted <%= db[3].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[3].origin %> to <%= db[3].destination %> by <%= db[3].method %>, and emitted <%= db[3].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -130,7 +125,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[4].date.getMonth()+1%>/<%= db[4].date.getDate()%>/<%= db[4].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[4].origin.substr(0, db[4].origin.indexOf(',')) %> to <%= db[4].destination.substr(0, db[4].destination.indexOf(',')) %> by <%= db[4].method %>, and emitted <%= db[4].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[4].origin %> to <%= db[4].destination %> by <%= db[4].method %>, and emitted <%= db[4].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -146,7 +141,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[5].date.getMonth()+1%>/<%= db[5].date.getDate()%>/<%= db[5].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[5].origin.substr(0, db[5].origin.indexOf(',')) %> to <%= db[5].destination.substr(0, db[5].destination.indexOf(',')) %> by <%= db[5].method %>, and emitted <%= db[5].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[5].origin %> to <%= db[5].destination %> by <%= db[5].method %>, and emitted <%= db[5].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -162,7 +157,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[6].date.getMonth()+1%>/<%= db[6].date.getDate()%>/<%= db[6].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[6].origin.substr(0, db[6].origin.indexOf(',')) %> to <%= db[6].destination.substr(0, db[6].destination.indexOf(',')) %> by <%= db[6].method %>, and emitted <%= db[6].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[6].origin %> to <%= db[6].destination%> by <%= db[6].method %>, and emitted <%= db[6].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -178,7 +173,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[7].date.getMonth()+1%>/<%= db[7].date.getDate()%>/<%= db[7].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[7].origin.substr(0, db[7].origin.indexOf(',')) %> to <%= db[7].destination.substr(0, db[7].destination.indexOf(',')) %> by <%= db[7].method %>, and emitted <%= db[7].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[7].origin %> to <%= db[7].destination %> by <%= db[7].method %>, and emitted <%= db[7].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -194,7 +189,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[8].date.getMonth()+1%>/<%= db[8].date.getDate()%>/<%= db[8].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[8].origin.substr(0, db[8].origin.indexOf(',')) %> to <%= db[8].destination.substr(0, db[8].destination.indexOf(',')) %> by <%= db[8].method %>, and emitted <%= db[8].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[8].origin %> to <%= db[8].destination %> by <%= db[8].method %>, and emitted <%= db[8].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -210,7 +205,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[9].date.getMonth()+1%>/<%= db[9].date.getDate()%>/<%= db[9].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[9].origin.substr(0, db[9].origin.indexOf(',')) %> to <%= db[9].destination.substr(0, db[9].destination.indexOf(',')) %> by <%= db[9].method %>, and emitted <%= db[9].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[9].origin %> to <%= db[9].destination %> by <%= db[9].method %>, and emitted <%= db[9].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -228,7 +223,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[10].date.getMonth()+1%>/<%= db[10].date.getDate()%>/<%= db[10].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[10].origin.substr(0, db[10].origin.indexOf(',')) %> to <%= db[10].destination.substr(0, db[10].destination.indexOf(',')) %> by <%= db[10].method %>, and emitted <%= db[10].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[10].origin %> to <%= db[10].destination %> by <%= db[10].method %>, and emitted <%= db[10].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -244,7 +239,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[11].date.getMonth()+1%>/<%= db[11].date.getDate()%>/<%= db[11].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[11].origin.substr(0, db[11].origin.indexOf(',')) %> to <%= db[11].destination.substr(0, db[11].destination.indexOf(',')) %> by <%= db[11].method %>, and emitted <%= db[11].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[11].origin %> to <%= db[11].destination %> by <%= db[11].method %>, and emitted <%= db[11].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -260,7 +255,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[12].date.getMonth()+1%>/<%= db[12].date.getDate()%>/<%= db[12].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[12].origin.substr(0, db[12].origin.indexOf(',')) %> to <%= db[12].destination.substr(0, db[12].destination.indexOf(',')) %> by <%= db[12].method %>, and emitted <%= db[12].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[12].origin %> to <%= db[12].destination %> by <%= db[12].method %>, and emitted <%= db[12].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -276,7 +271,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[13].date.getMonth()+1%>/<%= db[13].date.getDate()%>/<%= db[13].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[13].origin.substr(0, db[13].origin.indexOf(',')) %> to <%= db[13].destination.substr(0, db[13].destination.indexOf(',')) %> by <%= db[13].method %>, and emitted <%= db[13].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[13].origin %> to <%= db[13].destination %> by <%= db[13].method %>, and emitted <%= db[13].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -292,7 +287,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[14].date.getMonth()+1%>/<%= db[14].date.getDate()%>/<%= db[14].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[14].origin.substr(0, db[14].origin.indexOf(',')) %> to <%= db[14].destination.substr(0, db[14].destination.indexOf(',')) %> by <%= db[14].method %>, and emitted <%= db[14].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[14].origin %> to <%= db[14].destination %> by <%= db[14].method %>, and emitted <%= db[14].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -310,7 +305,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[15].date.getMonth()+1%>/<%= db[15].date.getDate()%>/<%= db[15].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[15].origin.substr(0, db[15].origin.indexOf(',')) %> to <%= db[15].destination.substr(0, db[15].destination.indexOf(',')) %> by <%= db[15].method %>, and emitted <%= db[15].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[15].origin%> to <%= db[15].destination %> by <%= db[15].method %>, and emitted <%= db[15].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -326,7 +321,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[16].date.getMonth()+1%>/<%= db[16].date.getDate()%>/<%= db[16].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[16].origin.substr(0, db[16].origin.indexOf(',')) %> to <%= db[16].destination.substr(0, db[16].destination.indexOf(',')) %> by <%= db[16].method %>, and emitted <%= db[16].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[16].origin %> to <%= db[16].destination %> by <%= db[16].method %>, and emitted <%= db[16].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -342,7 +337,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[17].date.getMonth()+1%>/<%= db[17].date.getDate()%>/<%= db[17].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[17].origin.substr(0, db[17].origin.indexOf(',')) %> to <%= db[17].destination.substr(0, db[17].destination.indexOf(',')) %> by <%= db[17].method %>, and emitted <%= db[17].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[17].origin %> to <%= db[17].destination %> by <%= db[17].method %>, and emitted <%= db[17].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -358,7 +353,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[18].date.getMonth()+1%>/<%= db[18].date.getDate()%>/<%= db[18].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[18].origin.substr(0, db[18].origin.indexOf(',')) %> to <%= db[18].destination.substr(0, db[18].destination.indexOf(',')) %> by <%= db[18].method %>, and emitted <%= db[18].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[18].origin %> to <%= db[18].destination %> by <%= db[18].method %>, and emitted <%= db[18].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -374,7 +369,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[19].date.getMonth()+1%>/<%= db[19].date.getDate()%>/<%= db[19].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[19].origin.substr(0, db[19].origin.indexOf(',')) %> to <%= db[19].destination.substr(0, db[19].destination.indexOf(',')) %> by <%= db[19].method %>, and emitted <%= db[19].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[19].origin %> to <%= db[19].destination %> by <%= db[19].method %>, and emitted <%= db[19].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -392,7 +387,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[20].date.getMonth()+1%>/<%= db[20].date.getDate()%>/<%= db[20].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[20].origin.substr(0, db[20].origin.indexOf(',')) %> to <%= db[20].destination.substr(0, db[20].destination.indexOf(',')) %> by <%= db[20].method %>, and emitted <%= db[20].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[20].origin %> to <%= db[20].destination %> by <%= db[20].method %>, and emitted <%= db[20].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -408,7 +403,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[21].date.getMonth()+1%>/<%= db[21].date.getDate()%>/<%= db[21].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[21].origin.substr(0, db[21].origin.indexOf(',')) %> to <%= db[21].destination.substr(0, db[21].destination.indexOf(',')) %> by <%= db[21].method %>, and emitted <%= db[21].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[21].origin %> to <%= db[21].destination %> by <%= db[21].method %>, and emitted <%= db[21].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -424,7 +419,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[22].date.getMonth()+1%>/<%= db[22].date.getDate()%>/<%= db[22].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[22].origin.substr(0, db[22].origin.indexOf(',')) %> to <%= db[22].destination.substr(0, db[22].destination.indexOf(',')) %> by <%= db[22].method %>, and emitted <%= db[22].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[22].origin %> to <%= db[22].destination %> by <%= db[22].method %>, and emitted <%= db[22].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -440,7 +435,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[23].date.getMonth()+1%>/<%= db[23].date.getDate()%>/<%= db[23].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[23].origin.substr(0, db[23].origin.indexOf(',')) %> to <%= db[23].destination.substr(0, db[23].destination.indexOf(',')) %> by <%= db[23].method %>, and emitted <%= db[23].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[23].origin%> to <%= db[23].destination %> by <%= db[23].method %>, and emitted <%= db[23].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
@@ -456,7 +451,7 @@
                 <h4 class="modal-title abouttitle" id="myModalLabel"><%= db[24].date.getMonth()+1%>/<%= db[24].date.getDate()%>/<%= db[24].date.getFullYear()%></h4>
               </div>
               <div class="modal-body">
-                <p>You travelled from <%= db[24].origin.substr(0, db[24].origin.indexOf(',')) %> to <%= db[24].destination.substr(0, db[24].destination.indexOf(',')) %> by <%= db[24].method %>, and emitted <%= db[24].carbon %> kg of CO<sub>2</sub>.
+                <p>You travelled from <%= db[24].origin %> to <%= db[24].destination %> by <%= db[24].method %>, and emitted <%= db[24].carbon %> kg of CO<sub>2</sub>.
                 </p>
               </div>
             </div>
