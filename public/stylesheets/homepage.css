@@ -1,4 +1,4 @@
-.welcome, .aboutsection, .details {
+.welcome, .aboutsection, .details, .details2 {
 	min-height: 100vh;
 	margin-top: 0px;
 	margin-bottom: 0px;
@@ -6,13 +6,13 @@
 .welcome {
 	text-align: center;
 }
-.aboutsection, .details {
+.aboutsection, .details2 {
 	color: #fff;
 }
 .aboutpara {
 	font-family: 'Open Sans', sans-serif;
 }
-.details > h1, .details > a {
+.details2 > h1, .details2 > a {
 	color: #fff;
 }
 h2, h4 {
