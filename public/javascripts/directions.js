@@ -296,15 +296,15 @@ function allTimes(){
     travelMode: google.maps.TravelMode.WALKING
   }
   directionsService.route(cartime, function(response,status){
-    ctime=computeTotalTime(response);
+    ctime=round(computeTotalTime(response)/60),1);
     document.getElementById('dtime').innerHTML=ctime;
   });
   directionsService.route(railtime, function(response,status){
-    rtime=computeTotalTime(response);
+    rtime=round(computeTotalTime(response)/60),1);
     document.getElementById('ttime').innerHTML=rtime;
   });
   directionsService.route(walktime, function(response,status){
-    wtime=computeTotalTime(response);
+    wtime=round(computeTotalTime(response)/60),1);
     document.getElementById('watime').innerHTML=wtime;
   });
 }
