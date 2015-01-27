@@ -66,8 +66,12 @@
 
          <% db.forEach(function (trip){ %>
          <tr class="default">
+          <% if (trip.method=='car') { %>
             <td class="date"><%= trip.date.getMonth()+1%>/<%= trip.date.getDate()%>/<%= trip.date.getFullYear()%></td>
             <td class="action">You travelled from <%= trip.origin.substr(0, trip.origin.indexOf(',')) %> to <%= trip.destination.substr(0, trip.destination.indexOf(',')) %> by <%= trip.method %>, and emitted <%= trip.carbon %> kg of CO<sub>2</sub>.</td> 
+            <% } else { %>
+            
+            <%}%>
           </tr>
           <tr class="spacing"></tr>
           <% }); %>
