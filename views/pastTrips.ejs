@@ -43,57 +43,47 @@
   <body>
 
     <div id="container">
+      
+      <h1>Past Trips</h1>
+      <br><br>
+      
+      <% var totalCarbon = 0 %>
+        <% var totalTrips = 0 %>
+        <% db.forEach(function (trip){ 
+          totalCarbon = totalCarbon + trip.carbon;
+          totalTrips = totalTrips + 1; }); 
+          totalCarbon = Math.round(totalCarbon * 100) / 100;
+          if (totalTrips>0){ %>
+      <h4>Based on your <%=totalTrips %> <%if (totalTrips==1){ %>trip<%} else { %>
+        trips<%}%>, you emitted
+         <%=totalCarbon %> kg of CO<sub>2</sub>.
+      </h4>
+      <% } else { %>
+      <h4>You have no past trips!
+      </h4>
+      <% } %>
+
+      <br><br>
+
       <div class='row'>
-
-        <div class='col-md-2'></div>
-        <div class='col-md-8'>
-
-          <h1>Past Trips</h1>
-          <br><br>
-          
-          <% var totalCarbon = 0 %>
-            <% var totalTrips = 0 %>
-            <% db.forEach(function (trip){ 
-              totalCarbon = totalCarbon + trip.carbon;
-              totalTrips = totalTrips + 1; }); 
-              totalCarbon = Math.round(totalCarbon * 100) / 100;
-              if (totalTrips>0){ %>
-          <h4>Based on your <%=totalTrips %> <%if (totalTrips==1){ %>trip<%} else { %>
-            trips<%}%>, you emitted
-             <%=totalCarbon %> kg of CO<sub>2</sub>.
-          </h4>
-          <% } else { %>
-          <h2>You have no past trips!
-          </h2>
-          <% } %>
-
-          <br><br>
-                     
+        <div class='col-md-9'></div>
+        <div class='col-md-9'>
+                 
           <table class="trips">
-
-           <% db.forEach(function (trip){ %>
-            <% if (trip.method=='car') { %>
-           <tr class="default">
-           
-              <td class="dateb"><%= trip.date.getMonth()+1%>/<%= trip.date.getDate()%>/<%= trip.date.getFullYear()%></td>
-              <td class="actionb">You travelled from <%= trip.origin.substr(0, trip.origin.indexOf(',')) %> to <%= trip.destination.substr(0, trip.destination.indexOf(',')) %> by <%= trip.method %>, and emitted <%= trip.carbon %> kg of CO<sub>2</sub>.</td>
-            </tr>
-            <tr class="spacing"></tr> 
+            <% db.forEach(function (trip){ %>
+              <% if (trip.method=='car') { %>
+                <tr class="default">
+                  <td class="dateb"><%= trip.date.getMonth()+1%>/<%= trip.date.getDate()%>/<%= trip.date.getFullYear()%></td>
+                  <td class="actionb">You travelled from <%= trip.origin.substr(0, trip.origin.indexOf(',')) %> to <%= trip.destination.substr(0, trip.destination.indexOf(',')) %> by <%= trip.method %>, and emitted <%= trip.carbon %> kg of CO<sub>2</sub>.</td>
+                </tr>
+                <tr class="spacing"></tr> 
               <% } else { %>
-              <tr class="default">
-              <td class="dateg"><%= trip.date.getMonth()+1%>/<%= trip.date.getDate()%>/<%= trip.date.getFullYear()%></td>
-              <td class="actiong">You travelled from <%= trip.origin.substr(0, trip.origin.indexOf(',')) %> to <%= trip.destination.substr(0, trip.destination.indexOf(',')) %> by <%= trip.method %>, and emitted <%= trip.carbon %> kg of CO<sub>2</sub>.</td> 
-            </tr>
-            <tr class="spacing"></tr> 
-              <% } else { %>
-              <tr class="default">
-              <td class="dateg"><%= trip.date.getMonth()+1%>/<%= trip.date.getDate()%>/<%= trip.date.getFullYear()%></td>
-              <td class="actiong">You travelled from <%= trip.origin.substr(0, trip.origin.indexOf(',')) %> to <%= trip.destination.substr(0, trip.destination.indexOf(',')) %> by <%= trip.method %>, and emitted <%= trip.carbon %> kg of CO<sub>2</sub>.</td> 
-              </tr>
-            <tr class="spacing"></tr> 
-              
+                <tr class="default">
+                <td class="dateg"><%= trip.date.getMonth()+1%>/<%= trip.date.getDate()%>/<%= trip.date.getFullYear()%></td>
+                <td class="actiong">You travelled from <%= trip.origin.substr(0, trip.origin.indexOf(',')) %> to <%= trip.destination.substr(0, trip.destination.indexOf(',')) %> by <%= trip.method %>, and emitted <%= trip.carbon %> kg of CO<sub>2</sub>.</td> 
+                </tr>
+                <tr class="spacing"></tr> 
               <%}%>
-            
             <% }); %>
           </table>
 
@@ -108,9 +98,6 @@
 
       </div>
     </div>
-
-
-      
 
   </body>
 
