@@ -31,9 +31,7 @@ body {
 </head>
 
 <body>
-
-    <%
-    
+ <script>
     var arrData=[];
     var words=[];
     var nums=[];
@@ -126,7 +124,7 @@ var svg = d3.select("body").append("svg")
       .datum(data)
       .attr("class", "line")
       .attr("d", line);
-   %>
+  </script>
    <div id="outputDiv"></div>
 </body>
 </html>
