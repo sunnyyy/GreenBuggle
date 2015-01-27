@@ -1,9 +1,11 @@
 
 h1,h4{
 	color:#093;
+    font-family: 'Michroma', 'Open Sans', sans-serif;
 }
 h2,h3{
     color:#06c;
+    font-family: 'Michroma', 'Open Sans', sans-serif;
 }
 
 #tree {
