@@ -3,24 +3,12 @@
 	margin: 0px;
 	padding: 0px
 }
-#panel {
-	position: absolute;
-	top: 5px;
-	left: 50%;
-	margin-left: -180px;
-	z-index: 5;
-	background-color: #fff;
-	padding: 5px;
-	border: 1px solid #999;
-}
-
 #directions-panel{
 	height: 500px;
 	float: right;
 	width: 100%;
 	overflow: auto;
 }
-
 #control {
 	background: #fff;
 	padding: 5px;
@@ -29,6 +17,16 @@
 	border: 1px solid #ccc;
 	box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
 	display: none;
+}
+#flight-panel {
+	position: absolute;
+	margin-left: 70%;
+	z-index: 10;
+	padding-top: 5px;
+	padding-right: 35px;
+	text-align: right;
+	background-color: #f0f;
+	width: 30%;
 }
 
 @media print {
