@@ -295,6 +295,8 @@ function allTimes(){
     destination: end,
     travelMode: google.maps.TravelMode.WALKING
   }
+  turnGreen(rtime, ctime, wtime);
+  
   directionsService.route(cartime, function(response,status){
     ctime=computeTotalTime(response);
     document.getElementById('dtime').innerHTML=convertTime(ctime);
@@ -307,8 +309,6 @@ function allTimes(){
     wtime=computeTotalTime(response);
     document.getElementById('watime').innerHTML=convertTime(wtime);
   });
-
-  turnGreen(rtime, ctime, wtime);
 }
 
 function computeTotalTime(result){
@@ -346,7 +346,7 @@ function convertTime(secs) {
   return str;
 }
 
-function turnGreen(t, c, w) {
+function turnGreen(t, c, w) { //takes in seconds as parameters
   if (w <= 1800) {
     //walk is green
     document.getElementById('bcirc_car').style.background = '#06c';
