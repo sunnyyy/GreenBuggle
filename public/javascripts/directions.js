@@ -348,21 +348,6 @@ function convertTime(secs) {
 }
 
 function turnGreen(t, c, w) { //takes in seconds as parameters
-  /*
-  document.getElementById('bcirc_car').style.background = '#093';
-  document.getElementById('bcirc_transit').style.background = '#06c';
-  document.getElementById('bcirc_walk').style.background = '#06c';
-  if (w <= 1800) {
-    //walk is green
-    document.getElementById('bcirc_car').style.background = '#06c';
-    document.getElementById('bcirc_transit').style.background = '#06c';
-    document.getElementById('bcirc_walk').style.background = '#093';
-  } else if ((t < 18000 && t < 1.5*c) || t < 1800) {
-    //transit is green if it takes less than half an hour 
-    document.getElementById('bcirc_car').style.background = '#06c';
-    document.getElementById('bcirc_transit').style.background = '#093';
-    document.getElementById('bcirc_walk').style.background = '#06c';
-  }*/
   if (w <= 1800) {
     //walk is green
     document.getElementById('bcirc_car').style.background = '#06c';

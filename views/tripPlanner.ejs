@@ -86,9 +86,6 @@
     </div> <!--close #jumbotron-->
 
     <div class='container'>
-      Driving time was <div id='dtime'></div> seconds
-      Train time was <div id='ttime'></div> seconds
-      Walk time was <div id='watime'></div> seconds
 
       <div id="travelOptions">
         <button type="button" onclick="show_visibility('travelChoice');" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#travelModal">
@@ -143,21 +140,27 @@
     <div class="modal fade infoCircles" id="travelModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content" id='bcirc_transit'>
-          <div class="circleText"><h3>If you took <br><u>transit</u>,</h3>
-            <p>your CO<sub>2</sub> emissions<br>for this trip would be around</p>
-            <p><span id="rail"></span></p>
+          <div class="circleText"><h3>If you took <u>transit</u>,</h3>
+            <p>your CO<sub>2</sub> emissions for<br>this trip would be around</p>
+            <p><span id="rail"></span> kg</p>
+            <p>and it would take you about</p>
+            <p><span id="ttime"></span></p>
           </div>
         </div>
         <div class="modal-content" id='bcirc_car'>
           <div class="circleText"><h3>If you <u>drove</u>,</h3>
-            <p>your CO<sub>2</sub> emissions<br>for this trip would be around</p>
-            <p><span id="total"></span></p>
+            <p>your CO<sub>2</sub> emissions for<br>this trip would be around</p>
+            <p><span id="total"></span> kg</p>
+            <p>and it would take you about</p>
+            <p><span id="dtime"></span></p>
           </div>
         </div>
         <div class="modal-content" id='bcirc_walk'>
           <div class="circleText"><h3>If you <u>walked</u>,</h3>
-            <p>your CO<sub>2</sub> emissions<br>for this trip would be</p>
+            <p>your CO<sub>2</sub> emissions for<br>this trip would be</p>
             <p>0 kg</p>
+            <p>and it would take you about</p>
+            <p><span id="watime"></span></p>
           </div>
         </div>
       </div>
