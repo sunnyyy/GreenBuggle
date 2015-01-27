@@ -35,31 +35,9 @@ function init() {
 function showTab() {
   if(buttonclick==true) {
   var selectedId = getHash( this.getAttribute('href') );
-    if (selectedId=="transit"){
-      train();
-      
-    }
-    if (selectedId=="car"){
-      car();
-      
-    }
-    if (selectedId=="walking"){
-      walking();
-      
-    }
-    /*
-    // Highlight the selected tab, and dim all others.
-    // Also show the selected content div, and hide all others.
-    for ( var id in contentDivs ) {
-      if ( id == selectedId ) {
-      
-        tabLinks[id].className = 'selected';
-        contentDivs[id].className = 'tabContent';
-      } else {
-        tabLinks[id].className = '';
-        contentDivs[id].className = 'tabContent hide';
-      }
-    } */
+    if (selectedId=="transit"){ train(); }
+    if (selectedId=="car"){ car(); }
+    if (selectedId=="walking"){ walking(); }
     // Stop the browser following the link
     return false;
   } else{
@@ -88,8 +66,7 @@ function initialize() {
     zoom: 7,
     center: new google.maps.LatLng(42.3581, -71.0636)
   };
-  var map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   directionsDisplay.setMap(map);
   directionsDisplay.setPanel(document.getElementById('directions-panel'));
 
