@@ -299,18 +299,23 @@ function mySubmitCar() {
   document.forms["myFormCar"]["endInput"].value = document.getElementById('dest').value;
   document.forms["myFormCar"]["carbonInput"].value = document.getElementById('total').innerHTML;
 }
-
 function mySubmitTransit() {
   document.forms["myFormTransit"]["startInput"].value = document.getElementById('start').value;
   document.forms["myFormTransit"]["endInput"].value = document.getElementById('dest').value;
   document.forms["myFormTransit"]["carbonInput"].value = document.getElementById('rail').innerHTML;
 }
-
 function mySubmitWalk() {
   document.forms["myFormWalk"]["startInput"].value = document.getElementById('start').value;
   document.forms["myFormWalk"]["endInput"].value = document.getElementById('dest').value;    
 }
 
+// flight popover
+function showpop() {
+  $('#but').popover('show');
+}
+function hidepop() {
+  $('#but').popover('hide');
+}
 
 
 //Portions of this page are modifications based on work created and shared by Google 
