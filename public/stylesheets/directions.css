@@ -73,6 +73,7 @@ div.tabContent.hide { display: none; }
 	color:#fff;
 	text-align:center;
 	text-decoration:none;
+	font-family: 'Open Sans', sans-serif;
 }
 #bcirc_car {
 	display:block;
