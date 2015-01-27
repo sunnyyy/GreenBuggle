@@ -309,6 +309,14 @@ function allTimes(){
   });
 }
 
+function computeTotalTime(result){
+  var total=0;
+  for (var i = 0; i < myroute.legs.length; i++) {
+    total += myroute.legs[i].duration.value;
+  }
+  return total;
+}
+
 //-----------------------------------------------------------------------------
 
 
