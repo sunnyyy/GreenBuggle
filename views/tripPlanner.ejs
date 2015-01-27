@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/directions.css" />
 
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -89,16 +90,11 @@
       Train time was <div id='ttime'></div> seconds
       Walk time was <div id='watime'></div> seconds
 
-      <div id="shiftleft">
-        <div id="travelOptions">
-          <p class="buttons">
-            <button type="button" onclick="show_visibility('travelChoice');" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#travelModal">
-              Explore your green options
-            </button>
-          </p>
-        </div>
+      <div id="travelOptions">
+        <button type="button" onclick="show_visibility('travelChoice');" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#travelModal">
+          Explore your green options
+        </button>
       </div>
-
         
       <div class='row'>
         <div class='col-md-3'></div>
@@ -134,25 +130,11 @@
             </form>
           </div>
           <br class="clearBoth" />
-        
 
         </div>
-        <div class='col-md-3'></div>
+        
+        <br><br><br>
       </div>
-      <!--
-      <div>
-      <form id="myForm" action="triphistory.html" method="POST" onsubmit="return mySubmit()">
-        <input type="radio" id="transportation" name="transportation" value="drive" checked />I'll drive</input>
-        <input type="radio" id="transportation" name="transportation" value="transit" />I'll take the transit
-        <input type="radio" id="transportation" name="transportation" value="walk" />I'll walk
-        <input type="radio" id="transportation" name="transportation" value="no" />I'm not going
-        <input type='hidden' id= 'carbonInput' name='carbon' value=14 />
-        <input type='hidden' id= 'startInput' name='start' value='' />
-        <input type='hidden' id= 'endInput' name='end' value='' />
-        <input type="submit" value="Submit">
-      </form>
-      </div>
-    -->
     
     </div> <!--close #container-->
 

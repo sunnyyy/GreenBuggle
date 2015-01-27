@@ -297,16 +297,18 @@ function allTimes(){
   }
   directionsService.route(cartime, function(response,status){
     ctime=computeTotalTime(response);
-    document.getElementById('dtime').innerHTML=ctime;
+    document.getElementById('dtime').innerHTML=convertTime(ctime);
   });
   directionsService.route(railtime, function(response,status){
     rtime=computeTotalTime(response);
-    document.getElementById('ttime').innerHTML=rtime;
+    document.getElementById('ttime').innerHTML=convertTime(rtime);
   });
   directionsService.route(walktime, function(response,status){
     wtime=computeTotalTime(response);
-    document.getElementById('watime').innerHTML=wtime;
+    document.getElementById('watime').innerHTML=convertTime(wtime);
   });
+
+  turnGreen(rtime, ctime, wtime);
 }
 
 function computeTotalTime(result){
@@ -316,6 +318,51 @@ function computeTotalTime(result){
     total += myroute.legs[i].duration.value;
   }
   return total;
+}
+
+//Sunnia's code below
+function convertTime(secs) {
+  var str='';
+  var mins=0;
+  var hours=0;
+  var days=0;
+  if (secs > 86400) {
+    days = Math.round(secs/86400 * 1) / 1;
+    secs = secs - days*86400;
+    if (days===1) { str += days + ' day '; } 
+    else { str += days + ' days '; }
+  }
+  if (secs > 3600) {
+    hours = Math.round(secs/3600* 1) / 1;
+    secs = secs - hours*3600;
+    if (hours===1) { str += hours + ' hour '; } 
+    else { str += hours + ' hours '; }
+  }
+  if (secs > 60) {
+    mins = Math.round(secs/60* 1) / 1;
+    if (mins===1) { str += mins + ' min ';} 
+    else { str += mins + ' mins '; }
+  }
+  return str;
+}
+
+function turnGreen(t, c, w) {
+  if (w <= 1800) {
+    //walk is green
+    document.getElementById('bcirc_car').style.background = '#06c';
+    document.getElementById('bcirc_transit').style.background = '#06c';
+    document.getElementById('bcirc_walk').style.background = '#093';
+  } else if ((t < 1.5*c && t < 28800) || t < 1800) {
+    //transit is green
+    document.getElementById('bcirc_car').style.background = '#06c';
+    document.getElementById('bcirc_transit').style.background = '#093';
+    document.getElementById('bcirc_walk').style.background = '#06c';
+  } else {
+    //car is green bc it's the most reasonable
+    document.getElementById('bcirc_car').style.background = '#093';
+    document.getElementById('bcirc_transit').style.background = '#06c';
+    document.getElementById('bcirc_walk').style.background = '#06c';
+  }
 }
 
 //-----------------------------------------------------------------------------

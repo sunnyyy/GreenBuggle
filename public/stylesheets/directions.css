@@ -94,17 +94,11 @@ div.tabContent.hide { display: none; }
 	padding-bottom: 0px;
 }
 
-.buttons{
-	text-align: center;
-}
-
-#shiftleft {
-	padding-right:5%;
-}
-
 #travelOptions {
+	padding-right:5%;
 	display: none;
 	font-family: 'Michroma', sans-serif;
+	text-align: center;
 }
 #travelChoice {
 	display: none;
