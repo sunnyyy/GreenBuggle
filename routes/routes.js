@@ -162,7 +162,6 @@ function isLoggedIn(req, res, next) {
   if (req.isAuthenticated())
     return next();
   else
-    alert("You've been logged out");
     res.redirect('/');
 }
 
