@@ -253,9 +253,9 @@ function computeTotalDistance(result) {
 
 //-----------------------------------------------------------------------------
 // function to calculate travel times
-var d;
-var t;
-var w;
+var d = 0;
+var t = 0;
+var w = 0;
 
 function allTimes(){
  var start = document.getElementById('start').value;
