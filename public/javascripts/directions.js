@@ -293,7 +293,7 @@ function allTimes(){
     document.getElementById('watime').innerHTML=convertTime(wtime);
   });
 
-  turnGreen();
+  turnGreen(wtime, rtime, ctime);
 }
 
 function computeTotalTime(result){
