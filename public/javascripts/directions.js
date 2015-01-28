@@ -331,9 +331,9 @@ function convertTime(secs) {
   return str;
 }
 
-function turnGreen(w, t, c) { //takes in seconds as parameters
+function turnGreen(gw, gt, gc) { //takes in seconds as parameters
  
-  if (w <= 1800) {
+  if (gw <= 1800) {
     //walk is green
     document.getElementById('bcirc_car').style.background = '#06c';
     document.getElementById('bcirc_transit').style.background = '#06c';
@@ -342,7 +342,7 @@ function turnGreen(w, t, c) { //takes in seconds as parameters
     document.getElementById('driveButton').className = 'btn btn-primary';
     document.getElementById('transitButton').className = 'btn btn-primary';
     document.getElementById('walkButton').className = 'btn btn-success';
-  } else if (((t < 18000) && (t < 1.5*c) )|| (t < 3600)) {
+  } else if (((gt < 18000) && (gt < 1.5*gc) )|| (gt < 3600)) {
     //transit is green if it takes less than an hour 
     document.getElementById('bcirc_car').style.background = '#06c';
     document.getElementById('bcirc_transit').style.background = '#093';
