@@ -135,6 +135,7 @@ function calcRoute2() {
     travelMode: google.maps.TravelMode.DRIVING
   }
   allTimes();
+  turnGreen(w, t, d);
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       buttonclick=true;
@@ -292,8 +293,6 @@ function allTimes(){
     w=wtime;
     document.getElementById('watime').innerHTML=convertTime(wtime);
   });
-
-  turnGreen(wtime, rtime, ctime);
 }
 
 function computeTotalTime(result){
