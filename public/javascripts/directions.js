@@ -331,7 +331,7 @@ function convertTime(secs) {
   return str;
 }
 
-function turnGreen() { //takes in seconds as parameters
+function turnGreen(w, t, c) { //takes in seconds as parameters
  
   if (w <= 1800) {
     //walk is green
