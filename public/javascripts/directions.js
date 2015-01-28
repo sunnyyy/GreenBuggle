@@ -101,6 +101,7 @@ function calcRoute() {
     travelMode: google.maps.TravelMode.TRANSIT
   }
   allTimes();
+  turnGreen(w, t, d);
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       buttonclick=true;
