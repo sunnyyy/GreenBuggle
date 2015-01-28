@@ -101,7 +101,7 @@ function calcRoute() {
     travelMode: google.maps.TravelMode.TRANSIT
   }
   allTimes();
-  turnGreen(w, t, d);
+  turnGreen();
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       buttonclick=true;
@@ -136,7 +136,7 @@ function calcRoute2() {
     travelMode: google.maps.TravelMode.DRIVING
   }
   allTimes();
-  turnGreen(w, t, d);
+  turnGreen();
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       buttonclick=true;
@@ -331,9 +331,9 @@ function convertTime(secs) {
   return str;
 }
 
-function turnGreen(gw, gt, gc) { //takes in seconds as parameters
+function turnGreen() { //takes in seconds as parameters
  
-  if (gw <= 1800) {
+  if (w <= 1800) {
     //walk is green
     document.getElementById('bcirc_car').style.background = '#06c';
     document.getElementById('bcirc_transit').style.background = '#06c';
@@ -342,7 +342,7 @@ function turnGreen(gw, gt, gc) { //takes in seconds as parameters
     document.getElementById('driveButton').className = 'btn btn-primary';
     document.getElementById('transitButton').className = 'btn btn-primary';
     document.getElementById('walkButton').className = 'btn btn-success';
-  } else if (((gt < 18000) && (gt < 1.5*gc) )|| (gt < 3600)) {
+  } else if (t < 3600) {
     //transit is green if it takes less than an hour 
     document.getElementById('bcirc_car').style.background = '#06c';
     document.getElementById('bcirc_transit').style.background = '#093';
