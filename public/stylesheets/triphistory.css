@@ -31,11 +31,13 @@ h1, h2, h3, h4 {
 	padding-left: 0.5em;
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
+	padding-right: 25px;
 }
 .actionb {
 	border-bottom: 3px solid;
 	border-top: 3px solid;
 	border-right: 3px solid;
+	padding-left: 25px;
 	border-color: #06c;
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
@@ -44,6 +46,7 @@ h1, h2, h3, h4 {
 	border-bottom: 3px solid;
 	border-top: 3px solid;
 	border-left: 3px solid;
+	padding-right: 25px;
 	border-color: #093;
 	padding-left: 0.5em;
 	padding-top: 0.5em;
@@ -53,6 +56,7 @@ h1, h2, h3, h4 {
 	border-bottom: 3px solid;
 	border-top: 3px solid;
 	border-right: 3px solid;
+	padding-left: 25px;
 	border-color: #093;
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
